@@ -6,6 +6,14 @@
   tabs.forEach((tab,i)=>{tab.addEventListener('click',()=>activate(tab));tab.addEventListener('keydown',e=>{let j=i;if(['ArrowRight','ArrowDown'].includes(e.key))j=(i+1)%tabs.length;else if(['ArrowLeft','ArrowUp'].includes(e.key))j=(i+tabs.length-1)%tabs.length;else if(e.key==='Home')j=0;else if(e.key==='End')j=tabs.length-1;else return;e.preventDefault();activate(tabs[j]);tabs[j].focus();});});
   let toastTimer;
   function notify(message){const toast=document.querySelector('.toast');if(!toast)return;clearTimeout(toastTimer);toast.textContent=message;toast.hidden=false;toastTimer=setTimeout(()=>{toast.hidden=true;},3000);}
+  document.querySelectorAll('[data-copy-image]').forEach(button=>button.addEventListener('click',async()=>{
+    try {
+      if(!navigator.clipboard?.write || typeof ClipboardItem==='undefined')throw new Error('unsupported');
+      const png=fetch(button.dataset.copyImage).then(response=>{if(!response.ok)throw new Error('image unavailable');return response.blob();});
+      await navigator.clipboard.write([new ClipboardItem({'image/png':png})]);
+      notify('微信二维码已复制，可以粘贴到聊天或文档中');
+    } catch {notify('当前浏览器不支持复制图片，请使用“保存图片”');}
+  }));
   document.querySelectorAll('[data-copy]').forEach(button=>button.addEventListener('click',async()=>{
     const value=button.dataset.copy;
     let copied=false;
