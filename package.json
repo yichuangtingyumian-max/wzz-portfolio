@@ -1,0 +1,1 @@
+{"name":"wzz-portfolio","private":true,"version":"0.2.0","scripts":{"start":"node preview.cjs","build":"node build-site.cjs","check":"node --check portfolio.js && node --check preview.cjs && node --check build-site.cjs"}}
