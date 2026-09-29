@@ -1,20 +1,9 @@
 Portfolio_Font_Recovery/
 *.tar.gz
-*.zip
-*.bundle
-node_modules/
-.env
-.env.*
-!.env.example
-.cache/
-.sites-runtime/
-.DS_Store
-Thumbs.db
 
 .sites-tools/
 *审核版.html
 *.b64
 update-portfolio.cjs
 prepare-assets.cjs
-
 
