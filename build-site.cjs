@@ -9,7 +9,7 @@ for(let i=0;i<projects.length;i++){
  fs.writeFileSync(`${p.slug}.html`,out);
 }
 // Only publish files actually used by the current website.
-const files=new Set(['index.html','juzi.html','tmall.html','aigc.html','home.css','portfolio.css','portfolio.js','favicon.svg','assets/fonts/Inter-Variable.ttf']);
+const files=new Set(['index.html','juzi.html','tmall.html','aigc.html','home.css','portfolio.css','home-refresh.css','portfolio.js','favicon.svg','assets/fonts/Inter-Variable.ttf']);
 for(const html of ['index.html','juzi.html','tmall.html','aigc.html']){
  const source=fs.readFileSync(html,'utf8');
  for(const m of source.matchAll(/(?:src|data-image)="(assets\/[^"<>]+)"/g))files.add(m[1]);
