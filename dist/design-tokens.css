@@ -89,7 +89,7 @@
   --ds-about-copy-padding: var(--ds-space-7) var(--ds-space-8) var(--ds-space-5);
   --ds-contact-info-padding: var(--ds-space-7) var(--ds-space-6);
 
-  --ds-color-canvas: #f4f6f3;
+  --ds-color-canvas: var(--wzz-page-bg);
   --ds-color-surface: #fff;
   --ds-color-text: #262b2b;
   --ds-color-text-secondary: #64706a;
@@ -206,7 +206,7 @@
   --wzz-text-muted: #909792; /* Decorative / nonessential only. */
   --wzz-text-subtle: #adb3af; /* Decorative / nonessential only. */
   --wzz-divider-color: #e2e6e3;
-  --wzz-page-bg: #f6f7f5;
+  /* Shared page canvas is defined on :root in home.css for home and reader pages. */
   --wzz-surface: #fff;
   --wzz-surface-hover: #f0f2f0;
   --wzz-icon-idle: #a9aeab;
