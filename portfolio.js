@@ -1,4 +1,25 @@
 (() => {
+  document.querySelectorAll('.folder-cover').forEach(button=>button.addEventListener('click',()=>{const open=button.getAttribute('aria-expanded')!=='true';button.setAttribute('aria-expanded',String(open));document.getElementById(button.getAttribute('aria-controls')).hidden=!open;button.querySelector('.folder-hint').textContent=open?'收起文件夹 ↙':'打开文件夹 ↗';}));
+  document.querySelectorAll('.journey-card').forEach(button=>button.addEventListener('click',()=>{const open=button.getAttribute('aria-expanded')!=='true';button.setAttribute('aria-expanded',String(open));button.querySelector('.journey-front').setAttribute('aria-hidden',String(open));button.querySelector('.journey-back').setAttribute('aria-hidden',String(!open));}));
+  document.querySelectorAll('.kit-cover').forEach(button=>button.addEventListener('click',()=>{
+    const open=button.getAttribute('aria-expanded')!=='true';
+    document.querySelectorAll('.kit-cover').forEach(other=>{const active=other===button&&open;other.setAttribute('aria-expanded',String(active));other.closest('.kit-folder').classList.toggle('is-open',active);document.getElementById(other.getAttribute('aria-controls')).hidden=!active;other.querySelector('.kit-open').textContent=active?'收起工具夹 ↙':'打开工具夹 ↗';});
+  }));
+  const album=document.querySelector('.album-book');
+  if(album)album.addEventListener('click',()=>{const open=album.getAttribute('aria-expanded')!=='true';album.setAttribute('aria-expanded',String(open));document.getElementById(album.getAttribute('aria-controls')).hidden=!open;});
+  const camera=document.querySelector('.pet-camera');
+  if(camera)camera.addEventListener('click',()=>{const open=camera.getAttribute('aria-expanded')!=='true';camera.setAttribute('aria-expanded',String(open));document.getElementById(camera.getAttribute('aria-controls')).hidden=!open;});
+  document.querySelectorAll('.pet-print').forEach(print=>{
+    let startX=0,startY=0,originX=0,originY=0,moved=false;
+    print.addEventListener('pointerdown',event=>{if(event.button!==0)return;startX=event.clientX;startY=event.clientY;originX=Number(print.dataset.x)||0;originY=Number(print.dataset.y)||0;moved=false;print.setPointerCapture(event.pointerId);print.classList.add('is-dragging');});
+    print.addEventListener('pointermove',event=>{if(!print.hasPointerCapture(event.pointerId))return;const x=originX+event.clientX-startX,y=originY+event.clientY-startY;if(Math.abs(x-originX)+Math.abs(y-originY)>5)moved=true;print.style.translate=x+'px '+y+'px';print.dataset.x=String(x);print.dataset.y=String(y);});
+    print.addEventListener('pointerup',event=>{if(print.hasPointerCapture(event.pointerId))print.releasePointerCapture(event.pointerId);print.classList.remove('is-dragging');if(moved)print.addEventListener('click',e=>{e.preventDefault();e.stopImmediatePropagation();},{once:true,capture:true});});
+    print.addEventListener('pointercancel',()=>print.classList.remove('is-dragging'));
+  });
+  const lifeButtons=[...document.querySelectorAll('.life-toggle')];
+  lifeButtons.forEach(button=>button.addEventListener('click',()=>{const open=button.getAttribute('aria-expanded')!=='true';lifeButtons.forEach(other=>{const active=other===button&&open;other.setAttribute('aria-expanded',String(active));document.getElementById(other.getAttribute('aria-controls')).hidden=!active;});}));
+  const dockLinks=[...document.querySelectorAll('.side-dock a')];
+  if(dockLinks.length){let pending=false;const updateDock=()=>{pending=false;let active=dockLinks[0];dockLinks.forEach(link=>{if(document.querySelector(link.hash).getBoundingClientRect().top<innerHeight*.4)active=link;});dockLinks.forEach(link=>{if(link===active)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');});};addEventListener('scroll',()=>{if(!pending){pending=true;requestAnimationFrame(updateDock);}},{passive:true});addEventListener('resize',updateDock);updateDock();}
   const tabs = [...document.querySelectorAll('[role="tab"]')];
   function activate(tab) {
     tabs.forEach(t=>{const selected=t===tab;t.setAttribute('aria-selected',String(selected));t.tabIndex=selected?0:-1;document.getElementById(t.getAttribute('aria-controls')).hidden=!selected;});
@@ -21,8 +42,17 @@
       const area=document.createElement('textarea');area.value=value;area.style.cssText='position:fixed;top:0;left:-9999px';document.body.append(area);area.select();try{copied=document.execCommand('copy');}catch{}area.remove();button.focus();
     }
     if(copied){notify('已复制：'+value);const label=button.textContent;button.textContent='已复制 ✓';setTimeout(()=>button.textContent=label,1800);}
-    else {notify('无法自动复制，请选中下方内容手动复制');let input=button.closest('.contact-card').querySelector('.manual-copy');if(!input){input=document.createElement('input');input.className='manual-copy';input.readOnly=true;input.setAttribute('aria-label','请手动复制联系方式');button.closest('.contact-card').append(input);}input.value=value;input.focus();input.select();}
+    else {notify('无法自动复制，请选中下方内容手动复制');const container=button.closest('.contact-card, .contact-info');let input=container.querySelector('.manual-copy');if(!input){input=document.createElement('input');input.className='manual-copy';input.readOnly=true;input.setAttribute('aria-label','请手动复制联系方式');container.append(input);}input.value=value;input.focus();input.select();}
   }));
+  const contactForm=document.querySelector('.contact-form');
+  if(contactForm)contactForm.addEventListener('submit',event=>{
+    event.preventDefault();
+    const name=contactForm.querySelector('[name="name"]').value.trim(),email=contactForm.querySelector('[name="email"]').value.trim(),message=contactForm.querySelector('[name="message"]').value.trim();
+    if(!name||!email||!message)return;
+    const subject=encodeURIComponent('来自作品集网站的留言 · '+name);
+    const body=encodeURIComponent('姓名：'+name+'\n邮箱：'+email+'\n\n'+message);
+    location.href='mailto:3367506893@qq.com?subject='+subject+'&body='+body;
+  });
   const dialog=document.querySelector('.lightbox');
   if(dialog){
     const image=dialog.querySelector('img'),zoom=dialog.querySelector('[data-zoom]'),scroller=dialog.querySelector('.lightbox-scroll');let trigger;
