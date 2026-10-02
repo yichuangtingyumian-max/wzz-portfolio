@@ -9,10 +9,10 @@ for(let i=0;i<projects.length;i++){
  fs.writeFileSync(`${p.slug}.html`,out);
 }
 // Only publish files actually used by the current website.
-const files=new Set(['index.html','juzi.html','tmall.html','aigc.html','home.css','portfolio.css','portfolio.js','favicon.svg','assets/fonts/Inter-Variable.ttf']);
+const files=new Set(['index.html','juzi.html','tmall.html','aigc.html','design-tokens.css','home.css','portfolio.css','home-refresh.css','hero-intro.css','about.css','portfolio.js','hero-intro.js','favicon.svg','assets/fonts/Inter-Variable.ttf']);
 for(const html of ['index.html','juzi.html','tmall.html','aigc.html']){
  const source=fs.readFileSync(html,'utf8');
- for(const m of source.matchAll(/(?:src|data-image)="(assets\/[^"<>]+)"/g))files.add(m[1]);
+ for(const m of source.matchAll(/(?:src|poster|data-image)="(assets\/[^"<>]+)"/g))files.add(m[1]);
 }
 for(const file of files){if(!fs.existsSync(file))throw new Error('Missing asset: '+file);const target=path.join('dist',file);fs.mkdirSync(path.dirname(target),{recursive:true});fs.copyFileSync(file,target);}
 console.log(`Built 4 pages with ${files.size-4} supporting files.`);
