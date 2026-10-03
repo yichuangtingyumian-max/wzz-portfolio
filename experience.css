@@ -3,7 +3,7 @@
   --experience-max: 65.125rem;
   --experience-height: 7.4375rem;
   --experience-radius: var(--wzz-radius-lg);
-  --experience-motion: 450ms;
+  --experience-motion: 600ms;
   --experience-ease: cubic-bezier(.22, 1, .36, 1);
   padding-block: var(--wzz-space-12);
 }
@@ -25,7 +25,24 @@
   cursor: pointer;
   touch-action: manipulation;
 }
-#experience .experience-shell { position: relative; display: block; width: 100%; height: 100%; overflow: hidden; border-radius: inherit; }
+#experience .experience-shell {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  perspective: 1200px;
+}
+#experience .experience-inner {
+  position: absolute;
+  inset: 0;
+  display: block;
+  border-radius: inherit;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+  transition: transform var(--experience-motion) var(--experience-ease);
+}
+#experience .experience-card[aria-pressed="true"] .experience-inner { transform: rotateY(180deg); }
 #experience .experience-face {
   position: absolute;
   inset: 0;
@@ -34,9 +51,11 @@
   height: 100%;
   align-items: center;
   border-radius: inherit;
-  transition: opacity var(--experience-motion) var(--experience-ease),
-    transform var(--experience-motion) var(--experience-ease),
-    filter var(--experience-motion) var(--experience-ease);
+  /* Clip each face separately; clipping the rotating parent flattens its 3D children. */
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  pointer-events: none;
 }
 #experience .experience-front {
   display: grid;
@@ -45,9 +64,7 @@
   padding: var(--wzz-space-5) var(--wzz-space-8);
   border: var(--ds-border-width) solid var(--ds-color-border);
   background: var(--wzz-surface);
-  opacity: 1;
-  transform: translateY(0);
-  filter: blur(0);
+  transform: rotateY(0deg);
 }
 #experience .experience-logo { display: grid; place-items: center; width: 95px; height: 48px; }
 #experience .experience-logo img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; }
@@ -62,27 +79,20 @@
 #experience .experience-back {
   display: flex;
   gap: var(--wzz-space-2);
-  padding: 5px var(--ds-space-7);
+  padding: var(--wzz-space-3) var(--ds-space-7);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0;
-  transform: translateY(4px);
-  filter: blur(2px);
-  pointer-events: none;
+  transform: rotateY(180deg);
 }
-#experience .experience-reflection-copy { display: block; flex: 1; min-width: 0; color: #333; font-size: var(--ds-size-20); font-weight: var(--wzz-weight-medium); line-height: 1.8; }
-#experience [data-experience="juzi"] .experience-reflection-copy { font-weight: var(--wzz-weight-semibold); }
+#experience .experience-reflection-copy { display: block; flex: 1; min-width: 0; color: var(--wzz-text-secondary); font-size: var(--wzz-font-lead); font-weight: var(--wzz-weight-regular); line-height: 1.7; }
 #experience .experience-brand { display: grid; place-items: center; width: 104px; height: 63px; flex: 0 0 104px; }
 #experience .experience-brand img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; }
-#experience .experience-card[aria-expanded="true"] .experience-front { opacity: 0; transform: translateY(-4px); filter: blur(2px); pointer-events: none; }
-#experience .experience-card[aria-expanded="true"] .experience-back { opacity: 1; transform: translateY(0); filter: blur(0); }
 #experience .experience-card:focus-visible { outline: 2px solid var(--wzz-focus-color); outline-offset: var(--wzz-space-1); }
 
 @media (max-width: 1100px) {
   .refreshed-home #experience { --experience-height: 10rem; }
   #experience .experience-back { padding: var(--wzz-space-3) var(--wzz-space-6); gap: var(--wzz-space-4); }
-  #experience .experience-reflection-copy { font-size: var(--wzz-font-lead); line-height: 1.6; }
   #experience .experience-date { font-size: var(--wzz-font-lead); }
 }
 @media (max-width: 900px) {
@@ -99,7 +109,7 @@
   #experience .experience-date,
   #experience .experience-type { font-size: var(--wzz-font-meta); }
   #experience .experience-back { flex-direction: column; justify-content: center; align-items: stretch; padding: var(--wzz-space-4); gap: var(--wzz-space-3); }
-  #experience .experience-reflection-copy { flex: none; font-size: var(--ds-size-16); line-height: 1.6; }
+  #experience .experience-reflection-copy { flex: none; font-size: var(--ds-size-16); }
   #experience .experience-brand { align-self: flex-end; flex: 0 0 63px; }
 }
 @media (max-width: 360px) {
@@ -129,6 +139,6 @@
 .experience-hover-hint[data-phase="visible"] > span { opacity: 1; transform: scale(1); transition-duration: 140ms; }
 .experience-hover-hint[data-phase="leaving"] > span { transform: scale(.96); }
 @media (prefers-reduced-motion: reduce) {
-  #experience .experience-face { transform: none !important; filter: none !important; transition: opacity 120ms linear !important; }
+  #experience .experience-inner { transition: none; }
   .experience-hover-hint > span { transform: none !important; transition: opacity 110ms linear !important; }
 }
