@@ -1,34 +1,20 @@
-/* Figma narrative strips: local roles supplement the existing visual tokens. */
+/* Fixed two-face cards, calibrated to the 1042 x 119 Figma exports. */
 .refreshed-home #experience {
-  --experience-max: 53.125rem;
-  --experience-front-height: 6rem;
-  --experience-story-height: 8.75rem;
-  --experience-gap: .875rem;
-  --experience-radius: var(--wzz-radius-card);
+  --experience-max: 65.125rem;
+  --experience-height: 7.4375rem;
+  --experience-radius: var(--wzz-radius-lg);
   --experience-motion: 450ms;
   --experience-ease: cubic-bezier(.22, 1, .36, 1);
   padding-block: var(--wzz-space-12);
 }
 #experience .experience-section-inner { width: 100%; max-width: var(--experience-max); margin-inline: auto; }
-#experience .section-heading { margin-bottom: var(--wzz-space-8); }
-.refreshed-home #experience .section-heading h2 {
-  margin: 0;
-  font-size: var(--wzz-font-h3);
-  font-weight: var(--wzz-weight-semibold);
-  line-height: var(--wzz-leading-title);
-  letter-spacing: 0;
-}
-#experience .experience-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--experience-gap);
-  /* Reserve the two expanded strips on desktop so Selected Works stays still. */
-  min-height: var(--experience-list-height, calc(2 * var(--experience-story-height) + var(--experience-gap)));
-}
+#experience .section-heading { margin-bottom: var(--ds-space-10); }
+.refreshed-home #experience .section-heading h2 { margin: 0; font-size: var(--wzz-font-h2); font-weight: var(--wzz-weight-semibold); line-height: var(--wzz-leading-section); letter-spacing: 0; }
+#experience .experience-list { display: grid; gap: var(--wzz-space-5); }
 #experience .experience-card {
   display: block;
-  flex: 0 0 auto;
   width: 100%;
+  height: var(--experience-height);
   padding: 0;
   border: 0;
   border-radius: var(--experience-radius);
@@ -39,136 +25,88 @@
   cursor: pointer;
   touch-action: manipulation;
 }
-#experience .experience-inner {
-  position: relative;
-  display: block;
-  height: var(--experience-front-size, var(--experience-front-height));
-  overflow: hidden;
-  border-radius: inherit;
-  transition: height var(--experience-motion) var(--experience-ease),
-    transform var(--experience-motion) var(--experience-ease),
-    box-shadow var(--experience-motion) var(--experience-ease);
-}
+#experience .experience-shell { position: relative; display: block; width: 100%; height: 100%; overflow: hidden; border-radius: inherit; }
 #experience .experience-face {
   position: absolute;
   inset: 0;
   box-sizing: border-box;
-  height: 100%;
   width: 100%;
+  height: 100%;
   align-items: center;
-  border: var(--ds-border-width) solid var(--ds-color-border);
   border-radius: inherit;
-  background: var(--wzz-surface);
   transition: opacity var(--experience-motion) var(--experience-ease),
     transform var(--experience-motion) var(--experience-ease),
-    border-color var(--experience-motion) var(--experience-ease);
+    filter var(--experience-motion) var(--experience-ease);
 }
 #experience .experience-front {
   display: grid;
-  grid-template-columns: var(--ds-space-12) minmax(0, 1fr) auto;
+  grid-template-columns: 95px minmax(0, 1fr) auto;
   gap: var(--wzz-space-4);
   padding: var(--wzz-space-5) var(--wzz-space-8);
+  border: var(--ds-border-width) solid var(--ds-color-border);
+  background: var(--wzz-surface);
   opacity: 1;
-  transform: none;
+  transform: translateY(0);
+  filter: blur(0);
 }
-#experience .experience-logo { display: grid; place-items: center; width: var(--ds-space-12); height: var(--ds-space-12); }
-#experience .experience-logo img { display: block; width: 100%; height: 100%; object-fit: contain; }
+#experience .experience-logo { display: grid; place-items: center; width: 95px; height: 48px; }
+#experience .experience-logo img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; }
 #experience .experience-main,
 #experience .experience-meta { display: flex; flex-direction: column; gap: var(--wzz-space-1); min-width: 0; }
-#experience .experience-company { font-size: var(--ds-size-16); font-weight: var(--wzz-weight-semibold); line-height: 1.45; }
-#experience .experience-role { display: inline-flex; align-items: center; gap: var(--wzz-space-1); color: var(--wzz-text-secondary); font-size: var(--wzz-font-meta); line-height: 1.5; }
-#experience .experience-role-icon { width: var(--wzz-font-meta); height: var(--wzz-font-meta); flex: 0 0 auto; fill: currentColor; opacity: .7; }
+#experience .experience-company { font-size: var(--ds-size-20); font-weight: var(--wzz-weight-semibold); line-height: 1.4; }
+#experience .experience-role { display: inline-flex; align-items: center; gap: var(--wzz-space-2); color: var(--wzz-text-secondary); font-size: var(--wzz-font-lead); line-height: 1.4; }
+#experience .experience-role-icon { width: var(--wzz-font-lead); height: var(--wzz-font-lead); flex: 0 0 auto; fill: currentColor; opacity: .7; }
 #experience .experience-meta { align-items: flex-end; }
-#experience .experience-date { color: var(--wzz-text-secondary); font-size: var(--ds-size-12); line-height: 1.5; white-space: nowrap; }
-#experience .experience-type { padding: 2px 8px; border: var(--ds-border-width) solid var(--ds-color-border); border-radius: var(--wzz-radius-pill); color: var(--wzz-text-secondary); font-size: var(--ds-size-11); line-height: 1.2; white-space: nowrap; }
-
+#experience .experience-date { color: var(--wzz-text-subtle); font-size: var(--ds-size-20); line-height: 1.4; white-space: nowrap; }
+#experience .experience-type { padding: 2px 8px; border: var(--ds-border-width) solid var(--ds-color-border); border-radius: var(--wzz-radius-pill); color: var(--wzz-text-subtle); font-size: var(--ds-size-16); line-height: 1.2; white-space: nowrap; }
 #experience .experience-back {
   display: flex;
-  gap: var(--wzz-space-8);
-  padding: var(--ds-space-7) var(--ds-space-10);
-  background: var(--experience-accent);
+  gap: var(--wzz-space-2);
+  padding: 5px var(--ds-space-7);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   opacity: 0;
-  transform: translateY(8px) scale(.98);
+  transform: translateY(4px);
+  filter: blur(2px);
   pointer-events: none;
 }
-#experience .experience-back::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background-image: var(--experience-grain);
-  opacity: var(--experience-grain-opacity, .04);
-  mix-blend-mode: multiply;
-  pointer-events: none;
-}
-#experience .experience-reflection-copy {
-  position: relative;
-  display: block;
-  flex: 1;
-  min-width: 0;
-  color: #333;
-  font-size: var(--ds-size-16);
-  font-weight: var(--wzz-weight-regular);
-  line-height: 1.7;
-}
-#experience .experience-stamp-area { position: relative; display: grid; place-items: center; width: var(--wzz-space-20); height: 4.375rem; flex: 0 0 var(--wzz-space-20); }
-#experience .experience-stamp {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--wzz-space-1);
-  width: max-content;
-  max-width: 100%;
-  opacity: .95;
-  transform: rotate(-5deg);
-  mix-blend-mode: multiply;
-}
-#experience .experience-stamp img { display: block; flex: 0 0 auto; width: 4.375rem; height: auto; max-height: 4.375rem; object-fit: contain; }
-#experience [data-experience="juzi"] .experience-stamp img { width: 3.125rem; }
-#experience .experience-stamp-word { font-size: var(--ds-size-16); font-weight: var(--wzz-weight-semibold); color: #3c2d15; white-space: nowrap; }
-/* Compose the existing horizontal wordmark into the demo's two-part ink stamp. */
-#experience [data-experience="tmall"] .experience-stamp { flex-direction: column; width: 4.375rem; }
-#experience .experience-stamp-symbol,
-#experience .experience-stamp-name { position: relative; display: block; overflow: hidden; flex: 0 0 auto; }
-#experience .experience-stamp-symbol { width: 64px; height: 37px; }
-#experience .experience-stamp-name { width: 66px; height: 17px; }
-#experience .experience-stamp-symbol img { position: absolute; width: 220px; max-height: none; top: -37px; left: -10px; }
-#experience .experience-stamp-name img { position: absolute; width: 110px; max-height: none; top: -18px; left: -39px; }
-#experience .experience-card[aria-expanded="true"] .experience-inner { height: var(--experience-story-size, var(--experience-story-height)); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0, 0, 0, .04); }
-#experience .experience-card[aria-expanded="true"] .experience-front { opacity: 0; transform: translateY(-6px) scale(.98); pointer-events: none; }
-#experience .experience-card[aria-expanded="true"] .experience-back { opacity: 1; transform: none; border-color: rgba(80, 75, 55, .09); }
+#experience .experience-reflection-copy { display: block; flex: 1; min-width: 0; color: #333; font-size: var(--ds-size-20); font-weight: var(--wzz-weight-medium); line-height: 1.8; }
+#experience [data-experience="juzi"] .experience-reflection-copy { font-weight: var(--wzz-weight-semibold); }
+#experience .experience-brand { display: grid; place-items: center; width: 104px; height: 63px; flex: 0 0 104px; }
+#experience .experience-brand img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; }
+#experience .experience-card[aria-expanded="true"] .experience-front { opacity: 0; transform: translateY(-4px); filter: blur(2px); pointer-events: none; }
+#experience .experience-card[aria-expanded="true"] .experience-back { opacity: 1; transform: translateY(0); filter: blur(0); }
 #experience .experience-card:focus-visible { outline: 2px solid var(--wzz-focus-color); outline-offset: var(--wzz-space-1); }
 
-@media (max-width: 1024px) {
-  #experience .experience-back { padding: var(--wzz-space-6); gap: var(--wzz-space-6); }
-  #experience .experience-stamp-area { width: var(--wzz-space-16); flex-basis: var(--wzz-space-16); }
-  #experience .experience-stamp > img { width: 4rem; }
-  #experience [data-experience="juzi"] .experience-stamp img { width: 2.75rem; }
-  #experience .experience-stamp-word { font-size: var(--ds-size-14); }
+@media (max-width: 1100px) {
+  .refreshed-home #experience { --experience-height: 10rem; }
+  #experience .experience-back { padding: var(--wzz-space-3) var(--wzz-space-6); gap: var(--wzz-space-4); }
+  #experience .experience-reflection-copy { font-size: var(--wzz-font-lead); line-height: 1.6; }
+  #experience .experience-date { font-size: var(--wzz-font-lead); }
+}
+@media (max-width: 900px) {
+  .refreshed-home #experience { --experience-height: 12rem; }
+  #experience .experience-company { font-size: var(--wzz-font-lead); }
+  #experience .experience-date { font-size: var(--ds-size-16); }
 }
 @media (max-width: 640px) {
-  .refreshed-home #experience { --experience-front-height: 7rem; padding-block: var(--wzz-space-8); }
+  .refreshed-home #experience { --experience-height: 20rem; padding-block: var(--wzz-space-8); }
   #experience .section-heading { margin-bottom: var(--wzz-space-6); }
-  /* On touch screens the taller narrative follows document flow. */
-  #experience .experience-list { min-height: calc(2 * var(--experience-front-height) + var(--experience-gap)); }
-  #experience .experience-front { grid-template-columns: var(--ds-space-11) minmax(0, 1fr); gap: var(--wzz-space-2) var(--wzz-space-3); padding: var(--wzz-space-4) var(--wzz-space-5); }
-  #experience .experience-logo { width: var(--ds-space-11); height: var(--ds-space-11); grid-row: 1 / 3; }
-  #experience .experience-company { font-size: var(--ds-size-14); }
-  #experience .experience-meta { grid-column: 2; flex-direction: row; align-items: center; justify-content: space-between; gap: var(--wzz-space-2); }
-  #experience .experience-date { font-size: var(--ds-size-11); }
-  #experience .experience-back { flex-direction: column; align-items: stretch; justify-content: center; gap: var(--wzz-space-3); padding: var(--wzz-space-5); }
-  #experience .experience-reflection-copy { flex: none; line-height: 1.75; }
-  #experience .experience-stamp-area { align-self: flex-end; height: 4rem; flex: 0 0 auto; }
-  #experience .experience-stamp > img { width: 4rem; max-height: 2.75rem; }
-  #experience [data-experience="juzi"] .experience-stamp img { width: 2.75rem; }
+  #experience .experience-front { grid-template-columns: minmax(0, 1fr); align-content: center; gap: var(--wzz-space-4); padding: var(--wzz-space-6) var(--wzz-space-4); }
+  #experience .experience-logo { justify-self: start; }
+  #experience .experience-meta { flex-direction: row; align-items: center; justify-content: space-between; gap: var(--wzz-space-2); }
+  #experience .experience-date,
+  #experience .experience-type { font-size: var(--wzz-font-meta); }
+  #experience .experience-back { flex-direction: column; justify-content: center; align-items: stretch; padding: var(--wzz-space-4); gap: var(--wzz-space-3); }
+  #experience .experience-reflection-copy { flex: none; font-size: var(--ds-size-16); line-height: 1.6; }
+  #experience .experience-brand { align-self: flex-end; flex: 0 0 63px; }
 }
 @media (max-width: 360px) {
-  .refreshed-home #experience { --experience-front-height: 8rem; }
-  #experience .experience-front { padding-inline: var(--wzz-space-3); }
-  #experience .experience-back { padding: var(--wzz-space-4); }
+  .refreshed-home #experience { --experience-height: 24rem; }
 }
 
-/* A single body-mounted label follows the mouse independently of card layout. */
+/* The only mouse hint is independent of both faces and the document flow. */
 .experience-hover-hint { position: fixed; top: 0; left: 0; width: max-content; pointer-events: none; z-index: 9999; will-change: transform; }
 .experience-hover-hint > span {
   display: block;
@@ -191,7 +129,6 @@
 .experience-hover-hint[data-phase="visible"] > span { opacity: 1; transform: scale(1); transition-duration: 140ms; }
 .experience-hover-hint[data-phase="leaving"] > span { transform: scale(.96); }
 @media (prefers-reduced-motion: reduce) {
-  #experience .experience-inner { transition: none; transform: none !important; }
-  #experience .experience-face { transform: none !important; transition: opacity 120ms linear !important; }
+  #experience .experience-face { transform: none !important; filter: none !important; transition: opacity 120ms linear !important; }
   .experience-hover-hint > span { transform: none !important; transition: opacity 110ms linear !important; }
 }

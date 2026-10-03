@@ -14,6 +14,8 @@ for(const html of ['index.html','juzi.html','tmall.html','aigc.html']){
  const source=fs.readFileSync(html,'utf8');
  for(const m of source.matchAll(/(?:src|poster|data-image)="(assets\/[^"<>]+)"/g))files.add(m[1]);
 }
+// ExperienceCard's exported SVG/PNG assets are declared in its module data.
+for(const m of fs.readFileSync('experience.js','utf8').matchAll(/['"](assets\/images\/experience-[a-z0-9-]+\.(?:svg|png))['"]/g))files.add(m[1]);
 for(const file of files){if(!fs.existsSync(file))throw new Error('Missing asset: '+file);const target=path.join('dist',file);fs.mkdirSync(path.dirname(target),{recursive:true});fs.copyFileSync(file,target);}
 // Stop publication if an accidental or stale development asset enters dist.
 require('./release-audit.cjs').assertReleaseFiles(path.join(__dirname,'dist'));
