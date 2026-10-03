@@ -10,7 +10,7 @@
       this.element = document.createElement('div');
       this.element.className = 'experience-hover-hint';
       this.element.setAttribute('aria-hidden', 'true');
-      this.element.dataset.visible = 'false';
+      this.element.dataset.phase = 'idle';
       this.element.innerHTML = '<span>翻转（咔哒）我</span>';
       document.body.append(this.element);
       this.activeCard = null;
@@ -20,7 +20,10 @@
       this.hideFrame = 0;
       this.lastTime = 0;
       this.tick = this.tick.bind(this);
-      const hide = () => this.hide(this.activeCard);
+      const hide = () => this.activeCard?.leaveHover();
+      this.element.addEventListener('transitionend', event => {
+        if (event.propertyName === 'opacity' && !this.activeCard) this.element.dataset.phase = 'idle';
+      });
       addEventListener('scroll', hide, { passive: true, capture: true });
       addEventListener('resize', hide);
       addEventListener('blur', hide);
@@ -39,7 +42,7 @@
       this.hideFrame = 0;
       this.activeCard = card;
       this.move(event);
-      this.element.dataset.visible = 'true';
+      this.element.dataset.phase = 'visible';
     }
 
     move(event) {
@@ -82,7 +85,7 @@
       // Keep the same pill and let adjacent-card entry cancel the pending hide.
       this.hideFrame = requestAnimationFrame(() => {
         this.hideFrame = 0;
-        this.element.dataset.visible = 'false';
+        this.element.dataset.phase = 'leaving';
         cancelAnimationFrame(this.frame);
         this.frame = 0;
       });
@@ -95,28 +98,71 @@
       this.front = element.querySelector('.experience-front');
       this.back = element.querySelector('.experience-back');
       this.reflection = element.querySelector('.experience-reflection-copy');
-      this.open = false;
-      element.addEventListener('click', () => { this.open = !this.open; this.render(); });
+      this.hovered = false;
+      this.focused = false;
+      this.toggled = false;
+      this.pointerFocus = false;
+      this.pointerType = null;
+      element.addEventListener('pointerdown', event => {
+        this.pointerType = event.pointerType;
+        this.pointerFocus = true;
+        this.focused = false;
+        this.render();
+        queueMicrotask(() => { this.pointerFocus = false; });
+      });
+      element.addEventListener('focus', () => {
+        this.focused = !this.pointerFocus && element.matches(':focus-visible');
+        this.render();
+      });
+      element.addEventListener('blur', () => { this.focused = false; this.pointerType = null; this.render(); });
+      element.addEventListener('click', event => {
+        if (event.detail === 0) {
+          this.toggled = false;
+          this.focused = element.getAttribute('aria-expanded') !== 'true';
+        } else if (this.pointerType !== 'mouse' || !hoverMedia.matches) {
+          this.toggled = !this.toggled;
+        }
+        this.render();
+      });
       element.addEventListener('keydown', event => {
-        if (event.key === 'Escape' && this.open) {
+        if (event.key === 'Escape') {
           event.preventDefault();
-          this.open = false;
-          this.render();
+          this.focused = false;
+          this.toggled = false;
+          this.leaveHover();
         }
       });
-      // Hover is only a cue. Native button activation handles mouse, tap, Enter and Space.
-      element.addEventListener('pointerenter', event => hint.show(event, this));
-      element.addEventListener('pointermove', event => hint.show(event, this));
-      element.addEventListener('pointerleave', () => hint.hide(this));
-      element.addEventListener('pointercancel', () => hint.hide(this));
+      this.hint = hint;
+      // Pointer type separates real mouse hover from synthetic touch hover.
+      element.addEventListener('pointerenter', event => this.enterHover(event));
+      element.addEventListener('pointermove', event => this.enterHover(event));
+      element.addEventListener('pointerleave', () => this.leaveHover());
+      element.addEventListener('pointercancel', () => this.leaveHover());
+      this.render();
+    }
+
+    enterHover(event) {
+      if (event.pointerType !== 'mouse' || !hoverMedia.matches) return;
+      if (!this.hovered) {
+        this.hovered = true;
+        this.toggled = false;
+        this.render();
+      }
+      this.hint.show(event, this);
+    }
+
+    leaveHover() {
+      this.hovered = false;
+      this.hint.hide(this);
       this.render();
     }
 
     render() {
-      this.element.setAttribute('aria-expanded', String(this.open));
-      this.front.setAttribute('aria-hidden', String(this.open));
-      this.back.setAttribute('aria-hidden', String(!this.open));
-      if (this.open) this.element.setAttribute('aria-describedby', this.reflection.id);
+      const open = this.hovered || this.focused || this.toggled;
+      this.element.setAttribute('aria-expanded', String(open));
+      this.front.setAttribute('aria-hidden', String(open));
+      this.back.setAttribute('aria-hidden', String(!open));
+      if (open) this.element.setAttribute('aria-describedby', this.reflection.id);
       else this.element.removeAttribute('aria-describedby');
     }
   }

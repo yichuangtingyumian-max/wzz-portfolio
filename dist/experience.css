@@ -1,248 +1,221 @@
-/* Design Journey consumes existing tokens without changing the global contract. */
-#experience .experience-list {
-  display: grid;
-  gap: var(--wzz-card-gap);
+/* Compact proportions follow the supplied Figma demo; tokens stay module-local. */
+.refreshed-home #experience {
+  --experience-max: 46rem;
+  --experience-height: 5.25rem;
+  --experience-radius: var(--ds-radius-media);
+  --experience-ease: cubic-bezier(.22, 1, .36, 1);
+  padding-block: var(--wzz-space-12);
 }
 
+#experience .experience-section-inner {
+  width: 100%;
+  max-width: var(--experience-max);
+  margin-inline: auto;
+}
+
+#experience .section-heading { margin-bottom: var(--wzz-space-6); }
+.refreshed-home #experience .section-heading h2 {
+  margin: 0;
+  font-size: var(--wzz-font-h4);
+  font-weight: var(--wzz-weight-medium);
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+#experience .experience-list { display: grid; gap: var(--wzz-space-3); }
 #experience .experience-card {
   width: 100%;
-  min-block-size: calc(var(--wzz-space-20) * 2);
+  min-block-size: var(--experience-height);
   padding: 0;
   border: 0;
-  border-radius: var(--wzz-radius-card);
+  border-radius: var(--experience-radius);
   background: none;
   color: var(--wzz-text-primary);
   font: inherit;
   text-align: left;
   cursor: pointer;
   touch-action: manipulation;
-  perspective: 1000px;
 }
 
-/* Both faces share one grid track, including when text wraps or is enlarged. */
+/* Overlaid grid faces reserve the same space before and after every interaction. */
 #experience .experience-inner {
   display: grid;
   min-block-size: inherit;
-  transition: transform var(--wzz-motion-fast) var(--wzz-ease-standard);
+  transition: transform var(--wzz-motion-fast) var(--experience-ease);
 }
-
 #experience .experience-face {
+  position: relative;
   grid-area: 1 / 1;
   display: grid;
   align-items: center;
-  gap: var(--wzz-column-gap);
-  padding: var(--wzz-space-6) var(--wzz-space-8);
-  border: var(--ds-border-width) solid var(--wzz-divider-color);
-  border-radius: var(--wzz-radius-card);
-  background: linear-gradient(115deg, var(--wzz-surface), color-mix(in srgb, var(--wzz-surface) 96%, var(--wzz-text-secondary)));
-  box-shadow: var(--ds-shadow-surface);
-  transform-origin: center;
-  transition: opacity var(--wzz-motion-flip) var(--wzz-ease-standard),
-    transform var(--wzz-motion-flip) var(--wzz-ease-standard),
-    border-color var(--wzz-motion-fast) var(--wzz-ease-standard),
-    box-shadow var(--wzz-motion-fast) var(--wzz-ease-standard);
+  gap: var(--wzz-space-3);
+  padding: var(--wzz-space-3) var(--wzz-space-4);
+  border: var(--ds-border-width) solid var(--ds-color-border);
+  border-radius: var(--experience-radius);
+  background: var(--wzz-surface);
+  box-shadow: none;
+  transition: opacity var(--wzz-motion-flip) var(--experience-ease),
+    transform var(--wzz-motion-flip) var(--experience-ease),
+    filter var(--wzz-motion-flip) var(--experience-ease),
+    border-color var(--wzz-motion-fast) var(--experience-ease),
+    box-shadow var(--wzz-motion-fast) var(--experience-ease);
 }
-
 #experience .experience-front {
-  grid-template-columns: var(--wzz-space-20) minmax(0, 1fr) auto;
+  grid-template-columns: var(--ds-space-10) minmax(0, 1fr) auto;
   opacity: 1;
   transform: none;
+  filter: blur(0);
 }
-
 #experience .experience-logo {
   display: grid;
   place-items: center;
-  width: var(--wzz-space-20);
-  height: var(--wzz-space-16);
+  width: var(--ds-space-10);
+  height: var(--ds-space-10);
 }
-
 #experience .experience-logo img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
-
-/* The wide Tmall asset includes blank edges; keep its actual mark legible. */
-#experience [data-accent="warm"] .experience-front .experience-logo img {
-  width: calc(100% + var(--wzz-space-6));
-}
-
 #experience .experience-main,
-#experience .experience-meta,
-#experience .experience-reflection,
-#experience .experience-back-aside {
+#experience .experience-meta {
   display: flex;
   flex-direction: column;
-  gap: var(--wzz-space-2);
+  gap: var(--wzz-space-1);
   min-width: 0;
 }
-
 #experience .experience-company {
-  font-size: var(--wzz-font-h4);
+  font-size: var(--ds-size-14);
   font-weight: var(--wzz-weight-semibold);
-  line-height: var(--wzz-leading-subtitle);
+  line-height: 1.45;
 }
-
-#experience .experience-role,
-#experience .experience-date,
-#experience .experience-action {
-  color: var(--wzz-text-secondary);
-  font-size: var(--wzz-font-meta);
-  font-weight: var(--wzz-weight-regular);
-  line-height: var(--wzz-leading-meta);
-}
-
-#experience .experience-type {
-  align-self: flex-start;
-  padding: 0 var(--wzz-space-2);
-  border: var(--ds-border-width) solid var(--wzz-divider-color);
-  border-radius: var(--wzz-radius-pill);
-  color: var(--wzz-text-secondary);
-  font-size: var(--ds-size-12);
-  line-height: var(--wzz-leading-meta);
-}
-
-#experience .experience-meta {
-  align-items: flex-end;
-  gap: var(--wzz-space-4);
-}
-
-#experience .experience-date { white-space: nowrap; }
-
-#experience .experience-action {
+#experience .experience-role {
   display: inline-flex;
   align-items: center;
-  gap: var(--wzz-space-2);
+  gap: var(--wzz-space-1);
+  color: var(--wzz-text-secondary);
+  font-size: var(--ds-size-12);
+  line-height: 1.5;
 }
-
-#experience .experience-front .experience-action > span:first-child {
-  opacity: 0;
-  transition: opacity var(--wzz-motion-tiny) var(--wzz-ease-standard);
+#experience .experience-role-icon {
+  width: var(--ds-size-12);
+  height: var(--ds-size-12);
+  flex: 0 0 auto;
+  fill: currentColor;
+  opacity: .7;
 }
-
-#experience .experience-action-mark {
-  display: inline-block;
-  transition: transform var(--wzz-motion-fast) var(--wzz-ease-standard);
+#experience .experience-meta { align-items: flex-end; }
+#experience .experience-date {
+  color: var(--wzz-text-secondary);
+  font-size: var(--ds-size-11);
+  line-height: 1.5;
+  white-space: nowrap;
+}
+#experience .experience-type {
+  padding: 1px 6px;
+  border: var(--ds-border-width) solid var(--ds-color-border);
+  border-radius: var(--wzz-radius-pill);
+  color: var(--wzz-text-secondary);
+  font-size: var(--ds-size-11);
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 #experience .experience-back {
-  grid-template-columns: minmax(0, 1fr) auto;
-  background: linear-gradient(115deg, color-mix(in srgb, var(--wzz-surface) 94%, var(--ds-color-accent)), var(--wzz-surface));
+  grid-template-columns: minmax(0, 1fr) 3rem;
+  background: linear-gradient(112deg, #e8f2e9, #f5f1e0);
   opacity: 0;
-  transform: translateY(var(--wzz-space-1)) rotateX(-6deg);
+  transform: translateY(4px) scale(.995);
+  filter: blur(2px);
   pointer-events: none;
 }
-
-#experience [data-accent="warm"] .experience-back {
-  background: linear-gradient(115deg, color-mix(in srgb, var(--wzz-surface) 96%, #ed8f2d), var(--wzz-surface));
+#experience [data-accent="warm"] .experience-back { background: linear-gradient(112deg, #f8ebe8, #f2efe4); }
+#experience .experience-back::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)' opacity='.6'/%3E%3C/svg%3E");
+  opacity: .065;
+  mix-blend-mode: multiply;
+  pointer-events: none;
 }
-
-#experience .experience-reflection-label {
-  color: var(--wzz-text-secondary);
-  font-size: var(--wzz-font-eyebrow);
-  font-weight: var(--wzz-weight-medium);
-  line-height: var(--wzz-leading-eyebrow);
-  letter-spacing: var(--wzz-tracking-eyebrow);
-}
-
 #experience .experience-reflection-copy {
-  max-width: var(--ds-copy-max);
-  color: var(--wzz-text-secondary);
-  font-size: var(--wzz-font-body);
-  line-height: var(--wzz-leading-body);
+  position: relative;
+  max-width: 36em;
+  color: var(--wzz-text-primary);
+  font-size: var(--ds-size-14);
+  line-height: 1.6;
 }
-
-#experience .experience-back-aside {
-  align-items: flex-end;
-  gap: var(--wzz-space-4);
-}
-
 #experience .experience-back .experience-logo {
-  width: var(--wzz-space-16);
-  height: var(--wzz-space-12);
-  opacity: .65;
+  width: 3rem;
+  height: 2.75rem;
+  justify-self: end;
+  opacity: .9;
+  transform: rotate(-7deg);
 }
-
 #experience .experience-card[aria-expanded="true"] .experience-front {
   opacity: 0;
-  transform: translateY(calc(-1 * var(--wzz-space-1))) rotateX(6deg);
+  transform: translateY(-3px) scale(.995);
+  filter: blur(2px);
   pointer-events: none;
 }
-
-#experience .experience-card[aria-expanded="true"] .experience-back {
-  opacity: 1;
-  transform: none;
-}
-
-#experience .experience-card:focus-visible {
-  outline: 2px solid var(--wzz-focus-color);
-  outline-offset: var(--wzz-space-1);
-}
-
-#experience .experience-card:focus-visible .experience-front .experience-action > span:first-child { opacity: 1; }
-
-@media (hover: hover) and (pointer: fine) {
-  #experience .experience-card:hover .experience-inner { transform: translateY(calc(-1 * var(--wzz-space-1) / 2)); }
-  #experience .experience-card:hover .experience-face {
-    border-color: color-mix(in srgb, var(--wzz-divider-color) 75%, var(--wzz-text-secondary));
-    box-shadow: var(--wzz-shadow-card);
-  }
-  #experience .experience-card:hover .experience-front .experience-action > span:first-child { opacity: 1; }
-  #experience .experience-card:hover .experience-action-mark { transform: rotate(-12deg); }
-}
-
-@media (max-width: 1000px) {
-  #experience .experience-face { gap: var(--wzz-space-4); padding-inline: var(--wzz-space-6); }
-  #experience .experience-front { grid-template-columns: var(--wzz-space-16) minmax(0, 1fr) auto; }
-  #experience .experience-front .experience-logo { width: var(--wzz-space-16); }
+#experience .experience-card[aria-expanded="true"] .experience-back { opacity: 1; transform: none; filter: blur(0); }
+#experience .experience-card:focus-visible { outline: 2px solid var(--wzz-focus-color); outline-offset: var(--wzz-space-1); }
+#experience .experience-card[aria-expanded="true"] .experience-inner { transform: translateY(-1px); }
+#experience .experience-card[aria-expanded="true"] .experience-face {
+  border-color: #d6ded5;
+  box-shadow: 0 8px 24px rgba(30, 40, 40, .035);
 }
 
 @media (max-width: 640px) {
-  #experience .experience-card { min-block-size: calc(var(--wzz-space-20) * 3); }
-  #experience .experience-face { padding: var(--wzz-space-5); gap: var(--wzz-space-4); }
-  #experience .experience-front { grid-template-columns: var(--wzz-space-12) minmax(0, 1fr); }
-  #experience .experience-front .experience-logo { width: var(--wzz-space-12); height: var(--wzz-space-12); }
-  #experience .experience-meta { grid-column: 2; align-items: flex-start; gap: var(--wzz-space-2); }
-  #experience .experience-back { grid-template-columns: minmax(0, 1fr); }
-  #experience .experience-back .experience-logo { display: none; }
-  #experience .experience-back-aside { align-self: end; }
-  #experience .experience-front .experience-action > span:first-child { opacity: 1; }
+  .refreshed-home #experience { --experience-height: 6.25rem; padding-block: var(--wzz-space-8); }
+  #experience .experience-face { gap: var(--wzz-space-2); padding-inline: var(--wzz-space-3); }
+  #experience .experience-front { grid-template-columns: 2.125rem minmax(0, 1fr); }
+  #experience .experience-front .experience-logo { width: 2.125rem; height: 2.125rem; grid-row: 1 / 3; }
+  #experience .experience-meta { grid-column: 2; flex-direction: row; align-items: center; justify-content: space-between; gap: var(--wzz-space-2); }
+  #experience .experience-back { grid-template-columns: minmax(0, 1fr) 2.25rem; }
+  #experience .experience-back .experience-logo { width: 2.25rem; height: 2.25rem; }
+  #experience .experience-reflection-copy { font-size: var(--wzz-font-meta); }
+}
+@media (max-width: 360px) {
+  .refreshed-home #experience { --experience-height: 8.25rem; }
+  #experience .experience-company { font-size: var(--wzz-font-meta); }
 }
 
-/* One body-level contextual cursor label; it never participates in layout or hit testing. */
+/* The sole cursor label is attached to body, outside layout and transformed ancestors. */
 .experience-hover-hint {
   position: fixed;
   top: 0;
   left: 0;
   width: max-content;
-  z-index: 1000;
   pointer-events: none;
+  z-index: 9999;
   will-change: transform;
 }
 .experience-hover-hint > span {
   display: block;
-  padding: 7px var(--wzz-space-3);
+  padding: 7px 11px;
   border-radius: var(--wzz-radius-pill);
   background: rgba(25, 25, 25, .92);
-  color: rgba(255, 255, 255, .95);
+  color: #fff;
   font-size: var(--ds-size-12);
   font-weight: var(--wzz-weight-medium);
-  line-height: var(--wzz-leading-meta);
+  line-height: 1.6;
   white-space: nowrap;
-  box-shadow: var(--wzz-shadow-sticker);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .14);
   opacity: 0;
-  transform: scale(.92);
+  transform: scale(.9);
   transform-origin: top left;
-  transition: opacity var(--wzz-motion-tiny) var(--wzz-ease-standard), transform var(--wzz-motion-tiny) var(--wzz-ease-standard);
+  transition: opacity 110ms var(--experience-ease, cubic-bezier(.22, 1, .36, 1)), transform 110ms cubic-bezier(.22, 1, .36, 1);
 }
-.experience-hover-hint[data-visible="true"] > span { opacity: 1; transform: scale(1); }
-
+.experience-hover-hint[data-phase="visible"] > span { opacity: 1; transform: scale(1); transition-duration: 140ms; }
+.experience-hover-hint[data-phase="leaving"] > span { transform: scale(.96); }
 @media (prefers-reduced-motion: reduce) {
   #experience .experience-inner,
   #experience .experience-front,
-  #experience .experience-back,
-  #experience .experience-action-mark { transform: none !important; }
-  #experience .experience-face { transition: opacity var(--wzz-motion-tiny) linear !important; }
-  .experience-hover-hint > span { transform: none !important; transition: opacity var(--wzz-motion-tiny) linear !important; }
+  #experience .experience-back { transform: none !important; filter: none !important; }
+  #experience .experience-face { transition: opacity 120ms linear !important; }
+  .experience-hover-hint > span { transform: none !important; transition: opacity 110ms linear !important; }
 }
