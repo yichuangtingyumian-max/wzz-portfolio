@@ -1,6 +1,6 @@
 # WZZ Portfolio Visual System v1.0
 
-日期：2026-10-01。适用对象：WZZ 中文设计师作品集。规范状态：完整系统目标已定义；本轮实际接入仅限 Hero 与固定导航。
+日期：2026-10-01；页面底色更新：2026-10-02。适用对象：WZZ 中文设计师作品集。规范状态：完整系统目标已定义；实际接入包括 Hero、固定导航与全站页面底色。
 
 本文统一文字层级、灰阶、间距、布局、圆角、阴影和动效。目标是让信息关系与交互反馈可复用，同时保留电脑、金属 W 勋章、品牌贴纸等已有视觉表达。规范中的全站目标不等于所有模块已经迁移。
 
@@ -15,7 +15,7 @@
 
 ## 2. Token 架构与兼容方式
 
-基础值集中在 design-tokens.css。新增 v1.0 使用 --wzz-* 命名空间；原文件中的 --ds-* 定义、值与语义完整保留。新变量追加在旧合同之后，不能通过覆盖旧变量让其他模块意外迁移。
+基础值集中在 design-tokens.css。新增 v1.0 使用 --wzz-* 命名空间；原文件中的 --ds-* 保留既有语义。2026-10-02 按用户要求统一全站页面底色：公共 --wzz-page-bg 在所有页面加载的 home.css 的 :root 中定义，旧 --ds-color-canvas 引用该变量。其他角色仍按模块迁移，避免意外影响已确认的设计。
 
 | 层次 | 示例 | 职责 |
 | --- | --- | --- |
@@ -23,7 +23,7 @@
 | 语义角色 | --wzz-font-h1、--wzz-text-secondary、--wzz-motion-nav | 表达信息层级与反馈用途 |
 | 组件使用 | Hero 姓名、身份行、分隔线、整体导航展开 | 引用角色并保留必要构图参数 |
 
-变量定义在 .refreshed-home 下；本轮只有 hero-intro.css 中的 Hero / 导航规则消费 --wzz-*。不要给全局 body、.wrap、.section 或通用 h1/h2/h3 添加 v1.0 属性覆盖。公共页面底色、全站最大宽度和后续卡片角色目前是系统目标，不能因此改动未迁移区域。
+除公共页面底色 --wzz-page-bg 外，变量仍定义在 .refreshed-home 下；Hero / 导航由 hero-intro.css 消费对应 --wzz-*。首页与三个二级阅读页的画布共同引用 --wzz-page-bg，卡片、图片与其他组件表面保留原有底色。全站最大宽度和后续卡片角色仍是系统目标，不据此改动未迁移区域的布局或通用 h1/h2/h3。
 
 加载顺序保持：design-tokens.css → home.css → portfolio.css → home-refresh.css → hero-intro.css。最后一份负责限定区域内的迁移。旧 --ds-* 仍服务已存在的首页样式，后续按模块验收后再清理失效声明。
 
@@ -108,16 +108,16 @@ Hero 保持紧凑的个人名片密度，不使用 min-height:100vh 撑高；手
 | Secondary | #626965 | --wzz-text-secondary | 正文、身份信息、导航标签、重要副信息 |
 | Muted | #909792 | --wzz-text-muted | 非必要的辅助装饰 |
 | Subtle | #ADB3AF | --wzz-text-subtle | 装饰细节与弱背景图形 |
-| Page | #F6F7F5 | --wzz-page-bg | 全站页面底色目标，本轮不改全局 body |
+| Page | #F8FAFC | --wzz-page-bg | 首页与三个二级阅读页共用的页面画布底色 |
 | Surface | #FFFFFF | --wzz-surface | 导航、卡片、贴纸表面 |
 | Hover surface | #F0F2F0 | --wzz-surface-hover | 轻量 Hover 背景 |
 | Divider | #E2E6E3 | --wzz-divider-color | 信息分隔线 |
 | Idle icon | #A9AEAB | --wzz-icon-idle | 空闲导航图标的视觉目标 |
 | Focus | #626965 | --wzz-focus-color | 键盘焦点提示 |
 
-普通信息文字按至少 4.5:1 的对比度目标检查；大字条件下的最低值为 3:1，依据 [WCAG 2.2 Contrast Minimum](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html)。Secondary 对 Page 约为 5.24:1；Muted 约为 2.78:1，Subtle 约为 1.99:1，因此后二者不能承担姓名、身份、说明、导航标签或必须读懂的元信息。
+普通信息文字按至少 4.5:1 的对比度目标检查；大字条件下的最低值为 3:1，依据 [WCAG 2.2 Contrast Minimum](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html)。Secondary 对 Page 约为 5.38:1；Muted 约为 2.86:1，Subtle 约为 2.04:1，因此后二者不能承担姓名、身份、说明、导航标签或必须读懂的元信息。
 
-真实 Logo 与品牌贴纸保留原色。导航图标颜色是状态表达，当前项与 Hover / Focus 应更清晰；实质性的导航名称用 Secondary，不通过透明度继续弱化。页面底色 Token 已定义，但本轮不宣称全站背景已迁移，也不据此宣称全站 WCAG 验收完成。
+真实 Logo 与品牌贴纸保留原色。导航图标颜色是状态表达，当前项与 Hover / Focus 应更清晰；实质性的导航名称用 Secondary，不通过透明度继续弱化。页面画布底色已统一为 #F8FAFC；这不代表其他视觉角色已迁移，也不据此宣称全站 WCAG 验收完成。
 
 ## 7. Border Radius / Material / Shadow / Divider
 
@@ -236,7 +236,8 @@ Hero 外层继续使用同一个 .wrap。按照 2026-10-01 的最新 UI 标注�
 | 文字列 | --wzz-hero-copy-width / --wzz-hero-copy-min | 448px 上限，双栏最小 432px，容纳统一字号和 Hello |
 | 列间距 | --wzz-hero-column-gap | 64px，复用 8pt 间距档位 |
 | 电脑素材画布 | --wzz-hero-computer-width / --wzz-hero-computer-min | 392px 上限，双栏最小 352px |
-| 纵向留白 | --wzz-hero-padding-y | 上下各 24px |
+| 上方留白 | --wzz-hero-padding-top | 64px；≤767px 为 48px，复用既有间距档位 |
+| 下方留白 | --wzz-hero-padding-y | 保持 24px |
 
 电脑 PNG 的可见主体约占画布宽度的 82.6%。352–392px 的素材画布对应约 291–324px 的实际硬件主体；不能把整张含空白边缘的图片缩成 320px，导致可见电脑反而变小。电脑外壳、屏幕遮罩、人物视频继续使用同一几何比例，裁切与交互不变。
 

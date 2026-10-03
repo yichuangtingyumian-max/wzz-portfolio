@@ -15,4 +15,6 @@ for(const html of ['index.html','juzi.html','tmall.html','aigc.html']){
  for(const m of source.matchAll(/(?:src|poster|data-image)="(assets\/[^"<>]+)"/g))files.add(m[1]);
 }
 for(const file of files){if(!fs.existsSync(file))throw new Error('Missing asset: '+file);const target=path.join('dist',file);fs.mkdirSync(path.dirname(target),{recursive:true});fs.copyFileSync(file,target);}
+// Stop publication if an accidental or stale development asset enters dist.
+require('./release-audit.cjs').assertReleaseFiles(path.join(__dirname,'dist'));
 console.log(`Built 4 pages with ${files.size-4} supporting files.`);

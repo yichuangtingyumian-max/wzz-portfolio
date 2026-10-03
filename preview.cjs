@@ -4,10 +4,15 @@ const path = require('node:path');
 const root = __dirname;
 const previewPort = Number(process.env.WZZ_PREVIEW_PORT || 4174);
 const types = {'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.png':'image/png','.jpeg':'image/jpeg','.jpg':'image/jpeg','.webp':'image/webp','.svg':'image/svg+xml','.ttf':'font/ttf','.mp4':'video/mp4'};
+async function start() {
+const toolMode = process.env.NODE_ENV === 'production' ? 'off' : (process.env.WZZ_ANNOTATION_TOOL || 'official');
+const { createPreviewTools } = require('./dev/preview-tools.cjs');
+const devTools = await createPreviewTools(root, toolMode);
 http.createServer((req,res) => {
   let name;
   try { name = decodeURIComponent(new URL(req.url,'http://localhost').pathname); } catch { res.writeHead(400).end(); return; }
   if(name === '/') name = '/index.html';
+  if(devTools.handle(req,res,name)) return;
   if(!(/^\/((index|juzi|tmall|aigc)\.html|(design-tokens|home|portfolio|home-refresh|hero-intro)\.css|(portfolio|hero-intro)\.js|favicon\.svg|assets\/(fonts|images|videos)\/[a-zA-Z0-9_.-]+)$/.test(name))) {res.writeHead(404).end();return;}
   const file = path.join(root,name);
   fs.readFile(file,(err,data)=>{
@@ -26,7 +31,11 @@ http.createServer((req,res) => {
       } else { res.writeHead(200,{...headers,'Content-Length':data.length}); res.end(data); }
       return;
     }
+    const isHtml = path.extname(file) === '.html';
+    const body = isHtml ? data.toString('utf8').replace('</body>',`${devTools.loader}</body>`) : data;
     res.writeHead(200,{'Content-Type':types[path.extname(file)] || 'application/octet-stream','Cache-Control':'no-store'});
-    res.end(data);
+    res.end(body);
   });
-}).listen(previewPort,'127.0.0.1',()=>console.log(`Portfolio preview: http://127.0.0.1:${previewPort}`));
+}).listen(previewPort,'127.0.0.1',()=>console.log(`Portfolio preview: http://127.0.0.1:${previewPort} (annotations: ${toolMode})`));
+}
+start().catch(error => { console.error('Preview startup failed:', error.message); process.exitCode = 1; });

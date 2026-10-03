@@ -1,1 +1,19 @@
-{"name":"wzz-portfolio","private":true,"version":"0.2.0","scripts":{"start":"node preview.cjs","build":"node build-site.cjs","check":"node --check portfolio.js && node --check preview.cjs && node --check build-site.cjs"}}
+{
+  "name": "wzz-portfolio",
+  "private": true,
+  "version": "0.2.0",
+  "scripts": {
+    "start": "node preview.cjs",
+    "build": "node build-site.cjs",
+    "check": "node --check portfolio.js && node --check hero-intro.js && node --check preview.cjs && node --check build-site.cjs && node --check release-audit.cjs && node --check dev/preview-tools.cjs && node --check dev/annotation-backup.js && node --check dev/agentation-legacy.js && node --check dev/agentation-island.mjs",
+    "check:release": "node release-audit.cjs",
+    "check:preview": "node dev/check-preview.cjs"
+  },
+  "devDependencies": {
+    "agentation": "3.1.2",
+    "agentation-vanilla": "github:fitzzz/agentation-vanilla#855c3df4bfe764eb4d4888e4fc99e39f87321547",
+    "esbuild": "0.28.2",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  }
+}
