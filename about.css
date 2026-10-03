@@ -108,6 +108,13 @@
   min-width: 0;
 }
 
+.refreshed-home #about .about-details {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .refreshed-home #about .about-portrait img {
   display: block;
   width: 100%;
@@ -187,14 +194,6 @@
   font-size: var(--wzz-font-body);
   font-weight: var(--wzz-weight-medium);
   line-height: var(--wzz-leading-body);
-}
-
-.refreshed-home #about .about-profile-en {
-  margin-top: var(--wzz-space-4);
-  color: var(--wzz-text-secondary);
-  font-size: var(--wzz-font-meta);
-  font-weight: var(--wzz-weight-regular);
-  line-height: var(--wzz-leading-meta);
 }
 
 @media (min-width: 768px) and (max-width: 1088px) {
