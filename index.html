@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="portfolio.css">
   <link rel="stylesheet" href="home-refresh.css">
   <link rel="stylesheet" href="hero-intro.css">
+  <link rel="stylesheet" href="about.css">
   <script src="portfolio.js" defer></script>
   <script src="hero-intro.js" defer></script>
 </head>
@@ -50,15 +51,48 @@
     </section>
 
     <section class="section wrap" id="about" aria-labelledby="about-title">
-      <div class="section-heading"><p class="eyebrow">01 / ABOUT ME</p><h2 id="about-title">关于我</h2><span class="part">PERSON / EDUCATION</span></div>
-      <div class="about-card">
-        <figure class="about-photo"><img src="assets/images/portrait.png" width="352" height="440" alt="王增增的个人照片"><figcaption><strong>王增增</strong><span>Wang Zengzeng</span></figcaption></figure>
-        <div class="about-copy">
-          <div class="about-intro"><p class="eyebrow">HELLO, I'M ZENGZENG</p><h3>从数字媒体出发，<br>连接设计、技术与日常体验。</h3><p>我的设计实践涵盖产品界面、活动视觉与 AIGC 创作。通过真实项目，我持续学习如何理解需求、梳理信息，并把设计想法转化为具体的页面与内容。</p></div>
-          <div class="education"><p class="eyebrow">EDUCATION / 教育经历</p><div class="education-title"><h4>集美大学诚毅学院</h4><span>2022.09 — 2026.06</span></div><p>数字媒体技术</p><ul class="awards"><li>第 12 届未来设计师 · 福建赛区省级一等奖</li><li>第 18 届中国好创意 · 福建赛区省级三等奖</li><li>第 15 届蓝桥杯 · 福建赛区省级三等奖</li></ul></div>
+    <div class="about-inner section-inner">
+    <div class="section-heading"><h2 id="about-title">关于我</h2></div>
+    <div class="about-cards">
+      <div class="about-window-bar" aria-hidden="true">
+        <div class="about-window-file">
+          <span class="about-window-dots"><i></i><i></i><i></i></span>
+          <span>about me.fig</span>
+        </div>
+        <div class="about-window-status">
+          <span class="about-window-zoom">100%</span>
+          <span class="about-collaborators"><i></i><i></i></span>
         </div>
       </div>
-    </section>
+      <div class="about-content-card">
+        <figure class="about-portrait">
+          <img src="assets/images/portrait.png" width="352" height="440" alt="王增增的个人照片" loading="lazy" decoding="async">
+        </figure>
+        <div class="about-details">
+          <div class="about-education" aria-labelledby="about-education-title">
+            <h3 class="about-label" id="about-education-title">EDUCATION / 教育经历</h3>
+            <div class="about-school-row">
+              <h4 class="about-school-name">集美大学诚毅学院</h4>
+              <span class="about-dates">2022.09 — 2026.06</span>
+            </div>
+            <p class="about-major">数字媒体技术</p>
+            <ul class="about-awards">
+              <li>第 12 届未来设计师 · 福建赛区省级一等奖</li>
+              <li>第 18 届中国好创意 · 福建赛区省级二等奖</li>
+            </ul>
+          </div>
+          <div class="about-profile" aria-labelledby="about-profile-title">
+            <h3 class="about-label" id="about-profile-title">PROFILE / 个人概述</h3>
+            <div class="about-profile-zh">
+              <p>具备多类型设计项目实践经验，参与过品牌视觉、活动设计、网页界面及 AIGC 相关项目。</p>
+              <p>持续关注设计与 AI 工具的结合，探索更高效、清晰的设计表达与落地方式。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+</section>
 
     <section class="section wrap" id="capabilities" aria-labelledby="capabilities-title">
       <div class="section-heading"><p class="eyebrow">02 / CORE CAPABILITIES</p><h2 id="capabilities-title">核心能力</h2><span class="part">MY DESIGN TOOLKIT</span></div>

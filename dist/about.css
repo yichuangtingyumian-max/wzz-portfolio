@@ -1,0 +1,237 @@
+/* About consumes the shared WZZ roles; .wrap still owns width and page gutters. */
+.refreshed-home #about {
+  color: var(--wzz-text-primary);
+  font-family: var(--wzz-font-sans);
+}
+
+.refreshed-home #about .section-heading {
+  margin-bottom: var(--wzz-heading-gap);
+}
+
+.refreshed-home #about .section-heading h2 {
+  margin: 0;
+  font-size: var(--wzz-font-h2);
+  font-weight: var(--wzz-weight-semibold);
+  line-height: var(--wzz-leading-section);
+  letter-spacing: var(--wzz-tracking-heading);
+}
+
+.refreshed-home #about .about-cards {
+  display: grid;
+  gap: var(--wzz-card-gap);
+}
+
+.refreshed-home #about .about-window-bar,
+.refreshed-home #about .about-content-card {
+  background: var(--wzz-surface);
+  border: var(--ds-border-width) solid var(--wzz-divider-color);
+  box-shadow: var(--wzz-shadow-card);
+}
+
+.refreshed-home #about .about-window-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--wzz-space-4);
+  min-height: var(--wzz-space-16);
+  padding: var(--wzz-space-3) var(--wzz-card-padding);
+  border-radius: var(--wzz-radius-card);
+  color: var(--wzz-text-secondary);
+  font-size: var(--wzz-font-meta);
+  font-weight: var(--wzz-weight-regular);
+  line-height: var(--wzz-leading-meta);
+}
+
+.refreshed-home #about .about-window-file,
+.refreshed-home #about .about-window-status,
+.refreshed-home #about .about-window-dots,
+.refreshed-home #about .about-collaborators {
+  display: flex;
+  align-items: center;
+}
+
+.refreshed-home #about .about-window-file,
+.refreshed-home #about .about-window-status {
+  gap: var(--wzz-space-6);
+  white-space: nowrap;
+}
+
+.refreshed-home #about .about-window-dots {
+  gap: var(--wzz-space-2);
+}
+
+/* Native window signals / collaborator colors are decorative component accents. */
+.refreshed-home #about .about-window-dots i {
+  width: var(--wzz-space-3);
+  height: var(--wzz-space-3);
+  border-radius: var(--wzz-radius-pill);
+  background: #ff5f57;
+}
+
+.refreshed-home #about .about-window-dots i:nth-child(2) {
+  background: #febc2e;
+}
+
+.refreshed-home #about .about-window-dots i:nth-child(3) {
+  background: #28c840;
+}
+
+.refreshed-home #about .about-window-zoom {
+  color: var(--wzz-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.refreshed-home #about .about-collaborators i {
+  width: var(--wzz-space-6);
+  height: var(--wzz-space-6);
+  border: calc(var(--ds-border-width) * 2) solid var(--wzz-surface);
+  border-radius: var(--wzz-radius-pill);
+  background: #ff6d57;
+}
+
+.refreshed-home #about .about-collaborators i + i {
+  margin-left: calc(-1 * var(--wzz-space-2));
+  background: #365dcc;
+}
+
+.refreshed-home #about .about-content-card {
+  display: grid;
+  grid-template-columns: minmax(0, 35fr) minmax(0, 65fr);
+  align-items: start;
+  gap: var(--wzz-column-gap);
+  padding: var(--wzz-card-padding);
+  border-radius: var(--wzz-radius-lg);
+}
+
+.refreshed-home #about .about-portrait,
+.refreshed-home #about .about-details {
+  min-width: 0;
+}
+
+.refreshed-home #about .about-details {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.refreshed-home #about .about-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--wzz-radius-md);
+}
+
+.refreshed-home #about .about-label {
+  margin: 0 0 var(--wzz-space-6);
+  color: var(--wzz-text-secondary);
+  font-size: var(--wzz-font-eyebrow);
+  font-weight: var(--wzz-weight-medium);
+  line-height: var(--wzz-leading-eyebrow);
+  letter-spacing: var(--wzz-tracking-eyebrow);
+}
+
+.refreshed-home #about .about-school-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--wzz-space-2) var(--wzz-space-4);
+}
+
+.refreshed-home #about .about-school-name {
+  font-size: var(--wzz-font-h4);
+  font-weight: var(--wzz-weight-semibold);
+  line-height: var(--wzz-leading-subtitle);
+}
+
+.refreshed-home #about .about-dates {
+  margin-left: auto;
+  color: var(--wzz-text-secondary);
+  font-size: var(--wzz-font-meta);
+  font-weight: var(--wzz-weight-regular);
+  line-height: var(--wzz-leading-meta);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.refreshed-home #about .about-major {
+  margin-top: var(--wzz-space-1);
+  color: var(--wzz-text-secondary);
+  font-size: var(--wzz-font-body);
+  font-weight: var(--wzz-weight-regular);
+  line-height: var(--wzz-leading-body);
+}
+
+.refreshed-home #about .about-awards {
+  margin: var(--wzz-space-6) 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--wzz-text-secondary);
+  font-size: var(--wzz-font-meta);
+  font-weight: var(--wzz-weight-regular);
+  line-height: var(--wzz-leading-body);
+}
+
+.refreshed-home #about .about-profile {
+  position: relative;
+  margin-top: var(--wzz-space-8);
+  padding-top: var(--wzz-space-6);
+}
+
+.refreshed-home #about .about-profile::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: var(--wzz-divider-height);
+  background: var(--wzz-divider-color);
+  opacity: var(--wzz-divider-opacity);
+}
+
+.refreshed-home #about .about-profile-zh {
+  font-size: var(--wzz-font-body);
+  font-weight: var(--wzz-weight-medium);
+  line-height: var(--wzz-leading-body);
+}
+
+@media (min-width: 768px) and (max-width: 1088px) {
+  .refreshed-home #about .about-content-card {
+    gap: var(--wzz-grid-gap);
+    padding: var(--wzz-space-6);
+  }
+}
+
+@media (max-width: 767px) {
+  .refreshed-home #about .about-window-bar {
+    min-height: calc(var(--wzz-space-12) + var(--wzz-space-2));
+    gap: var(--wzz-space-2);
+    padding: var(--wzz-space-3) var(--wzz-space-4);
+    font-size: var(--wzz-font-eyebrow);
+  }
+
+  .refreshed-home #about .about-window-file,
+  .refreshed-home #about .about-window-status {
+    gap: var(--wzz-space-2);
+  }
+
+  .refreshed-home #about .about-window-dots {
+    gap: var(--wzz-space-1);
+  }
+
+  .refreshed-home #about .about-window-dots i {
+    width: var(--wzz-space-2);
+    height: var(--wzz-space-2);
+  }
+
+  .refreshed-home #about .about-collaborators i {
+    width: var(--wzz-space-5);
+    height: var(--wzz-space-5);
+  }
+
+  .refreshed-home #about .about-content-card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--wzz-card-gap);
+  }
+}
