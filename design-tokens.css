@@ -249,6 +249,15 @@
   }
 }
 
+/* Shared inner width for Hero and About; global page container roles stay unchanged. */
+.refreshed-home .hero-intro,
+.refreshed-home .section-inner {
+  --wzz-hero-copy-width: 28rem;
+  /* The source canvas includes blank edges: 392px yields about 324px of visible hardware. */
+  --wzz-hero-computer-width: 24.5rem;
+  --wzz-hero-column-gap: var(--wzz-space-16);
+}
+
 /* Hero compact information roles. Scoped to Hero; existing global roles remain unchanged. */
 .refreshed-home .hero-intro {
   --wzz-font-hero-info: 1.375rem;
@@ -257,12 +266,8 @@
   --wzz-font-hero-note: var(--wzz-font-hero-info);
   --wzz-line-hero-note: var(--wzz-line-hero-info);
   --wzz-text-hero-info: color-mix(in srgb, var(--wzz-text-secondary) 88%, var(--wzz-page-bg));
-  --wzz-hero-copy-width: 28rem;
   --wzz-hero-copy-min: 27rem;
-  /* The source canvas includes blank edges: 392px yields about 324px of visible hardware. */
-  --wzz-hero-computer-width: 24.5rem;
   --wzz-hero-computer-min: 22rem;
-  --wzz-hero-column-gap: var(--wzz-space-16);
   --wzz-hero-row-height: var(--wzz-space-12);
   --wzz-hero-name-row-height: var(--wzz-space-12);
   --wzz-hero-row-padding: var(--wzz-space-1);

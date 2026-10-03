@@ -5,8 +5,10 @@
   display: block; grid-template-columns: none; gap: 0;
   color: var(--wzz-text-primary); font-family: var(--wzz-font-sans);
 }
-/* .wrap owns the outer width and gutters. Only these internal tracks are compact. */
-.hero-intro .hero-inner { display: grid; grid-template-columns: minmax(var(--wzz-hero-copy-min), var(--wzz-hero-copy-width)) minmax(var(--wzz-hero-computer-min), var(--wzz-hero-computer-width)); column-gap: var(--wzz-hero-column-gap); align-items: center; justify-content: start; width: 100%; max-width: calc(var(--wzz-hero-copy-width) + var(--wzz-hero-column-gap) + var(--wzz-hero-computer-width)); margin-inline: auto; }
+/* .wrap owns page gutters; Hero and section inner content share this width. */
+.hero-intro .hero-inner,
+.refreshed-home .section-inner { width: 100%; max-width: calc(var(--wzz-hero-copy-width) + var(--wzz-hero-column-gap) + var(--wzz-hero-computer-width)); margin-inline: auto; }
+.hero-intro .hero-inner { display: grid; grid-template-columns: minmax(var(--wzz-hero-copy-min), var(--wzz-hero-copy-width)) minmax(var(--wzz-hero-computer-min), var(--wzz-hero-computer-width)); column-gap: var(--wzz-hero-column-gap); align-items: center; justify-content: start; }
 .hero-intro .hero-copy { position: relative; z-index: 2; min-width: 0; width: 100%; max-width: var(--wzz-hero-copy-width); }
 .hero-intro .hero-info-row { position: relative; min-height: var(--wzz-hero-row-height); padding: var(--wzz-hero-row-padding) 0; }
 .hero-intro .hero-info-row::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: var(--wzz-divider-hero-height); background: linear-gradient(90deg, var(--wzz-divider-hero-color) 0%, var(--wzz-divider-hero-color) var(--wzz-divider-hero-fade-start), transparent 100%); pointer-events: none; }
@@ -83,7 +85,9 @@
   .refreshed-home .side-dock.hero-dock { left: var(--wzz-space-2); }
 }
 @media (max-width: 1088px) {
-  .hero-intro .hero-inner { grid-template-columns: minmax(0, 1fr); max-width: var(--wzz-hero-copy-width); row-gap: var(--wzz-space-4); }
+  .hero-intro .hero-inner,
+  .refreshed-home .section-inner { max-width: var(--wzz-hero-copy-width); }
+  .hero-intro .hero-inner { grid-template-columns: minmax(0, 1fr); row-gap: var(--wzz-space-4); }
   .hero-intro .hero-copy { margin: 0; }
   .hero-intro .retro-computer { width: min(var(--wzz-hero-computer-width), 100%); justify-self: center; }
 }
