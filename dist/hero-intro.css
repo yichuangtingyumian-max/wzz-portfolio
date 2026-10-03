@@ -1,7 +1,7 @@
 /* Hero compact layout / Navigation V3. Shared visual values use v1.0 tokens.
    Screen crop coordinates and sticker angles are optical artwork values. */
 .refreshed-home .hero.hero-intro {
-  min-height: 0; padding: var(--wzz-hero-padding-y) 0;
+  min-height: 0; padding: var(--wzz-hero-padding-top) 0 var(--wzz-hero-padding-y);
   display: block; grid-template-columns: none; gap: 0;
   color: var(--wzz-text-primary); font-family: var(--wzz-font-sans);
 }
