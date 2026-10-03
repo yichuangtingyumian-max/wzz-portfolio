@@ -1,6 +1,5 @@
 (() => {
   document.querySelectorAll('.folder-cover').forEach(button=>button.addEventListener('click',()=>{const open=button.getAttribute('aria-expanded')!=='true';button.setAttribute('aria-expanded',String(open));document.getElementById(button.getAttribute('aria-controls')).hidden=!open;button.querySelector('.folder-hint').textContent=open?'收起文件夹 ↙':'打开文件夹 ↗';}));
-  document.querySelectorAll('.journey-card').forEach(button=>button.addEventListener('click',()=>{const open=button.getAttribute('aria-expanded')!=='true';button.setAttribute('aria-expanded',String(open));button.querySelector('.journey-front').setAttribute('aria-hidden',String(open));button.querySelector('.journey-back').setAttribute('aria-hidden',String(!open));}));
   document.querySelectorAll('.kit-cover').forEach(button=>button.addEventListener('click',()=>{
     const open=button.getAttribute('aria-expanded')!=='true';
     document.querySelectorAll('.kit-cover').forEach(other=>{const active=other===button&&open;other.setAttribute('aria-expanded',String(active));other.closest('.kit-folder').classList.toggle('is-open',active);document.getElementById(other.getAttribute('aria-controls')).hidden=!active;other.querySelector('.kit-open').textContent=active?'收起工具夹 ↙':'打开工具夹 ↗';});

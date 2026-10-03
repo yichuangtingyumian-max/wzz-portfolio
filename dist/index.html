@@ -12,8 +12,10 @@
   <link rel="stylesheet" href="home-refresh.css">
   <link rel="stylesheet" href="hero-intro.css">
   <link rel="stylesheet" href="about.css">
+  <link rel="stylesheet" href="experience.css">
   <script src="portfolio.js" defer></script>
   <script src="hero-intro.js" defer></script>
+  <script src="experience.js" defer></script>
 </head>
 <body class="home-page refreshed-home">
   <a class="skip" href="#main">跳到主要内容</a>
@@ -107,10 +109,34 @@
     </section>
 
     <section class="section wrap" id="experience" aria-labelledby="experience-title">
-      <div class="section-heading"><p class="eyebrow">03 / EXPERIENCE</p><h2 id="experience-title">工作经历</h2><span class="part">CLICK TO FLIP</span></div>
-      <div class="journey-list">
-        <button type="button" class="journey-card" aria-expanded="false" aria-label="北京逅客酒店管理有限公司，点击翻转查看经历"><span class="journey-inner"><span class="journey-front"><span class="company-mark company-juzi" aria-hidden="true">桔子</span><span class="journey-main"><strong>北京逅客酒店管理有限公司</strong><span class="journey-role">UI 实习设计师</span></span><span class="journey-date">2026.03 — 2026.06</span><span class="flip-hint">实习经历 ↻</span></span><span class="journey-back" aria-hidden="true"><span class="company-mark company-juzi" aria-hidden="true">桔子</span><span class="journey-summary">在桔子短租的体验升级中，我从用户反馈和找房流程出发，参与首页、筛选、列表与详情设计，并将想法推进到高保真页面。这个过程让我更重视信息的顺序，以及每一步操作背后的用户需求。</span><span class="flip-hint">返回 ↻</span></span></span></button>
-        <button type="button" class="journey-card" aria-expanded="false" aria-label="杭州天猫校园技术服务有限公司，点击翻转查看经历"><span class="journey-inner"><span class="journey-front"><span class="company-mark company-tmall" aria-hidden="true">天猫<br>校园</span><span class="journey-main"><strong>杭州天猫校园技术服务有限公司</strong><span class="journey-role">UI / 视觉设计师</span></span><span class="journey-date">2025.08 — 2026.01</span><span class="flip-hint">实习经历 ↻</span></span><span class="journey-back" aria-hidden="true"><span class="company-mark company-tmall" aria-hidden="true">天猫<br>校园</span><span class="journey-summary">从活动玩法讨论到视觉素材制作，我尝试把 AI 生图与二次处理结合起来。围绕喵莘莘 IP 的延展和多尺寸适配，逐渐沉淀可复用的提示词与方法，也更关注创意与一致性之间的平衡。</span><span class="flip-hint">返回 ↻</span></span></span></button>
+      <div class="section-heading"><p class="eyebrow">03 / DESIGN JOURNEY</p><h2 id="experience-title">设计之旅</h2><span class="part">CLICK / TAP TO TURN</span></div>
+      <div class="experience-list">
+        <button type="button" class="experience-card" data-accent="quiet" aria-expanded="false" aria-controls="experience-back-juzi" aria-label="北京逅客酒店管理有限公司，UI 实习设计师，2026.03 至 2026.06，实习经历。切换经历与感想">
+          <span class="experience-inner">
+            <span class="experience-face experience-front" aria-hidden="false">
+              <span class="experience-logo" aria-hidden="true"><img src="assets/images/hero-logo-juzi.png" alt="" width="1254" height="1254" loading="lazy"></span>
+              <span class="experience-main"><strong class="experience-company">北京逅客酒店管理有限公司</strong><span class="experience-role">UI 实习设计师</span><span class="experience-type">实习经历</span></span>
+              <span class="experience-meta"><span class="experience-date">2026.03 — 2026.06</span><span class="experience-action"><span>查看感想</span><span class="experience-action-mark" aria-hidden="true">↻</span></span></span>
+            </span>
+            <span class="experience-face experience-back" id="experience-back-juzi" aria-hidden="true">
+              <span class="experience-reflection"><span class="experience-reflection-label">WHAT I LEARNED</span><span class="experience-reflection-copy" id="experience-reflection-juzi">在桔子短租升级中，我从用户反馈和找房流程出发，参与首页、筛选与详情设计。这让我开始更在意信息的顺序，以及每一步操作背后的真实需求。</span></span>
+              <span class="experience-back-aside"><span class="experience-logo" aria-hidden="true"><img src="assets/images/hero-logo-juzi.png" alt="" width="1254" height="1254" loading="lazy"></span><span class="experience-action"><span>返回经历</span><span class="experience-action-mark" aria-hidden="true">↶</span></span></span>
+            </span>
+          </span>
+        </button>
+        <button type="button" class="experience-card" data-accent="warm" aria-expanded="false" aria-controls="experience-back-tmall" aria-label="杭州天猫校园技术服务有限公司，UI / 视觉设计师，2025.08 至 2026.01，实习经历。切换经历与感想">
+          <span class="experience-inner">
+            <span class="experience-face experience-front" aria-hidden="false">
+              <span class="experience-logo" aria-hidden="true"><img src="assets/images/hero-logo-tmall.png" alt="" width="660" height="327" loading="lazy"></span>
+              <span class="experience-main"><strong class="experience-company">杭州天猫校园技术服务有限公司</strong><span class="experience-role">UI / 视觉设计师</span><span class="experience-type">实习经历</span></span>
+              <span class="experience-meta"><span class="experience-date">2025.08 — 2026.01</span><span class="experience-action"><span>查看感想</span><span class="experience-action-mark" aria-hidden="true">↻</span></span></span>
+            </span>
+            <span class="experience-face experience-back" id="experience-back-tmall" aria-hidden="true">
+              <span class="experience-reflection"><span class="experience-reflection-label">WHAT I LEARNED</span><span class="experience-reflection-copy" id="experience-reflection-tmall">从校园活动视觉到喵莘莘 AIGC 提效，我尝试把 AI 生图与二次处理结合起来。慢慢整理出可复用的方法，也更习惯在创意与一致性之间做取舍。</span></span>
+              <span class="experience-back-aside"><span class="experience-logo" aria-hidden="true"><img src="assets/images/hero-logo-tmall.png" alt="" width="660" height="327" loading="lazy"></span><span class="experience-action"><span>返回经历</span><span class="experience-action-mark" aria-hidden="true">↶</span></span></span>
+            </span>
+          </span>
+        </button>
       </div>
     </section>
 

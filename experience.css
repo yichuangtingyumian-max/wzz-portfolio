@@ -1,0 +1,248 @@
+/* Design Journey consumes existing tokens without changing the global contract. */
+#experience .experience-list {
+  display: grid;
+  gap: var(--wzz-card-gap);
+}
+
+#experience .experience-card {
+  width: 100%;
+  min-block-size: calc(var(--wzz-space-20) * 2);
+  padding: 0;
+  border: 0;
+  border-radius: var(--wzz-radius-card);
+  background: none;
+  color: var(--wzz-text-primary);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  touch-action: manipulation;
+  perspective: 1000px;
+}
+
+/* Both faces share one grid track, including when text wraps or is enlarged. */
+#experience .experience-inner {
+  display: grid;
+  min-block-size: inherit;
+  transition: transform var(--wzz-motion-fast) var(--wzz-ease-standard);
+}
+
+#experience .experience-face {
+  grid-area: 1 / 1;
+  display: grid;
+  align-items: center;
+  gap: var(--wzz-column-gap);
+  padding: var(--wzz-space-6) var(--wzz-space-8);
+  border: var(--ds-border-width) solid var(--wzz-divider-color);
+  border-radius: var(--wzz-radius-card);
+  background: linear-gradient(115deg, var(--wzz-surface), color-mix(in srgb, var(--wzz-surface) 96%, var(--wzz-text-secondary)));
+  box-shadow: var(--ds-shadow-surface);
+  transform-origin: center;
+  transition: opacity var(--wzz-motion-flip) var(--wzz-ease-standard),
+    transform var(--wzz-motion-flip) var(--wzz-ease-standard),
+    border-color var(--wzz-motion-fast) var(--wzz-ease-standard),
+    box-shadow var(--wzz-motion-fast) var(--wzz-ease-standard);
+}
+
+#experience .experience-front {
+  grid-template-columns: var(--wzz-space-20) minmax(0, 1fr) auto;
+  opacity: 1;
+  transform: none;
+}
+
+#experience .experience-logo {
+  display: grid;
+  place-items: center;
+  width: var(--wzz-space-20);
+  height: var(--wzz-space-16);
+}
+
+#experience .experience-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* The wide Tmall asset includes blank edges; keep its actual mark legible. */
+#experience [data-accent="warm"] .experience-front .experience-logo img {
+  width: calc(100% + var(--wzz-space-6));
+}
+
+#experience .experience-main,
+#experience .experience-meta,
+#experience .experience-reflection,
+#experience .experience-back-aside {
+  display: flex;
+  flex-direction: column;
+  gap: var(--wzz-space-2);
+  min-width: 0;
+}
+
+#experience .experience-company {
+  font-size: var(--wzz-font-h4);
+  font-weight: var(--wzz-weight-semibold);
+  line-height: var(--wzz-leading-subtitle);
+}
+
+#experience .experience-role,
+#experience .experience-date,
+#experience .experience-action {
+  color: var(--wzz-text-secondary);
+  font-size: var(--wzz-font-meta);
+  font-weight: var(--wzz-weight-regular);
+  line-height: var(--wzz-leading-meta);
+}
+
+#experience .experience-type {
+  align-self: flex-start;
+  padding: 0 var(--wzz-space-2);
+  border: var(--ds-border-width) solid var(--wzz-divider-color);
+  border-radius: var(--wzz-radius-pill);
+  color: var(--wzz-text-secondary);
+  font-size: var(--ds-size-12);
+  line-height: var(--wzz-leading-meta);
+}
+
+#experience .experience-meta {
+  align-items: flex-end;
+  gap: var(--wzz-space-4);
+}
+
+#experience .experience-date { white-space: nowrap; }
+
+#experience .experience-action {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--wzz-space-2);
+}
+
+#experience .experience-front .experience-action > span:first-child {
+  opacity: 0;
+  transition: opacity var(--wzz-motion-tiny) var(--wzz-ease-standard);
+}
+
+#experience .experience-action-mark {
+  display: inline-block;
+  transition: transform var(--wzz-motion-fast) var(--wzz-ease-standard);
+}
+
+#experience .experience-back {
+  grid-template-columns: minmax(0, 1fr) auto;
+  background: linear-gradient(115deg, color-mix(in srgb, var(--wzz-surface) 94%, var(--ds-color-accent)), var(--wzz-surface));
+  opacity: 0;
+  transform: translateY(var(--wzz-space-1)) rotateX(-6deg);
+  pointer-events: none;
+}
+
+#experience [data-accent="warm"] .experience-back {
+  background: linear-gradient(115deg, color-mix(in srgb, var(--wzz-surface) 96%, #ed8f2d), var(--wzz-surface));
+}
+
+#experience .experience-reflection-label {
+  color: var(--wzz-text-secondary);
+  font-size: var(--wzz-font-eyebrow);
+  font-weight: var(--wzz-weight-medium);
+  line-height: var(--wzz-leading-eyebrow);
+  letter-spacing: var(--wzz-tracking-eyebrow);
+}
+
+#experience .experience-reflection-copy {
+  max-width: var(--ds-copy-max);
+  color: var(--wzz-text-secondary);
+  font-size: var(--wzz-font-body);
+  line-height: var(--wzz-leading-body);
+}
+
+#experience .experience-back-aside {
+  align-items: flex-end;
+  gap: var(--wzz-space-4);
+}
+
+#experience .experience-back .experience-logo {
+  width: var(--wzz-space-16);
+  height: var(--wzz-space-12);
+  opacity: .65;
+}
+
+#experience .experience-card[aria-expanded="true"] .experience-front {
+  opacity: 0;
+  transform: translateY(calc(-1 * var(--wzz-space-1))) rotateX(6deg);
+  pointer-events: none;
+}
+
+#experience .experience-card[aria-expanded="true"] .experience-back {
+  opacity: 1;
+  transform: none;
+}
+
+#experience .experience-card:focus-visible {
+  outline: 2px solid var(--wzz-focus-color);
+  outline-offset: var(--wzz-space-1);
+}
+
+#experience .experience-card:focus-visible .experience-front .experience-action > span:first-child { opacity: 1; }
+
+@media (hover: hover) and (pointer: fine) {
+  #experience .experience-card:hover .experience-inner { transform: translateY(calc(-1 * var(--wzz-space-1) / 2)); }
+  #experience .experience-card:hover .experience-face {
+    border-color: color-mix(in srgb, var(--wzz-divider-color) 75%, var(--wzz-text-secondary));
+    box-shadow: var(--wzz-shadow-card);
+  }
+  #experience .experience-card:hover .experience-front .experience-action > span:first-child { opacity: 1; }
+  #experience .experience-card:hover .experience-action-mark { transform: rotate(-12deg); }
+}
+
+@media (max-width: 1000px) {
+  #experience .experience-face { gap: var(--wzz-space-4); padding-inline: var(--wzz-space-6); }
+  #experience .experience-front { grid-template-columns: var(--wzz-space-16) minmax(0, 1fr) auto; }
+  #experience .experience-front .experience-logo { width: var(--wzz-space-16); }
+}
+
+@media (max-width: 640px) {
+  #experience .experience-card { min-block-size: calc(var(--wzz-space-20) * 3); }
+  #experience .experience-face { padding: var(--wzz-space-5); gap: var(--wzz-space-4); }
+  #experience .experience-front { grid-template-columns: var(--wzz-space-12) minmax(0, 1fr); }
+  #experience .experience-front .experience-logo { width: var(--wzz-space-12); height: var(--wzz-space-12); }
+  #experience .experience-meta { grid-column: 2; align-items: flex-start; gap: var(--wzz-space-2); }
+  #experience .experience-back { grid-template-columns: minmax(0, 1fr); }
+  #experience .experience-back .experience-logo { display: none; }
+  #experience .experience-back-aside { align-self: end; }
+  #experience .experience-front .experience-action > span:first-child { opacity: 1; }
+}
+
+/* One body-level contextual cursor label; it never participates in layout or hit testing. */
+.experience-hover-hint {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: max-content;
+  z-index: 1000;
+  pointer-events: none;
+  will-change: transform;
+}
+.experience-hover-hint > span {
+  display: block;
+  padding: 7px var(--wzz-space-3);
+  border-radius: var(--wzz-radius-pill);
+  background: rgba(25, 25, 25, .92);
+  color: rgba(255, 255, 255, .95);
+  font-size: var(--ds-size-12);
+  font-weight: var(--wzz-weight-medium);
+  line-height: var(--wzz-leading-meta);
+  white-space: nowrap;
+  box-shadow: var(--wzz-shadow-sticker);
+  opacity: 0;
+  transform: scale(.92);
+  transform-origin: top left;
+  transition: opacity var(--wzz-motion-tiny) var(--wzz-ease-standard), transform var(--wzz-motion-tiny) var(--wzz-ease-standard);
+}
+.experience-hover-hint[data-visible="true"] > span { opacity: 1; transform: scale(1); }
+
+@media (prefers-reduced-motion: reduce) {
+  #experience .experience-inner,
+  #experience .experience-front,
+  #experience .experience-back,
+  #experience .experience-action-mark { transform: none !important; }
+  #experience .experience-face { transition: opacity var(--wzz-motion-tiny) linear !important; }
+  .experience-hover-hint > span { transform: none !important; transition: opacity var(--wzz-motion-tiny) linear !important; }
+}
