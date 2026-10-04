@@ -1,4 +1,4 @@
-/* Fixed two-face cards; the shared .wrap owns page width and gutters. */
+/* Fixed two-face cards; reuse About's shared .section-inner content rail. */
 .refreshed-home #experience {
   --experience-height: 7.4375rem;
   --experience-radius: var(--wzz-radius-lg);
@@ -6,7 +6,6 @@
   --experience-ease: cubic-bezier(.22, 1, .36, 1);
   padding-block: var(--wzz-space-12);
 }
-#experience .experience-section-inner { width: 100%; }
 #experience .section-heading { margin-bottom: var(--ds-space-10); }
 .refreshed-home #experience .section-heading h2 { margin: 0; font-size: var(--wzz-font-h2); font-weight: var(--wzz-weight-semibold); line-height: var(--wzz-leading-section); letter-spacing: 0; }
 #experience .experience-list { display: grid; gap: var(--wzz-space-5); }
@@ -89,6 +88,10 @@
 #experience .experience-brand img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; }
 #experience .experience-card:focus-visible { outline: 2px solid var(--wzz-focus-color); outline-offset: var(--wzz-space-1); }
 
+/* Hero's 448px single-column cap cannot fit the unchanged resume layout. */
+@media (max-width: 1088px) {
+  #experience .section-inner { max-width: none; }
+}
 @media (max-width: 1100px) {
   .refreshed-home #experience { --experience-height: 10rem; }
   #experience .experience-back { padding: var(--wzz-space-3) var(--wzz-space-6); gap: var(--wzz-space-4); }
