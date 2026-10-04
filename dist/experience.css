@@ -1,13 +1,12 @@
-/* Fixed two-face cards, calibrated to the 1042 x 119 Figma exports. */
+/* Fixed two-face cards; the shared .wrap owns page width and gutters. */
 .refreshed-home #experience {
-  --experience-max: 65.125rem;
   --experience-height: 7.4375rem;
   --experience-radius: var(--wzz-radius-lg);
   --experience-motion: 600ms;
   --experience-ease: cubic-bezier(.22, 1, .36, 1);
   padding-block: var(--wzz-space-12);
 }
-#experience .experience-section-inner { width: 100%; max-width: var(--experience-max); margin-inline: auto; }
+#experience .experience-section-inner { width: 100%; }
 #experience .section-heading { margin-bottom: var(--ds-space-10); }
 .refreshed-home #experience .section-heading h2 { margin: 0; font-size: var(--wzz-font-h2); font-weight: var(--wzz-weight-semibold); line-height: var(--wzz-leading-section); letter-spacing: 0; }
 #experience .experience-list { display: grid; gap: var(--wzz-space-5); }
