@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="selected-works.css">
   <script src="portfolio.js" defer></script>
   <script src="hero-intro.js" defer></script>
+  <script src="featured-projects.js" defer></script>
 </head>
 <body class="home-page refreshed-home">
   <a class="skip" href="#main">跳到主要内容</a>
@@ -118,52 +119,54 @@
     <section class="works-band" id="work" aria-labelledby="work-title">
       <div class="wrap section">
         <div class="section-heading"><p class="eyebrow">04 / SELECTED WORKS</p><h2 id="work-title">重点项目</h2><span class="part">THREE PROJECTS</span></div>
-        <div class="selected-works-list">
-          <a class="selected-project selected-juzi" id="work-juzi" href="juzi.html" aria-labelledby="selected-juzi-title" aria-describedby="selected-juzi-description">
-            <div class="selected-project-copy">
-              <p class="selected-project-type"><span>01</span> PRODUCT EXPERIENCE</p>
-              <h3 id="selected-juzi-title">桔子短租升级</h3>
-              <p class="selected-project-description" id="selected-juzi-description">围绕找房流程，梳理信息与体验，让关键内容更容易被看见。</p>
-              <p class="selected-project-context">UI 实习设计师 · 桔子短租</p>
-              <ul class="selected-project-tags" aria-label="项目类型"><li>UI / UX</li><li>界面设计</li></ul>
-              <span class="selected-project-link" aria-hidden="true">查看项目 <span>↗</span></span>
+        <div class="featured-project-list">
+        <!-- featured-projects:start -->
+          <a class="featured-project featured-tmall" id="work-tmall" href="tmall.html" aria-labelledby="featured-tmall-title" aria-describedby="featured-tmall-description">
+            <div class="featured-project-copy">
+              <h3 id="featured-tmall-title">天猫校园集卡活动</h3>
+              <p class="featured-project-description" id="featured-tmall-description">围绕开学季校园场景，构建活动视觉体系，并结合 AIGC 完成多场景创意延展。</p>
+              <ul class="featured-project-tags" aria-label="项目类型"><li>校园 Campaign</li><li>活动视觉</li><li>AI 辅助创作</li></ul>
             </div>
-            <div class="selected-project-visual">
-              <img class="selected-project-image" src="assets/images/selected-juzi.webp" alt="桔子短租找房界面的双手机主视觉" width="1280" height="1067" loading="lazy" decoding="async">
-              <span class="selected-sticker selected-sticker-logo" aria-hidden="true"><img src="assets/images/hero-logo-juzi.png" alt="" width="1254" height="1254" loading="lazy" decoding="async"></span>
-              <span class="selected-sticker selected-sticker-note" aria-hidden="true">找房体验</span>
+            <div class="featured-project-media">
+              <img class="featured-project-hero" src="assets/images/featured-tmall-hero.svg" alt="天猫校园集卡活动的喵莘莘与校园建筑主视觉" width="636" height="343" loading="lazy" decoding="async">
+              <img class="featured-project-sticker" data-slot="top-left" src="assets/images/featured-tmall-sticker-1.png" alt="" aria-hidden="true" width="201" height="127" loading="lazy" decoding="async">
+              <img class="featured-project-sticker" data-slot="top-right" src="assets/images/featured-tmall-sticker-2.png" alt="" aria-hidden="true" width="173" height="173" loading="lazy" decoding="async">
+              <img class="featured-project-sticker" data-slot="bottom-left" src="assets/images/featured-tmall-sticker-3.png" alt="" aria-hidden="true" width="234" height="217" loading="lazy" decoding="async">
+              <img class="featured-project-sticker" data-slot="bottom-right" src="assets/images/featured-tmall-sticker-4.png" alt="" aria-hidden="true" width="208" height="208" loading="lazy" decoding="async">
             </div>
+            <span class="featured-project-cursor" aria-hidden="true">查看项目 <span>↗</span></span>
           </a>
-          <a class="selected-project selected-tmall" id="work-tmall" href="tmall.html" aria-labelledby="selected-tmall-title" aria-describedby="selected-tmall-description">
-            <div class="selected-project-copy">
-              <p class="selected-project-type"><span>02</span> CAMPAIGN / VISUAL</p>
-              <h3 id="selected-tmall-title">天猫校园集卡活动</h3>
-              <p class="selected-project-description" id="selected-tmall-description">从活动玩法到视觉素材，探索校园场景中的互动与表达。</p>
-              <p class="selected-project-context">UI / 视觉设计 · 天猫校园</p>
-              <ul class="selected-project-tags" aria-label="项目类型"><li>活动视觉</li><li>AI 辅助创作</li></ul>
-              <span class="selected-project-link" aria-hidden="true">查看项目 <span>↗</span></span>
+          <a class="featured-project featured-aigc" id="work-aigc" href="aigc.html" aria-labelledby="featured-aigc-title" aria-describedby="featured-aigc-description">
+            <div class="featured-project-copy">
+              <h3 id="featured-aigc-title">喵莘莘 AIGC 提效</h3>
+              <p class="featured-project-description" id="featured-aigc-description">探索 AIGC 在 IP 素材生产中的应用，搭建更高效、可复用的创意工作流。</p>
+              <ul class="featured-project-tags" aria-label="项目类型"><li>AIGC 设计</li><li>IP 延展</li><li>工作流提效</li></ul>
             </div>
-            <div class="selected-project-visual">
-              <img class="selected-project-image" src="assets/images/selected-tmall.webp" alt="天猫校园喵莘莘与开学季建筑主视觉" width="1280" height="1380" loading="lazy" decoding="async">
-              <span class="selected-sticker selected-sticker-logo" aria-hidden="true"><img src="assets/images/hero-logo-tmall.png" alt="" width="658" height="329" loading="lazy" decoding="async"></span>
-              <span class="selected-sticker selected-sticker-note" aria-hidden="true">校园集卡</span>
+            <div class="featured-project-media">
+              <img class="featured-project-hero" src="assets/images/featured-aigc-hero.svg" alt="喵莘莘 IP 与超市场景的 AIGC 主视觉" width="634" height="342" loading="lazy" decoding="async">
+              <img class="featured-project-sticker" data-slot="top-left" src="assets/images/featured-aigc-sticker-1.png" alt="" aria-hidden="true" width="214" height="242" loading="lazy" decoding="async">
+              <img class="featured-project-sticker" data-slot="top-right" src="assets/images/featured-aigc-sticker-2.png" alt="" aria-hidden="true" width="222" height="224" loading="lazy" decoding="async">
+              <img class="featured-project-sticker" data-slot="bottom-left" src="assets/images/featured-aigc-sticker-3.png" alt="" aria-hidden="true" width="177" height="100" loading="lazy" decoding="async">
+              <img class="featured-project-sticker" data-slot="bottom-right" src="assets/images/featured-aigc-sticker-4.png" alt="" aria-hidden="true" width="374" height="278" loading="lazy" decoding="async">
             </div>
+            <span class="featured-project-cursor" aria-hidden="true">查看项目 <span>↗</span></span>
           </a>
-          <a class="selected-project selected-aigc" id="work-aigc" href="aigc.html" aria-labelledby="selected-aigc-title" aria-describedby="selected-aigc-description">
-            <div class="selected-project-copy">
-              <p class="selected-project-type"><span>03</span> AI EXPLORATION</p>
-              <h3 id="selected-aigc-title">喵莘莘 AIGC 提效</h3>
-              <p class="selected-project-description" id="selected-aigc-description">围绕品牌 IP 延展与多场景适配，探索可复用的素材创作流程。</p>
-              <p class="selected-project-context">AIGC 探索 · IP 延展</p>
-              <ul class="selected-project-tags" aria-label="项目类型"><li>IP 延展</li><li>工作流</li></ul>
-              <span class="selected-project-link" aria-hidden="true">查看项目 <span>↗</span></span>
+          <a class="featured-project featured-juzi" id="work-juzi" href="juzi.html" aria-labelledby="featured-juzi-title" aria-describedby="featured-juzi-description">
+            <div class="featured-project-copy">
+              <h3 id="featured-juzi-title">桔子短租升级项目</h3>
+              <p class="featured-project-description" id="featured-juzi-description">从用户找房痛点出发，优化核心浏览与筛选链路，提升信息获取和决策效率。</p>
+              <ul class="featured-project-tags" aria-label="项目类型"><li>产品体验</li><li>UI·UX设计</li><li>核心链路优化</li></ul>
             </div>
-            <div class="selected-project-visual">
-              <img class="selected-project-image" src="assets/images/selected-aigc.webp" alt="喵莘莘 IP 在超市场景中的 AIGC 主视觉" width="1280" height="873" loading="lazy" decoding="async">
-              <span class="selected-sticker selected-sticker-label" aria-hidden="true">IP × AI</span>
-              <span class="selected-sticker selected-sticker-note" aria-hidden="true">WORKFLOW</span>
+            <div class="featured-project-media">
+              <img class="featured-project-hero" src="assets/images/featured-juzi-hero.svg" alt="桔子短租浏览与筛选界面的双手机主视觉" width="495" height="387" loading="lazy" decoding="async">
+              <img class="featured-project-sticker" data-slot="top-left" src="assets/images/featured-juzi-sticker-1.png" alt="" aria-hidden="true" width="235" height="123" loading="lazy" decoding="async">
+              <img class="featured-project-sticker" data-slot="top-right" src="assets/images/featured-juzi-sticker-2.png" alt="" aria-hidden="true" width="222" height="222" loading="lazy" decoding="async">
+              <img class="featured-project-sticker" data-slot="bottom-left" src="assets/images/featured-juzi-sticker-3.png" alt="" aria-hidden="true" width="135" height="134" loading="lazy" decoding="async">
+              <img class="featured-project-sticker" data-slot="bottom-right" src="assets/images/featured-juzi-sticker-4.png" alt="" aria-hidden="true" width="241" height="232" loading="lazy" decoding="async">
             </div>
+            <span class="featured-project-cursor" aria-hidden="true">查看项目 <span>↗</span></span>
           </a>
+        <!-- featured-projects:end -->
         </div>
       </div>
     </section>
