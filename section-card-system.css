@@ -1,0 +1,112 @@
+/* Shared middle-page layout roles. Values reuse the formal WZZ tokens;
+   only the four explicit card-system sections consume these aliases. */
+.refreshed-home .card-system-section {
+  --wzz-layout-content-max: var(--ds-content-max);
+  --wzz-layout-gutter: var(--ds-page-gutter);
+  --wzz-layout-section-space: var(--wzz-section-space);
+  --wzz-layout-heading-gap: var(--wzz-heading-gap);
+  --wzz-layout-card-gap: var(--wzz-card-gap);
+  --wzz-layout-card-padding: var(--wzz-card-padding);
+  --wzz-layout-card-radius: var(--wzz-radius-lg);
+  --wzz-layout-card-border: var(--wzz-divider-color);
+  --wzz-layout-card-surface: var(--wzz-surface);
+  --wzz-layout-card-shadow: var(--wzz-shadow-card);
+  width: min(var(--wzz-layout-content-max), calc(100% - var(--wzz-layout-gutter) * 2));
+  margin-inline: auto;
+  padding-block: var(--wzz-layout-section-space);
+}
+.refreshed-home .card-system-inner,
+.refreshed-home .card-system-header,
+.refreshed-home .card-system-content {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  margin-inline: 0;
+}
+.refreshed-home .card-system-header { margin-block: 0 var(--wzz-layout-heading-gap); }
+.refreshed-home :is(#about, #capabilities, #experience, #work) .section-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  column-gap: var(--wzz-grid-gap);
+  row-gap: var(--wzz-space-2);
+  width: 100%;
+  margin: 0;
+}
+.refreshed-home :is(#about, #capabilities, #experience, #work) .section-heading .eyebrow {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--wzz-text-secondary);
+  font-size: var(--wzz-font-eyebrow);
+  font-weight: var(--wzz-weight-medium);
+  line-height: var(--wzz-leading-eyebrow);
+  letter-spacing: var(--wzz-tracking-eyebrow);
+}
+.refreshed-home :is(#about, #capabilities, #experience, #work) .section-heading h2 {
+  grid-column: 1;
+  margin: 0;
+  color: var(--wzz-text-primary);
+  font-family: var(--wzz-font-sans);
+  font-size: var(--wzz-font-h2);
+  font-weight: var(--wzz-weight-semibold);
+  line-height: var(--wzz-leading-section);
+  letter-spacing: var(--wzz-tracking-heading);
+}
+.refreshed-home :is(#about, #capabilities, #experience, #work) .section-heading .part {
+  position: static;
+  display: block;
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: end;
+  margin: 0;
+  white-space: nowrap;
+  color: var(--wzz-text-secondary);
+  font-size: var(--wzz-font-eyebrow);
+  line-height: var(--wzz-leading-eyebrow);
+  letter-spacing: var(--wzz-tracking-eyebrow);
+}
+.refreshed-home .card-system-header .section-lead {
+  margin: var(--wzz-space-4) 0 0;
+  color: var(--wzz-text-secondary);
+  font-size: var(--wzz-font-body);
+  line-height: var(--wzz-leading-body);
+}
+.refreshed-home :is(#about, #capabilities, #experience, #work) :is(.about-cards, .journey-list, .featured-project-list) {
+  gap: var(--wzz-layout-card-gap);
+}
+.refreshed-home :is(#about, #capabilities, #experience, #work) :is(.about-content-card, .toolkit-stage, .journey-front, .journey-back, .featured-project) {
+  width: 100%;
+  min-width: 0;
+  border: var(--ds-border-width) solid var(--wzz-layout-card-border);
+  border-radius: var(--wzz-layout-card-radius);
+  background-color: var(--wzz-layout-card-surface);
+  box-shadow: var(--wzz-layout-card-shadow);
+}
+.refreshed-home :is(#about, #capabilities, #experience, #work) :is(.about-content-card, .toolkit-stage, .journey-front, .journey-back) {
+  padding: var(--wzz-layout-card-padding);
+}
+/* The window toolbar is the compact surface variant; object folders and
+   artwork keep their own material treatment inside the shared main surface. */
+.refreshed-home #about .about-window-bar {
+  padding-inline: var(--wzz-layout-card-padding);
+  border-color: var(--wzz-layout-card-border);
+  background-color: var(--wzz-layout-card-surface);
+  box-shadow: var(--wzz-layout-card-shadow);
+}
+.refreshed-home #experience .journey-card { height: auto; border-radius: var(--wzz-layout-card-radius); }
+/* Both flip faces size one shared grid track. Long copy determines its height
+   at narrow widths instead of escaping an absolutely positioned fixed face. */
+.refreshed-home #experience .journey-inner { display: grid; height: auto; }
+.refreshed-home #experience :is(.journey-front, .journey-back) {
+  position: relative;
+  inset: auto;
+  grid-area: 1 / 1;
+  height: auto;
+  align-content: center;
+}
+/* Featured artwork remains edge-to-edge. Its text uses the common horizontal
+   inset while the approved vertical composition and motion stay untouched. */
+.refreshed-home #work .featured-project-copy { padding-inline: var(--wzz-layout-card-padding); }
+@media (min-width: 768px) and (max-width: 1088px) {
+  .refreshed-home .card-system-section { --wzz-layout-card-padding: var(--wzz-space-6); }
+}

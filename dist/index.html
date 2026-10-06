@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="hero-intro.css">
   <link rel="stylesheet" href="about.css">
   <link rel="stylesheet" href="selected-works.css">
+  <link rel="stylesheet" href="section-card-system.css">
   <script src="portfolio.js" defer></script>
   <script src="hero-intro.js" defer></script>
   <script src="featured-projects.js" defer></script>
@@ -52,10 +53,10 @@
       </div>
     </section>
 
-    <section class="section wrap" id="about" aria-labelledby="about-title">
-    <div class="about-inner section-inner">
-    <div class="section-heading"><h2 id="about-title">关于我</h2></div>
-    <div class="about-cards">
+    <section class="section wrap card-system-section" id="about" aria-labelledby="about-title">
+    <div class="about-inner card-system-inner">
+    <header class="card-system-header"><div class="section-heading"><h2 id="about-title">关于我</h2></div></header>
+    <div class="about-cards card-system-content">
       <div class="about-window-bar" aria-hidden="true">
         <div class="about-window-file">
           <span class="about-window-dots"><i></i><i></i><i></i></span>
@@ -96,10 +97,12 @@
     </div>
 </section>
 
-    <section class="section wrap" id="capabilities" aria-labelledby="capabilities-title">
+    <section class="section wrap card-system-section" id="capabilities" aria-labelledby="capabilities-title">
+      <header class="card-system-header">
       <div class="section-heading"><p class="eyebrow">02 / CORE CAPABILITIES</p><h2 id="capabilities-title">核心能力</h2><span class="part">MY DESIGN TOOLKIT</span></div>
       <p class="section-lead">四种工作方式，组成我的日常工具台。点击文件夹查看常用工具。</p>
-      <div class="toolkit-stage">
+      </header>
+      <div class="toolkit-stage card-system-content">
         <span class="toolkit-deco deco-one" aria-hidden="true">✳ 想法 × 实践</span><span class="toolkit-deco deco-two" aria-hidden="true">DESIGN / CODE</span>
         <article class="kit-folder kit-ux" style="--kit-index:0"><button type="button" class="kit-cover" aria-expanded="false" aria-controls="kit-tools-ux"><span class="kit-tab"></span><span class="kit-number">01 / EXPERIENCE</span><strong>UI / UX</strong><small>用户研究 · 界面设计</small><span class="kit-open">打开工具夹 ↗</span></button><div class="kit-tools" id="kit-tools-ux" hidden><span><img src="assets/images/figma-logo-50-29.png" alt="" loading="lazy">Figma</span><span><img src="assets/images/figma-logo-50-29.png" alt="" loading="lazy">FigJam</span></div><img class="floating-logo logo-figma" src="assets/images/figma-logo-50-29.png" alt="Figma 标志" loading="lazy"></article>
         <article class="kit-folder kit-visual" style="--kit-index:1"><button type="button" class="kit-cover" aria-expanded="false" aria-controls="kit-tools-visual"><span class="kit-tab"></span><span class="kit-number">02 / VISUAL</span><strong>Visual Design</strong><small>活动视觉 · 品牌延展</small><span class="kit-open">打开工具夹 ↗</span></button><div class="kit-tools" id="kit-tools-visual" hidden><span><img src="assets/images/figma-logo-50-36.png" alt="" loading="lazy">Photoshop</span><span><img src="assets/images/figma-logo-50-35.png" alt="" loading="lazy">Illustrator</span></div><img class="floating-logo logo-photoshop" src="assets/images/figma-logo-50-36.png" alt="Photoshop 标志" loading="lazy"><img class="floating-logo logo-illustrator" src="assets/images/figma-logo-50-35.png" alt="Illustrator 标志" loading="lazy"></article>
@@ -108,18 +111,18 @@
       </div>
     </section>
 
-    <section class="section wrap" id="experience" aria-labelledby="experience-title">
-      <div class="section-heading"><p class="eyebrow">03 / EXPERIENCE</p><h2 id="experience-title">工作经历</h2><span class="part">CLICK TO FLIP</span></div>
-      <div class="journey-list">
+    <section class="section wrap card-system-section" id="experience" aria-labelledby="experience-title">
+      <header class="card-system-header"><div class="section-heading"><p class="eyebrow">03 / EXPERIENCE</p><h2 id="experience-title">工作经历</h2><span class="part">CLICK TO FLIP</span></div></header>
+      <div class="journey-list card-system-content">
         <button type="button" class="journey-card" aria-expanded="false" aria-label="北京逅客酒店管理有限公司，点击翻转查看经历"><span class="journey-inner"><span class="journey-front"><span class="company-mark company-juzi" aria-hidden="true">桔子</span><span class="journey-main"><strong>北京逅客酒店管理有限公司</strong><span class="journey-role">UI 实习设计师</span></span><span class="journey-date">2026.03 — 2026.06</span><span class="flip-hint">实习经历 ↻</span></span><span class="journey-back" aria-hidden="true"><span class="company-mark company-juzi" aria-hidden="true">桔子</span><span class="journey-summary">在桔子短租的体验升级中，我从用户反馈和找房流程出发，参与首页、筛选、列表与详情设计，并将想法推进到高保真页面。这个过程让我更重视信息的顺序，以及每一步操作背后的用户需求。</span><span class="flip-hint">返回 ↻</span></span></span></button>
         <button type="button" class="journey-card" aria-expanded="false" aria-label="杭州天猫校园技术服务有限公司，点击翻转查看经历"><span class="journey-inner"><span class="journey-front"><span class="company-mark company-tmall" aria-hidden="true">天猫<br>校园</span><span class="journey-main"><strong>杭州天猫校园技术服务有限公司</strong><span class="journey-role">UI / 视觉设计师</span></span><span class="journey-date">2025.08 — 2026.01</span><span class="flip-hint">实习经历 ↻</span></span><span class="journey-back" aria-hidden="true"><span class="company-mark company-tmall" aria-hidden="true">天猫<br>校园</span><span class="journey-summary">从活动玩法讨论到视觉素材制作，我尝试把 AI 生图与二次处理结合起来。围绕喵莘莘 IP 的延展和多尺寸适配，逐渐沉淀可复用的提示词与方法，也更关注创意与一致性之间的平衡。</span><span class="flip-hint">返回 ↻</span></span></span></button>
       </div>
     </section>
 
     <section class="works-band" id="work" aria-labelledby="work-title">
-      <div class="wrap section">
-        <div class="section-heading"><p class="eyebrow">04 / SELECTED WORKS</p><h2 id="work-title">重点项目</h2><span class="part">THREE PROJECTS</span></div>
-        <div class="featured-project-list">
+      <div class="wrap section card-system-section">
+        <header class="card-system-header"><div class="section-heading"><p class="eyebrow">04 / SELECTED WORKS</p><h2 id="work-title">重点项目</h2><span class="part">THREE PROJECTS</span></div></header>
+        <div class="featured-project-list card-system-content">
         <!-- featured-projects:start -->
           <a class="featured-project featured-tmall" id="work-tmall" href="tmall.html" aria-labelledby="featured-tmall-title" aria-describedby="featured-tmall-description">
             <div class="featured-project-copy">

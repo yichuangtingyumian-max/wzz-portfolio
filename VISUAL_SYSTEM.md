@@ -259,3 +259,24 @@ Hero 外层继续使用同一个 .wrap。按照 2026-10-01 的最新 UI 标注�
 W 勋章画布保持 88px，按参考图的相对构图独立定位，不再撑高姓名行。桌面勋章中心距姓名起点约 214px，定位参考姓名三字宽度与 104px 呼吸间距；手机间距收回 48px，≤350px 为 32px。底部以首条横线为锚点，通过 --wzz-hero-seal-baseline-inset 与既有 8px 位移做光学校准，让底缘轻压线条。默认倾斜 -30°，Hover 放大时仍保留 -20° 倾角和相同位移，避免跳位。姓名底对齐后，文字行框距横线约 2–4px，修复勋章把姓名与横线间距撑大的问题。Hello 继续为 104×40px、文字 18px，距能力文字 24px；手机宽度 80px、文字 16px、间距 12px。原素材、灰阶、阴影及动效节奏保持不变。
 
 新增与调整的 Token 只在 .refreshed-home .hero-intro 内定义；全局 --ds-* 与 --wzz-* 值保持不变，其他模块不能意外继承这些 Hero 专用角色。
+
+## 13. Middle-page Card Layout System / 2026-10-06
+
+About、Core Capabilities、Work Experience、Selected Works 共用 `section-card-system.css` 的布局角色。Hero、导航、电脑交互、Beyond Design、Contact 和详情页继续使用既有规则。
+
+| 布局角色 | Token | 规则 |
+| --- | --- | --- |
+| 内容版心 | --wzz-layout-content-max | 引用现行 --ds-content-max，最大 1160px |
+| 页面安全边距 | --wzz-layout-gutter | 引用 --ds-page-gutter，保留导航占位后的可用画布 |
+| Section 上下留白 | --wzz-layout-section-space | 80px，手机 64px，引用 --wzz-section-space |
+| 标题组到内容 | --wzz-layout-heading-gap | 32px，手机 24px；可选说明属于标题组 |
+| 卡片之间 | --wzz-layout-card-gap | 24px，引用 --wzz-card-gap |
+| 基础内边距 | --wzz-layout-card-padding | 桌面 32px；≤1088px 为 24px，复用既有间距档位 |
+| 主卡圆角 | --wzz-layout-card-radius | 桌面 28px，手机 20px，引用 --wzz-radius-lg |
+| 描边 / 表面 / 阴影 | --wzz-layout-card-border / surface / shadow | 引用 --wzz-divider-color / --wzz-surface / --wzz-shadow-card |
+
+`.card-system-section` 负责外层宽度和留白，`.card-system-header`、`.card-system-content` 均使用该外层的完整宽度。单卡和多卡区域共用左右边界，内部双列、文件夹、翻面卡和项目主视觉仍由各组件组织。标题使用既有 H2 / Eyebrow 角色；已有辅助标题在同一行右对齐，没有辅助内容的 About 不新增文案。
+
+About 不再继承 `.section-inner` 的 Hero 紧凑宽度；Hero 的内部两列和响应式维持第 12 节。窗口工具条使用紧凑表面变体；能力文件夹、经历品牌色和项目 Hover 主题仍可在统一主卡表面内保留各自材质。Selected Works 只统一文字横向安全内边距与主卡表面，已确认的纵向构图、同图 Hover、Sticker 落点和 Motion 保持原样。
+
+经历翻面卡的正反两面共同撑高同一个 Grid 轨道，避免统一内边距后窄屏文字逃出固定高度。此轮不改变交互脚本、正式基础 Tokens、任何图片或项目数据。
