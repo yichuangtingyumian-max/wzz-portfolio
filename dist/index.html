@@ -12,8 +12,11 @@
   <link rel="stylesheet" href="home-refresh.css">
   <link rel="stylesheet" href="hero-intro.css">
   <link rel="stylesheet" href="about.css">
+  <link rel="stylesheet" href="selected-works.css">
+  <link rel="stylesheet" href="section-card-system.css">
   <script src="portfolio.js" defer></script>
   <script src="hero-intro.js" defer></script>
+  <script src="featured-projects.js" defer></script>
 </head>
 <body class="home-page refreshed-home">
   <a class="skip" href="#main">跳到主要内容</a>
@@ -26,7 +29,7 @@
     <a href="#beyond" aria-label="工作之外"><span class="hero-tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5.5C8-1 1 2.2 1 8c0 5.5 6.2 11.1 9.5 13.4a2.5 2.5 0 0 0 3 0C16.8 19.1 23 13.5 23 8c0-5.8-7-9-11-2.5Z"/></svg></span><span class="hero-tab-label">工作之外</span></a>
     <a href="#contact" aria-label="联系"><span class="hero-tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 3h14a4 4 0 0 1 4 4v.5l-9.2 6.1a3.2 3.2 0 0 1-3.6 0L1 7.5V7a4 4 0 0 1 4-4Z"/><path d="m1 10 8.1 5.3a5.2 5.2 0 0 0 5.8 0L23 10v7a4 4 0 0 1-4 4H5a4 4 0 0 1-4-4v-7Z"/></svg></span><span class="hero-tab-label">联系</span></a>
   </nav>
-  <main id="main">
+  <main id="main" class="wrap">
     <section class="hero wrap hero-intro" id="top" aria-labelledby="hero-title">
       <div class="hero-inner">
       <div class="hero-copy">
@@ -50,10 +53,10 @@
       </div>
     </section>
 
-    <section class="section wrap" id="about" aria-labelledby="about-title">
-    <div class="about-inner section-inner">
-    <div class="section-heading"><h2 id="about-title">关于我</h2></div>
-    <div class="about-cards">
+    <section class="section wrap card-system-section" id="about" aria-labelledby="about-title">
+    <div class="about-inner card-system-inner">
+    <header class="card-system-header"><div class="section-heading"><h2 id="about-title">关于我</h2></div></header>
+    <div class="about-cards card-system-content">
       <div class="about-window-bar" aria-hidden="true">
         <div class="about-window-file">
           <span class="about-window-dots"><i></i><i></i><i></i></span>
@@ -94,10 +97,12 @@
     </div>
 </section>
 
-    <section class="section wrap" id="capabilities" aria-labelledby="capabilities-title">
+    <section class="section wrap card-system-section" id="capabilities" aria-labelledby="capabilities-title">
+      <header class="card-system-header">
       <div class="section-heading"><p class="eyebrow">02 / CORE CAPABILITIES</p><h2 id="capabilities-title">核心能力</h2><span class="part">MY DESIGN TOOLKIT</span></div>
       <p class="section-lead">四种工作方式，组成我的日常工具台。点击文件夹查看常用工具。</p>
-      <div class="toolkit-stage">
+      </header>
+      <div class="toolkit-stage card-system-content">
         <span class="toolkit-deco deco-one" aria-hidden="true">✳ 想法 × 实践</span><span class="toolkit-deco deco-two" aria-hidden="true">DESIGN / CODE</span>
         <article class="kit-folder kit-ux" style="--kit-index:0"><button type="button" class="kit-cover" aria-expanded="false" aria-controls="kit-tools-ux"><span class="kit-tab"></span><span class="kit-number">01 / EXPERIENCE</span><strong>UI / UX</strong><small>用户研究 · 界面设计</small><span class="kit-open">打开工具夹 ↗</span></button><div class="kit-tools" id="kit-tools-ux" hidden><span><img src="assets/images/figma-logo-50-29.png" alt="" loading="lazy">Figma</span><span><img src="assets/images/figma-logo-50-29.png" alt="" loading="lazy">FigJam</span></div><img class="floating-logo logo-figma" src="assets/images/figma-logo-50-29.png" alt="Figma 标志" loading="lazy"></article>
         <article class="kit-folder kit-visual" style="--kit-index:1"><button type="button" class="kit-cover" aria-expanded="false" aria-controls="kit-tools-visual"><span class="kit-tab"></span><span class="kit-number">02 / VISUAL</span><strong>Visual Design</strong><small>活动视觉 · 品牌延展</small><span class="kit-open">打开工具夹 ↗</span></button><div class="kit-tools" id="kit-tools-visual" hidden><span><img src="assets/images/figma-logo-50-36.png" alt="" loading="lazy">Photoshop</span><span><img src="assets/images/figma-logo-50-35.png" alt="" loading="lazy">Illustrator</span></div><img class="floating-logo logo-photoshop" src="assets/images/figma-logo-50-36.png" alt="Photoshop 标志" loading="lazy"><img class="floating-logo logo-illustrator" src="assets/images/figma-logo-50-35.png" alt="Illustrator 标志" loading="lazy"></article>
@@ -106,19 +111,66 @@
       </div>
     </section>
 
-    <section class="section wrap" id="experience" aria-labelledby="experience-title">
-      <div class="section-heading"><p class="eyebrow">03 / EXPERIENCE</p><h2 id="experience-title">工作经历</h2><span class="part">HOVER / TAP TO FLIP</span></div>
-      <div class="journey-list">
+    <section class="section wrap card-system-section" id="experience" aria-labelledby="experience-title">
+      <header class="card-system-header"><div class="section-heading"><p class="eyebrow">03 / EXPERIENCE</p><h2 id="experience-title">工作经历</h2><span class="part">HOVER / TAP TO FLIP</span></div></header>
+      <div class="journey-list card-system-content">
         <button type="button" class="journey-card" data-accent="mint" aria-expanded="false" aria-controls="experience-story-juzi" aria-label="北京逅客酒店管理有限公司，悬停或聚焦查看经历，触屏点击切换"><span class="journey-inner"><span class="journey-front" aria-hidden="false"><span class="company-mark company-juzi" aria-hidden="true">桔子</span><span class="journey-main"><strong>北京逅客酒店管理有限公司</strong><span class="journey-role">UI 实习设计师</span></span><span class="journey-date">2026.03 — 2026.06</span><span class="flip-hint">实习经历 ↻</span></span><span class="journey-back" id="experience-story-juzi" aria-hidden="true"><span class="company-mark company-juzi" aria-hidden="true">桔子</span><span class="journey-summary">在桔子短租的体验升级中，我从用户反馈和找房流程出发，参与首页、筛选、列表与详情设计，并将想法推进到高保真页面。这个过程让我更重视信息的顺序，以及每一步操作背后的用户需求。</span></span></span></button>
         <button type="button" class="journey-card" data-accent="cream" aria-expanded="false" aria-controls="experience-story-tmall" aria-label="杭州天猫校园技术服务有限公司，悬停或聚焦查看经历，触屏点击切换"><span class="journey-inner"><span class="journey-front" aria-hidden="false"><span class="company-mark company-tmall" aria-hidden="true">天猫<br>校园</span><span class="journey-main"><strong>杭州天猫校园技术服务有限公司</strong><span class="journey-role">UI / 视觉设计师</span></span><span class="journey-date">2025.08 — 2026.01</span><span class="flip-hint">实习经历 ↻</span></span><span class="journey-back" id="experience-story-tmall" aria-hidden="true"><span class="company-mark company-tmall" aria-hidden="true">天猫<br>校园</span><span class="journey-summary">从活动玩法讨论到视觉素材制作，我尝试把 AI 生图与二次处理结合起来。围绕喵莘莘 IP 的延展和多尺寸适配，逐渐沉淀可复用的提示词与方法，也更关注创意与一致性之间的平衡。</span></span></span></button>
       </div>
     </section>
 
-    <section class="works-band" id="work" aria-labelledby="work-title"><div class="wrap section"><div class="section-heading"><p class="eyebrow">04 / SELECTED WORKS</p><h2 id="work-title">精选作品</h2><span class="part">THREE PROJECTS</span></div><div class="project-list">
-      <a class="project-entry project-juzi" id="work-juzi" href="juzi.html"><div class="project-preview"><div class="preview-paper"><img src="assets/images/juzi-01-01.webp" alt="桔子短租升级项目原作品预览" width="1920" height="2400" loading="lazy"></div><span class="project-sticker sticker-a" aria-hidden="true">找房体验</span><span class="project-sticker sticker-b" aria-hidden="true">UI / UX</span></div><span class="project-number">01</span><div class="project-copy"><p class="eyebrow">PRODUCT EXPERIENCE / UI · UX</p><h3>桔子短租升级项目</h3><p>围绕找房流程，梳理信息与体验，让关键内容更容易被看见。</p><span class="tags">产品体验升级 / 界面设计</span></div><span class="project-action">进入项目 ↗</span></a>
-      <a class="project-entry project-tmall" id="work-tmall" href="tmall.html"><div class="project-preview"><div class="preview-paper"><img src="assets/images/tmall-01-01.webp" alt="天猫校园集卡活动原作品预览" width="1920" height="2400" loading="lazy"></div><span class="project-sticker sticker-a" aria-hidden="true">校园集卡</span><span class="project-sticker sticker-b" aria-hidden="true">CAMPAIGN</span></div><span class="project-number">02</span><div class="project-copy"><p class="eyebrow">CAMPAIGN / VISUAL DESIGN</p><h3>天猫校园集卡活动</h3><p>从活动玩法到视觉素材，探索校园场景中的互动与表达。</p><span class="tags">活动视觉 / AI 辅助创作</span></div><span class="project-action">进入项目 ↗</span></a>
-      <a class="project-entry project-aigc" id="work-aigc" href="aigc.html"><div class="project-preview"><div class="preview-paper"><img src="assets/images/aigc-01-01.webp" alt="喵莘莘 AIGC 提效原作品预览" width="1920" height="2400" loading="lazy"></div><span class="project-sticker sticker-a" aria-hidden="true">IP × AI</span><span class="project-sticker sticker-b" aria-hidden="true">WORKFLOW</span></div><span class="project-number">03</span><div class="project-copy"><p class="eyebrow">AI EXPLORATION / WORKFLOW</p><h3>喵莘莘 AIGC 提效</h3><p>围绕品牌 IP 延展与多场景适配，探索可复用的素材创作流程。</p><span class="tags">IP 延展 / 提示词方法 / 工作流</span></div><span class="project-action">进入项目 ↗</span></a>
-    </div></div></section>
+    <section class="works-band section card-system-section section-inner" id="work" aria-labelledby="work-title">
+        <header class="card-system-header"><div class="section-heading"><p class="eyebrow">04 / SELECTED WORKS</p><h2 id="work-title">重点项目</h2><span class="part">THREE PROJECTS</span></div></header>
+        <div class="featured-project-list card-system-content">
+        <!-- featured-projects:start -->
+          <a class="featured-project featured-tmall" id="work-tmall" href="tmall.html" aria-labelledby="featured-tmall-title" aria-describedby="featured-tmall-description">
+            <div class="featured-project-copy">
+              <h3 id="featured-tmall-title">天猫校园集卡活动</h3>
+              <p class="featured-project-description" id="featured-tmall-description">围绕开学季校园场景，构建活动视觉体系，并结合 AIGC 完成多场景创意延展。</p>
+              <ul class="featured-project-tags" aria-label="项目类型"><li>校园 Campaign</li><li>活动视觉</li><li>AI 辅助创作</li></ul>
+            </div>
+            <div class="featured-project-media">
+              <img class="featured-project-hero" src="assets/images/featured-tmall-hero.svg" alt="天猫校园集卡活动的喵莘莘与校园建筑主视觉" width="636" height="343" loading="lazy" decoding="async">
+              <img class="featured-project-sticker" data-slot="top-left" src="assets/images/featured-tmall-sticker-1.png" alt="" aria-hidden="true" width="201" height="127" loading="lazy" decoding="async">
+              <img class="featured-project-sticker" data-slot="top-right" src="assets/images/featured-tmall-sticker-2.png" alt="" aria-hidden="true" width="173" height="173" loading="lazy" decoding="async">
+              <img class="featured-project-sticker" data-slot="bottom-left" src="assets/images/featured-tmall-sticker-3.png" alt="" aria-hidden="true" width="234" height="217" loading="lazy" decoding="async">
+              <img class="featured-project-sticker" data-slot="bottom-right" src="assets/images/featured-tmall-sticker-4.png" alt="" aria-hidden="true" width="208" height="208" loading="lazy" decoding="async">
+            </div>
+            <span class="featured-project-cursor" aria-hidden="true">查看项目 <span>↗</span></span>
+          </a>
+          <a class="featured-project featured-aigc" id="work-aigc" href="aigc.html" aria-labelledby="featured-aigc-title" aria-describedby="featured-aigc-description">
+            <div class="featured-project-copy">
+              <h3 id="featured-aigc-title">喵莘莘 AIGC 提效</h3>
+              <p class="featured-project-description" id="featured-aigc-description">探索 AIGC 在 IP 素材生产中的应用，搭建更高效、可复用的创意工作流。</p>
+              <ul class="featured-project-tags" aria-label="项目类型"><li>AIGC 设计</li><li>IP 延展</li><li>工作流提效</li></ul>
+            </div>
+            <div class="featured-project-media">
+              <img class="featured-project-hero" src="assets/images/featured-aigc-hero.svg" alt="喵莘莘 IP 与超市场景的 AIGC 主视觉" width="634" height="342" loading="lazy" decoding="async">
+              <img class="featured-project-sticker" data-slot="top-left" src="assets/images/featured-aigc-sticker-1.png" alt="" aria-hidden="true" width="214" height="242" loading="lazy" decoding="async">
+              <img class="featured-project-sticker" data-slot="top-right" src="assets/images/featured-aigc-sticker-2.png" alt="" aria-hidden="true" width="222" height="224" loading="lazy" decoding="async">
+              <img class="featured-project-sticker" data-slot="bottom-left" src="assets/images/featured-aigc-sticker-3.png" alt="" aria-hidden="true" width="177" height="100" loading="lazy" decoding="async">
+              <img class="featured-project-sticker" data-slot="bottom-right" src="assets/images/featured-aigc-sticker-4.png" alt="" aria-hidden="true" width="374" height="278" loading="lazy" decoding="async">
+            </div>
+            <span class="featured-project-cursor" aria-hidden="true">查看项目 <span>↗</span></span>
+          </a>
+          <a class="featured-project featured-juzi" id="work-juzi" href="juzi.html" aria-labelledby="featured-juzi-title" aria-describedby="featured-juzi-description">
+            <div class="featured-project-copy">
+              <h3 id="featured-juzi-title">桔子短租升级项目</h3>
+              <p class="featured-project-description" id="featured-juzi-description">从用户找房痛点出发，优化核心浏览与筛选链路，提升信息获取和决策效率。</p>
+              <ul class="featured-project-tags" aria-label="项目类型"><li>产品体验</li><li>UI·UX设计</li><li>核心链路优化</li></ul>
+            </div>
+            <div class="featured-project-media">
+              <img class="featured-project-hero" src="assets/images/featured-juzi-hero.svg" alt="桔子短租浏览与筛选界面的双手机主视觉" width="495" height="387" loading="lazy" decoding="async">
+              <img class="featured-project-sticker" data-slot="top-left" src="assets/images/featured-juzi-sticker-1.png" alt="" aria-hidden="true" width="235" height="123" loading="lazy" decoding="async">
+              <img class="featured-project-sticker" data-slot="top-right" src="assets/images/featured-juzi-sticker-2.png" alt="" aria-hidden="true" width="222" height="222" loading="lazy" decoding="async">
+              <img class="featured-project-sticker" data-slot="bottom-left" src="assets/images/featured-juzi-sticker-3.png" alt="" aria-hidden="true" width="135" height="134" loading="lazy" decoding="async">
+              <img class="featured-project-sticker" data-slot="bottom-right" src="assets/images/featured-juzi-sticker-4.png" alt="" aria-hidden="true" width="241" height="232" loading="lazy" decoding="async">
+            </div>
+            <span class="featured-project-cursor" aria-hidden="true">查看项目 <span>↗</span></span>
+          </a>
+        <!-- featured-projects:end -->
+        </div>
+    </section>
 
     <section class="section wrap beyond" id="beyond" aria-labelledby="beyond-title"><div class="section-heading"><p class="eyebrow">05 / BEYOND DESIGN</p><h2 id="beyond-title">工作之外，生活之中。</h2><span class="part">SCROLL TO EXPLORE</span></div><p class="section-lead">美食、娃娃、旅行，还有小动物。四张卡片沿着页面逐渐叠放。</p>
       <div class="life-stack">

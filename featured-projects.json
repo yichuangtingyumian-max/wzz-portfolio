@@ -1,0 +1,44 @@
+[
+  {
+    "slug": "tmall",
+    "title": "天猫校园集卡活动",
+    "description": "围绕开学季校园场景，构建活动视觉体系，并结合 AIGC 完成多场景创意延展。",
+    "tags": ["校园 Campaign", "活动视觉", "AI 辅助创作"],
+    "href": "tmall.html",
+    "hero": {"src": "assets/images/featured-tmall-hero.svg", "width": 636, "height": 343, "alt": "天猫校园集卡活动的喵莘莘与校园建筑主视觉"},
+    "stickers": [
+      {"src": "assets/images/featured-tmall-sticker-1.png", "width": 201, "height": 127, "slot": "top-left", "name": "天猫校园蓝色标签"},
+      {"src": "assets/images/featured-tmall-sticker-2.png", "width": 173, "height": 173, "slot": "top-right", "name": "小红花"},
+      {"src": "assets/images/featured-tmall-sticker-3.png", "width": 234, "height": 217, "slot": "bottom-left", "name": "黑色摄像机标签"},
+      {"src": "assets/images/featured-tmall-sticker-4.png", "width": 208, "height": 208, "slot": "bottom-right", "name": "耳机"}
+    ]
+  },
+  {
+    "slug": "aigc",
+    "title": "喵莘莘 AIGC 提效",
+    "description": "探索 AIGC 在 IP 素材生产中的应用，搭建更高效、可复用的创意工作流。",
+    "tags": ["AIGC 设计", "IP 延展", "工作流提效"],
+    "href": "aigc.html",
+    "hero": {"src": "assets/images/featured-aigc-hero.svg", "width": 634, "height": 342, "alt": "喵莘莘 IP 与超市场景的 AIGC 主视觉"},
+    "stickers": [
+      {"src": "assets/images/featured-aigc-sticker-1.png", "width": 214, "height": 242, "slot": "top-left", "name": "气球"},
+      {"src": "assets/images/featured-aigc-sticker-2.png", "width": 222, "height": 224, "slot": "top-right", "name": "闪电"},
+      {"src": "assets/images/featured-aigc-sticker-3.png", "width": 177, "height": 100, "slot": "bottom-left", "name": "Hello 标签"},
+      {"src": "assets/images/featured-aigc-sticker-4.png", "width": 374, "height": 278, "slot": "bottom-right", "name": "爱心"}
+    ]
+  },
+  {
+    "slug": "juzi",
+    "title": "桔子短租升级项目",
+    "description": "从用户找房痛点出发，优化核心浏览与筛选链路，提升信息获取和决策效率。",
+    "tags": ["产品体验", "UI·UX设计", "核心链路优化"],
+    "href": "juzi.html",
+    "hero": {"src": "assets/images/featured-juzi-hero.svg", "width": 495, "height": 387, "alt": "桔子短租浏览与筛选界面的双手机主视觉"},
+    "stickers": [
+      {"src": "assets/images/featured-juzi-sticker-1.png", "width": 235, "height": 123, "slot": "top-left", "name": "短租标签"},
+      {"src": "assets/images/featured-juzi-sticker-2.png", "width": 222, "height": 222, "slot": "top-right", "name": "金钱图标"},
+      {"src": "assets/images/featured-juzi-sticker-3.png", "width": 135, "height": 134, "slot": "bottom-left", "name": "房子图标"},
+      {"src": "assets/images/featured-juzi-sticker-4.png", "width": 241, "height": 232, "slot": "bottom-right", "name": "桔子 IP"}
+    ]
+  }
+]

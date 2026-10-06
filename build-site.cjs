@@ -1,5 +1,6 @@
 const fs=require('node:fs');
 const path=require('node:path');
+require('./featured-projects.cjs').writeFeaturedProjects();
 const content=JSON.parse(fs.readFileSync('project-content.json','utf8'));
 const projects=[{slug:'juzi',title:'桔子短租升级项目'},{slug:'tmall',title:'天猫校园集卡活动'},{slug:'aigc',title:'喵莘莘 AIGC 提效'}];
 const lightbox=`<dialog class="lightbox" aria-label="图片查看器"><div class="lightbox-toolbar"><p class="lightbox-caption"></p><div><button type="button" data-zoom aria-pressed="false">查看原尺寸</button><button type="button" data-close aria-label="关闭图片查看器">关闭 ×</button></div></div><div class="lightbox-scroll"><img alt=""></div><p class="lightbox-hint">点击图片切换缩放 · 按 Esc 关闭</p></dialog>`;
@@ -9,7 +10,7 @@ for(let i=0;i<projects.length;i++){
  fs.writeFileSync(`${p.slug}.html`,out);
 }
 // Only publish files actually used by the current website.
-const files=new Set(['index.html','juzi.html','tmall.html','aigc.html','design-tokens.css','home.css','portfolio.css','home-refresh.css','hero-intro.css','about.css','portfolio.js','hero-intro.js','favicon.svg','assets/fonts/Inter-Variable.ttf']);
+const files=new Set(['index.html','juzi.html','tmall.html','aigc.html','design-tokens.css','home.css','portfolio.css','home-refresh.css','hero-intro.css','about.css','selected-works.css','section-card-system.css','portfolio.js','hero-intro.js','featured-projects.js','favicon.svg','assets/fonts/Inter-Variable.ttf']);
 for(const html of ['index.html','juzi.html','tmall.html','aigc.html']){
  const source=fs.readFileSync(html,'utf8');
  for(const m of source.matchAll(/(?:src|poster|data-image)="(assets\/[^"<>]+)"/g))files.add(m[1]);
