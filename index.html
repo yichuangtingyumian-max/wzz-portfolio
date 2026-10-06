@@ -14,9 +14,11 @@
   <link rel="stylesheet" href="about.css">
   <link rel="stylesheet" href="selected-works.css">
   <link rel="stylesheet" href="section-card-system.css">
+  <link rel="stylesheet" href="experience.css">
   <script src="portfolio.js" defer></script>
   <script src="hero-intro.js" defer></script>
   <script src="featured-projects.js" defer></script>
+  <script src="experience.js" defer></script>
 </head>
 <body class="home-page refreshed-home">
   <a class="skip" href="#main">跳到主要内容</a>
@@ -111,11 +113,27 @@
       </div>
     </section>
 
-    <section class="section wrap card-system-section" id="experience" aria-labelledby="experience-title">
-      <header class="card-system-header"><div class="section-heading"><p class="eyebrow">03 / EXPERIENCE</p><h2 id="experience-title">工作经历</h2><span class="part">HOVER / TAP TO FLIP</span></div></header>
-      <div class="journey-list card-system-content">
-        <button type="button" class="journey-card" data-accent="mint" aria-expanded="false" aria-controls="experience-story-juzi" aria-label="北京逅客酒店管理有限公司，悬停或聚焦查看经历，触屏点击切换"><span class="journey-inner"><span class="journey-front" aria-hidden="false"><span class="company-mark company-juzi" aria-hidden="true">桔子</span><span class="journey-main"><strong>北京逅客酒店管理有限公司</strong><span class="journey-role">UI 实习设计师</span></span><span class="journey-date">2026.03 — 2026.06</span><span class="flip-hint">实习经历 ↻</span></span><span class="journey-back" id="experience-story-juzi" aria-hidden="true"><span class="company-mark company-juzi" aria-hidden="true">桔子</span><span class="journey-summary">在桔子短租的体验升级中，我从用户反馈和找房流程出发，参与首页、筛选、列表与详情设计，并将想法推进到高保真页面。这个过程让我更重视信息的顺序，以及每一步操作背后的用户需求。</span></span></span></button>
-        <button type="button" class="journey-card" data-accent="cream" aria-expanded="false" aria-controls="experience-story-tmall" aria-label="杭州天猫校园技术服务有限公司，悬停或聚焦查看经历，触屏点击切换"><span class="journey-inner"><span class="journey-front" aria-hidden="false"><span class="company-mark company-tmall" aria-hidden="true">天猫<br>校园</span><span class="journey-main"><strong>杭州天猫校园技术服务有限公司</strong><span class="journey-role">UI / 视觉设计师</span></span><span class="journey-date">2025.08 — 2026.01</span><span class="flip-hint">实习经历 ↻</span></span><span class="journey-back" id="experience-story-tmall" aria-hidden="true"><span class="company-mark company-tmall" aria-hidden="true">天猫<br>校园</span><span class="journey-summary">从活动玩法讨论到视觉素材制作，我尝试把 AI 生图与二次处理结合起来。围绕喵莘莘 IP 的延展和多尺寸适配，逐渐沉淀可复用的提示词与方法，也更关注创意与一致性之间的平衡。</span></span></span></button>
+    <section class="section wrap" id="experience" aria-labelledby="experience-title">
+      <div class="experience-section-inner section-inner">
+      <div class="section-heading"><h2 id="experience-title">我的设计之旅</h2></div>
+      <div class="experience-list"></div>
+      <template id="experience-card-template">
+        <button type="button" class="experience-card" aria-expanded="false">
+          <span class="experience-shell">
+            <span class="experience-inner">
+            <span class="experience-face experience-front" aria-hidden="false">
+              <span class="experience-logo" aria-hidden="true"><img alt="" loading="lazy"></span>
+              <span class="experience-main"><strong class="experience-company"></strong><span class="experience-role"><svg class="experience-role-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M8 2h8a3 3 0 0 1 3 3v2h1a3 3 0 0 1 3 3v3H1v-3a3 3 0 0 1 3-3h1V5a3 3 0 0 1 3-3Zm0 5h8V5H8v2Z" clip-rule="evenodd"/><path d="M1 15h22v4a3 3 0 0 1-3 3H4a3 3 0 0 1-3-3v-4Z"/></svg><span class="experience-role-copy"></span></span></span>
+              <span class="experience-meta"><span class="experience-date"></span><span class="experience-type"></span></span>
+            </span>
+            <span class="experience-face experience-back" aria-hidden="true">
+              <span class="experience-reflection-copy"></span>
+              <span class="experience-brand" aria-hidden="true"><img alt="" loading="lazy"></span>
+            </span>
+            </span>
+          </span>
+        </button>
+      </template>
       </div>
     </section>
 
