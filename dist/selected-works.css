@@ -3,9 +3,9 @@
 .refreshed-home #work .featured-project-list { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--wzz-card-gap); }
 .refreshed-home #work .featured-project {
   --featured-gradient: linear-gradient(180deg, #fff 36.219%, #bef1fe 60.486%, #26aafe 84.405%, #1398fd 100%);
-  --featured-scene-duration: 820ms;
+  --featured-scene-duration: 1050ms;
   --featured-background-duration: 600ms;
-  --featured-scene-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --featured-scene-ease: cubic-bezier(0.2, 0.75, 0.25, 1);
   --featured-hero-rest-y: 0px;
   --featured-hero-rest-scale: 1;
   --featured-hero-size-factor: 1;
@@ -95,13 +95,13 @@
   --decoration-rest-y: 0%;
   --decoration-rest-rotate: 8deg;
   --decoration-rest-scale: .86;
-  --decoration-rest-blur: 6px;
+  --decoration-rest-blur: 10px;
   display: block;
   position: absolute;
   height: auto;
   width: 15%;
   pointer-events: none;
-  opacity: .2;
+  opacity: 0;
   filter: blur(var(--decoration-rest-blur));
   transform: translate3d(var(--decoration-rest-x), var(--decoration-rest-y), 0) rotate(var(--decoration-rest-rotate)) scale(var(--decoration-rest-scale));
   transition: opacity var(--featured-scene-duration) var(--featured-scene-ease), transform var(--featured-scene-duration) var(--featured-scene-ease), filter var(--featured-scene-duration) var(--featured-scene-ease);
@@ -120,17 +120,18 @@
 .refreshed-home #work .featured-juzi .featured-project-sticker[data-slot="top-right"] { right: 18%; top: 0; width: 10%; }
 .refreshed-home #work .featured-juzi .featured-project-sticker[data-slot="bottom-left"] { left: 15%; top: 46%; width: 11%; }
 .refreshed-home #work .featured-juzi .featured-project-sticker[data-slot="bottom-right"] { right: 16%; top: 40%; width: 15%; }
-/* Only rest transforms vary. Tmall/Juzi fly as a top pair; AIGC as a bottom
-   pair. Fallback distances also clear the card without JavaScript. */
-.refreshed-home #work .featured-project-sticker[data-slot="top-left"] { --decoration-rest-x: -45%; --decoration-rest-y: -600%; --decoration-rest-rotate: -10deg; --decoration-rest-scale: .9; --decoration-rest-blur: 8px; }
-.refreshed-home #work .featured-project-sticker[data-slot="top-right"] { --decoration-rest-x: 55%; --decoration-rest-y: -450%; --decoration-rest-rotate: 8deg; --decoration-rest-scale: .88; --decoration-rest-blur: 6px; }
-.refreshed-home #work .featured-project-sticker[data-slot="bottom-left"] { --decoration-rest-rotate: -7deg; --decoration-rest-scale: .84; --decoration-rest-blur: 5px; }
-.refreshed-home #work .featured-project-sticker[data-slot="bottom-right"] { --decoration-rest-rotate: 6deg; --decoration-rest-scale: .88; --decoration-rest-blur: 7px; }
-.refreshed-home #work .featured-juzi .featured-project-sticker[data-slot="top-right"] { --decoration-rest-y: -600%; --decoration-rest-scale: .92; }
-.refreshed-home #work .featured-aigc .featured-project-sticker[data-slot="top-left"] { --decoration-rest-x: 0%; --decoration-rest-y: 0%; --decoration-rest-rotate: -6deg; --decoration-rest-scale: .86; --decoration-rest-blur: 5px; }
-.refreshed-home #work .featured-aigc .featured-project-sticker[data-slot="top-right"] { --decoration-rest-x: 0%; --decoration-rest-y: 0%; --decoration-rest-rotate: 9deg; --decoration-rest-scale: .84; --decoration-rest-blur: 7px; }
-.refreshed-home #work .featured-aigc .featured-project-sticker[data-slot="bottom-left"] { --decoration-rest-x: -55%; --decoration-rest-y: 400%; --decoration-rest-rotate: -10deg; --decoration-rest-scale: .9; --decoration-rest-blur: 8px; }
-.refreshed-home #work .featured-aigc .featured-project-sticker[data-slot="bottom-right"] { --decoration-rest-x: 45%; --decoration-rest-y: 160%; --decoration-rest-rotate: 8deg; --decoration-rest-scale: .86; --decoration-rest-blur: 6px; }
+/* Rest states are completely invisible. Flight pairs enter horizontally from
+   opposite card edges; distances account for each unchanged inset and size.
+   Tmall/Juzi use the top pair, AIGC the bottom pair. No vertical flight. */
+.refreshed-home #work .featured-project-sticker[data-slot="top-left"] { --decoration-rest-x: -200%; --decoration-rest-rotate: -10deg; --decoration-rest-scale: .9; }
+.refreshed-home #work .featured-project-sticker[data-slot="top-right"] { --decoration-rest-x: 200%; --decoration-rest-rotate: 8deg; --decoration-rest-scale: .9; }
+.refreshed-home #work .featured-project-sticker[data-slot="bottom-left"] { --decoration-rest-rotate: -7deg; --decoration-rest-scale: .86; }
+.refreshed-home #work .featured-project-sticker[data-slot="bottom-right"] { --decoration-rest-rotate: 6deg; --decoration-rest-scale: .88; }
+.refreshed-home #work .featured-juzi .featured-project-sticker[data-slot="top-right"] { --decoration-rest-x: 320%; --decoration-rest-scale: .92; }
+.refreshed-home #work .featured-aigc .featured-project-sticker[data-slot="top-left"] { --decoration-rest-x: 0%; --decoration-rest-rotate: -6deg; --decoration-rest-scale: .86; }
+.refreshed-home #work .featured-aigc .featured-project-sticker[data-slot="top-right"] { --decoration-rest-x: 0%; --decoration-rest-rotate: 9deg; --decoration-rest-scale: .84; }
+.refreshed-home #work .featured-aigc .featured-project-sticker[data-slot="bottom-left"] { --decoration-rest-x: -200%; --decoration-rest-rotate: -10deg; --decoration-rest-scale: .9; }
+.refreshed-home #work .featured-aigc .featured-project-sticker[data-slot="bottom-right"] { --decoration-rest-x: 140%; --decoration-rest-rotate: 8deg; --decoration-rest-scale: .9; }
 .refreshed-home #work .featured-project-cursor {
   display: inline-flex;
   align-items: center;
@@ -156,22 +157,22 @@
 }
 .refreshed-home #work .featured-project:focus-visible { outline: var(--wzz-space-1) solid var(--wzz-focus-color); outline-offset: var(--wzz-space-1); }
 .refreshed-home #work .featured-project:focus-visible::before { opacity: 1; }
-.refreshed-home #work .featured-project:focus-visible .featured-project-hero { transform: translate3d(-50%, var(--featured-hero-anchor-y), 0) translate3d(0, -5px, 0) scale(1.04); }
+.refreshed-home #work .featured-project:focus-visible .featured-project-hero { transform: translate3d(-50%, var(--featured-hero-anchor-y), 0) translate3d(0, -4px, 0) scale(1.035); }
 .refreshed-home #work .featured-project:focus-visible .featured-project-sticker { opacity: 1; filter: blur(0px); transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
 .refreshed-home #work .featured-project:active { border-color: var(--wzz-focus-color); }
 @media (min-width: 768px) and (hover: hover) and (pointer: fine) {
   /* Fixed anchor calibration preserves the previous final image bounds while
-     the moving layer now uses 8px/.97 -> -5px/1.04 and a bottom origin. */
+     the moving layer uses 6px/.98 -> -4px/1.035 and a bottom origin. */
   .refreshed-home #work .featured-project {
-    --featured-hero-rest-y: var(--wzz-space-2);
-    --featured-hero-rest-scale: .97;
-    --featured-hero-size-factor: 1.0384615385;
-    --featured-hero-bottom-shift: 7px;
-    --featured-hero-anchor-y: 3.8518518519%;
+    --featured-hero-rest-y: 6px;
+    --featured-hero-rest-scale: .98;
+    --featured-hero-size-factor: 1.0434782609;
+    --featured-hero-bottom-shift: 8px;
+    --featured-hero-anchor-y: 3.8333333333%;
     --featured-hero-origin: center bottom;
   }
   .refreshed-home #work .featured-project:hover::before { opacity: 1; }
-  .refreshed-home #work .featured-project:hover .featured-project-hero { transform: translate3d(-50%, var(--featured-hero-anchor-y), 0) translate3d(0, -5px, 0) scale(1.04); }
+  .refreshed-home #work .featured-project:hover .featured-project-hero { transform: translate3d(-50%, var(--featured-hero-anchor-y), 0) translate3d(0, -4px, 0) scale(1.035); }
   .refreshed-home #work .featured-project:hover .featured-project-sticker { opacity: 1; filter: blur(0px); transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
   .refreshed-home #work .featured-project.is-pointer-inside .featured-project-cursor { opacity: 1; visibility: visible; }
 }
