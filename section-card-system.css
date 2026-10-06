@@ -1,5 +1,11 @@
 /* Shared middle-page layout roles. Values reuse the formal WZZ tokens;
    only the four explicit card-system sections consume these aliases. */
+/* #main reuses the existing .wrap once. Existing section wrappers fill that
+   page container without applying the responsive gutters a second time. */
+.refreshed-home #main > .wrap {
+  width: 100%;
+  margin-inline: 0;
+}
 .refreshed-home .card-system-section {
   --wzz-layout-content-max: var(--ds-content-max);
   --wzz-layout-gutter: var(--ds-page-gutter);
@@ -11,8 +17,6 @@
   --wzz-layout-card-border: var(--wzz-divider-color);
   --wzz-layout-card-surface: var(--wzz-surface);
   --wzz-layout-card-shadow: var(--wzz-shadow-card);
-  width: min(var(--wzz-layout-content-max), calc(100% - var(--wzz-layout-gutter) * 2));
-  margin-inline: auto;
   padding-block: var(--wzz-layout-section-space);
 }
 .refreshed-home .card-system-inner,

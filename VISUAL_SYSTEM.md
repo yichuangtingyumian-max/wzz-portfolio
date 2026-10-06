@@ -275,7 +275,7 @@ About、Core Capabilities、Work Experience、Selected Works 共用 `section-car
 | 主卡圆角 | --wzz-layout-card-radius | 桌面 28px，手机 20px，引用 --wzz-radius-lg |
 | 描边 / 表面 / 阴影 | --wzz-layout-card-border / surface / shadow | 引用 --wzz-divider-color / --wzz-surface / --wzz-shadow-card |
 
-`.card-system-section` 负责外层宽度和留白，`.card-system-header`、`.card-system-content` 均使用该外层的完整宽度。单卡和多卡区域共用左右边界，内部双列、文件夹、翻面卡和项目主视觉仍由各组件组织。标题使用既有 H2 / Eyebrow 角色；已有辅助标题在同一行右对齐，没有辅助内容的 About 不新增文案。
+首页主容器 `#main.wrap` 直接复用既有 `.wrap` 的宽度、居中和响应式安全边距；宽度约束只在这一层计算。既有 section 的 `.wrap` 填满主容器，避免二次缩进；Selected Works 不再保留自身的 `.wrap` 或宽度约束。`.card-system-section` 负责纵向留白和卡片角色，`.card-system-header`、`.card-system-content` 均填满主容器。项目卡片保持 `width: 100%`，与主容器及 section 的左右边界一致。内部双列、文件夹、翻面卡和项目主视觉仍由各组件组织，保留已确认的位置和尺寸。标题使用既有 H2 / Eyebrow 角色；已有辅助标题在同一行右对齐，没有辅助内容的 About 不新增文案。
 
 About 不再继承 `.section-inner` 的 Hero 紧凑宽度；Hero 的内部两列和响应式维持第 12 节。窗口工具条使用紧凑表面变体；能力文件夹、经历品牌色和项目 Hover 主题仍可在统一主卡表面内保留各自材质。Selected Works 只统一文字横向安全内边距与主卡表面，已确认的纵向构图、同图 Hover、Sticker 落点和 Motion 保持原样。
 
