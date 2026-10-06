@@ -1,0 +1,146 @@
+/* Fixed two-face cards; reuse About's shared .section-inner content rail. */
+.refreshed-home #experience {
+  --experience-height: 7.4375rem;
+  --experience-radius: var(--wzz-radius-lg);
+  --experience-motion: 600ms;
+  --experience-ease: cubic-bezier(.22, 1, .36, 1);
+  padding-block: var(--wzz-space-12);
+}
+.refreshed-home #experience .section-heading { margin-bottom: var(--ds-space-10); }
+.refreshed-home #experience .section-heading h2 { margin: 0; font-size: var(--wzz-font-h2); font-weight: var(--wzz-weight-semibold); line-height: var(--wzz-leading-section); letter-spacing: 0; }
+#experience .experience-list { display: grid; gap: var(--wzz-space-5); }
+#experience .experience-card {
+  display: block;
+  width: 100%;
+  height: var(--experience-height);
+  padding: 0;
+  border: 0;
+  border-radius: var(--experience-radius);
+  background: none;
+  color: var(--wzz-text-primary);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+#experience .experience-shell {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  perspective: 1200px;
+}
+#experience .experience-inner {
+  position: absolute;
+  inset: 0;
+  display: block;
+  border-radius: inherit;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+  transition: transform var(--experience-motion) var(--experience-ease);
+}
+#experience .experience-card[aria-pressed="true"] .experience-inner { transform: rotateY(180deg); }
+#experience .experience-face {
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  border-radius: inherit;
+  /* Clip each face separately; clipping the rotating parent flattens its 3D children. */
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  pointer-events: none;
+}
+#experience .experience-front {
+  display: grid;
+  grid-template-columns: 95px minmax(0, 1fr) auto;
+  gap: var(--wzz-space-4);
+  padding: var(--wzz-space-5) var(--wzz-space-8);
+  border: var(--ds-border-width) solid var(--ds-color-border);
+  background: var(--wzz-surface);
+  transform: rotateY(0deg);
+}
+#experience .experience-logo { display: grid; place-items: center; width: 95px; height: 48px; }
+#experience .experience-logo img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; }
+#experience .experience-main,
+#experience .experience-meta { display: flex; flex-direction: column; gap: var(--wzz-space-1); min-width: 0; }
+#experience .experience-company { font-size: var(--ds-size-20); font-weight: var(--wzz-weight-semibold); line-height: 1.4; }
+#experience .experience-role { display: inline-flex; align-items: center; gap: var(--wzz-space-2); color: var(--wzz-text-secondary); font-size: var(--wzz-font-lead); line-height: 1.4; }
+#experience .experience-role-icon { width: var(--wzz-font-lead); height: var(--wzz-font-lead); flex: 0 0 auto; fill: currentColor; opacity: .7; }
+#experience .experience-meta { align-items: flex-end; }
+#experience .experience-date { color: var(--wzz-text-subtle); font-size: var(--ds-size-20); line-height: 1.4; white-space: nowrap; }
+#experience .experience-type { padding: 2px 8px; border: var(--ds-border-width) solid var(--ds-color-border); border-radius: var(--wzz-radius-pill); color: var(--wzz-text-subtle); font-size: var(--ds-size-16); line-height: 1.2; white-space: nowrap; }
+#experience .experience-back {
+  display: flex;
+  gap: var(--wzz-space-2);
+  padding: var(--wzz-space-3) var(--ds-space-7);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: rotateY(180deg);
+}
+#experience .experience-reflection-copy { display: block; flex: 1; min-width: 0; color: var(--wzz-text-secondary); font-size: var(--wzz-font-lead); font-weight: var(--wzz-weight-regular); line-height: 1.7; }
+#experience .experience-brand { display: grid; place-items: center; width: 104px; height: 63px; flex: 0 0 104px; }
+#experience .experience-brand img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; }
+#experience .experience-card:focus-visible { outline: 2px solid var(--wzz-focus-color); outline-offset: var(--wzz-space-1); }
+
+/* Hero's 448px single-column cap cannot fit the unchanged resume layout. */
+@media (max-width: 1088px) {
+  #experience .section-inner { max-width: none; }
+}
+@media (max-width: 1100px) {
+  .refreshed-home #experience { --experience-height: 10rem; }
+  #experience .experience-back { padding: var(--wzz-space-3) var(--wzz-space-6); gap: var(--wzz-space-4); }
+  #experience .experience-date { font-size: var(--wzz-font-lead); }
+}
+@media (max-width: 900px) {
+  .refreshed-home #experience { --experience-height: 12rem; }
+  #experience .experience-company { font-size: var(--wzz-font-lead); }
+  #experience .experience-date { font-size: var(--ds-size-16); }
+}
+@media (max-width: 640px) {
+  .refreshed-home #experience { --experience-height: 20rem; padding-block: var(--wzz-space-8); }
+  #experience .section-heading { margin-bottom: var(--wzz-space-6); }
+  #experience .experience-front { grid-template-columns: minmax(0, 1fr); align-content: center; gap: var(--wzz-space-4); padding: var(--wzz-space-6) var(--wzz-space-4); }
+  #experience .experience-logo { justify-self: start; }
+  #experience .experience-meta { flex-direction: row; align-items: center; justify-content: space-between; gap: var(--wzz-space-2); }
+  #experience .experience-date,
+  #experience .experience-type { font-size: var(--wzz-font-meta); }
+  #experience .experience-back { flex-direction: column; justify-content: center; align-items: stretch; padding: var(--wzz-space-4); gap: var(--wzz-space-3); }
+  #experience .experience-reflection-copy { flex: none; font-size: var(--ds-size-16); }
+  #experience .experience-brand { align-self: flex-end; flex: 0 0 63px; }
+}
+@media (max-width: 360px) {
+  .refreshed-home #experience { --experience-height: 24rem; }
+}
+
+/* The only mouse hint is independent of both faces and the document flow. */
+.experience-hover-hint { position: fixed; top: 0; left: 0; width: max-content; pointer-events: none; z-index: 9999; will-change: transform; }
+.experience-hover-hint > span {
+  display: block;
+  box-sizing: border-box;
+  height: 36px;
+  padding: 8px 16px;
+  border-radius: var(--wzz-radius-pill);
+  background: rgba(25, 25, 25, .92);
+  color: #fff;
+  font-size: var(--wzz-font-meta);
+  font-weight: var(--wzz-weight-medium);
+  line-height: 20px;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .14);
+  opacity: 0;
+  transform: scale(.9);
+  transform-origin: top left;
+  transition: opacity 110ms cubic-bezier(.22, 1, .36, 1), transform 110ms cubic-bezier(.22, 1, .36, 1);
+}
+.experience-hover-hint[data-phase="visible"] > span { opacity: 1; transform: scale(1); transition-duration: 140ms; }
+.experience-hover-hint[data-phase="leaving"] > span { transform: scale(.96); }
+@media (prefers-reduced-motion: reduce) {
+  #experience .experience-inner { transition: none; }
+  .experience-hover-hint > span { transform: none !important; transition: opacity 110ms linear !important; }
+}
