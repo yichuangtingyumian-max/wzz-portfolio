@@ -176,6 +176,29 @@
   .refreshed-home #work .featured-project:hover .featured-project-sticker { opacity: 1; filter: blur(0px); transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
   .refreshed-home #work .featured-project.is-pointer-inside .featured-project-cursor { opacity: 1; visibility: visible; }
 }
+@media (min-width: 1089px) {
+  /* The compact desktop cards can be shorter than the artwork. Keep oversized
+     images at the visual stage's top instead of letting a bottom anchor push
+     them into Tags. Scaling from the top preserves the existing zoom amount. */
+  .refreshed-home #work .featured-project {
+    --featured-visual-safe-gap: var(--wzz-space-6);
+    --featured-hero-anchor-y: 0%;
+    --featured-hero-origin: center top;
+  }
+  .refreshed-home #work .featured-project-media {
+    display: grid;
+    grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+    /* Allow the current top Sticker positions, while clipping all artwork and
+       blur at the shared 24px information/visual boundary throughout motion. */
+    clip-path: inset(calc(var(--featured-visual-safe-gap) - var(--wzz-space-8)) 0 0);
+  }
+  .refreshed-home #work .featured-project-hero {
+    position: relative;
+    grid-area: 1 / 1;
+    align-self: safe end;
+    bottom: auto;
+  }
+}
 @media (max-width: 1050px) {
   .refreshed-home #work .featured-project { min-height: calc(var(--wzz-space-20) * 5 + var(--wzz-space-5)); }
   .refreshed-home #work .featured-project-copy { padding-top: var(--wzz-space-8); }
