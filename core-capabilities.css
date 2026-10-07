@@ -1,0 +1,546 @@
+/* Static default scene from Figma 1220:25 / 1182:6076.
+   Positions retain the original 1306 × 747 scene, with each layer's
+   Figma transform converted to its center. Default geometry is locked. */
+.refreshed-home #capabilities {
+  color: var(--wzz-text-primary);
+  font-family: var(--wzz-font-sans);
+  padding-bottom: 0;
+}
+
+#capabilities .section-inner {
+  container-type: inline-size;
+}
+
+.refreshed-home #capabilities .section-heading {
+  /* 48px in the 1306px-wide Figma scene. */
+  margin-bottom: 3.67534456cqw;
+}
+
+.refreshed-home #capabilities .section-heading h2 {
+  margin: 0;
+  /* The heading in the Figma demo is 36px at its native scene size. */
+  font-size: 2.75650842cqw;
+  font-weight: var(--wzz-weight-semibold);
+  line-height: var(--wzz-leading-section);
+  letter-spacing: normal;
+  color: #0c131b;
+}
+
+#capabilities .cc-scene {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  aspect-ratio: 1306 / 747;
+  /* Only the paper is clipped: the original Midjourney sail extends above it. */
+  overflow: visible;
+  /* Use the original 38px radius; the paper asset supplies the edge. */
+  border-radius: 2.90964778cqw;
+  background: var(--wzz-surface);
+}
+
+#capabilities .cc-paper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  /* The demo overlays this paper on the same paper in its base image.
+     Its visible background is therefore opaque, rather than 60% on white. */
+}
+
+#capabilities .cc-paper img {
+  position: absolute;
+  top: 0;
+  left: -.01%;
+  width: 100.09%;
+  height: 100%;
+  max-width: none;
+}
+
+#capabilities .cc-folder {
+  margin: 0;
+  /* Keep the persistent stack behind this folder's unchanged closed front. */
+  isolation: isolate;
+}
+
+#capabilities .cc-object {
+  position: absolute;
+  display: block;
+  height: auto;
+  max-width: none;
+  transform: translate(-50%, -50%) rotate(var(--cc-angle));
+  pointer-events: none;
+  user-select: none;
+}
+
+#capabilities .cc-label {
+  position: absolute;
+  width: max-content;
+  /* Match the raster captions' 28px size and pale neutral gray. */
+  color: #c1c3c3;
+  font-size: 2.14395099cqw;
+  font-weight: var(--wzz-weight-regular);
+  line-height: var(--wzz-leading-meta);
+  transform: translate(-50%, -50%) rotate(var(--cc-angle));
+  pointer-events: none;
+}
+
+#capabilities .cc-label--ux {
+  left: 20.59724%;
+  top: 53.74833%;
+  --cc-angle: -10.47deg;
+}
+
+#capabilities .cc-label--visual {
+  left: 78.17764%;
+  top: 54.75234%;
+  --cc-angle: 11.66deg;
+}
+
+#capabilities .cc-label--vibe {
+  left: 47.39663%;
+  top: 93.50736%;
+  --cc-angle: 1.28deg;
+}
+
+#capabilities .cc-object--ux,
+#capabilities .folder-body--ux {
+  left: 17.60296%;
+  top: 28.75723%;
+  width: 40.74870%;
+  --cc-angle: -10.47deg;
+}
+
+#capabilities .cc-object--visual,
+#capabilities .folder-body--visual {
+  left: 82.00257%;
+  top: 28.76545%;
+  width: 42.60574%;
+  --cc-angle: 11.66deg;
+}
+
+#capabilities .cc-object--vibe,
+#capabilities .folder-body--vibe {
+  left: 48.01391%;
+  top: 67.56283%;
+  width: 41.06041%;
+  --cc-angle: 1.28deg;
+}
+
+#capabilities .cc-object--ambiguity {
+  left: 39.34953%;
+  top: 21.54206%;
+  width: 13.86975%;
+  --cc-angle: 6.27deg;
+}
+
+#capabilities .cc-object--system {
+  left: 10.99090%;
+  top: 79.18840%;
+  width: 18.49671%;
+  --cc-angle: -17.52deg;
+}
+
+#capabilities .cc-object--impact {
+  left: 24.81162%;
+  top: 70.41940%;
+  width: 12.02596%;
+  --cc-angle: -16.98deg;
+}
+
+#capabilities .cc-object--detail {
+  left: 71.57773%;
+  top: 70.65462%;
+  width: 14.08943%;
+  --cc-angle: 7.91deg;
+}
+
+#capabilities .cc-object--exploring {
+  left: 85.82701%;
+  top: 79.25418%;
+  width: 16.83813%;
+  --cc-angle: -10.92deg;
+}
+
+#capabilities .cc-object--w {
+  left: 54.92204%;
+  top: 18.10982%;
+  width: 8.40597%;
+  --cc-angle: 10.9deg;
+}
+
+#capabilities .cc-object--full-stack {
+  left: 55.53449%;
+  top: 35.70734%;
+  width: 26.87550%;
+  --cc-angle: -1.68deg;
+}
+
+/* Motion polish: all approved base and settled geometry stays unchanged. */
+#capabilities .cc-scene {
+  --cc-open-duration: 140ms;
+  --cc-close-duration: var(--wzz-motion-tiny);
+  --cc-icon-in: 560ms;
+  --cc-icon-out: 520ms;
+  --cc-reveal-start: 0ms;
+  --cc-label-in: 160ms;
+  --cc-label-out: 140ms;
+  --cc-label-delay: 90ms;
+  --cc-active-color: #0080ff;
+  --cc-front-in: 400ms;
+  --cc-front-out: 320ms;
+}
+
+#capabilities .cc-folder-anchor {
+  /* Retain the approved measurement origin without rendering a state image. */
+  visibility: hidden;
+  aspect-ratio: 3 / 2;
+}
+
+/* One registered 1536 × 1024 local canvas. Only this wrapper owns
+   page position, size and rotation; the three children share its origin. */
+#capabilities .folder-body {
+  position: absolute;
+  aspect-ratio: 3 / 2;
+  z-index: 1;
+  transform: translate(-50%, -50%) rotate(var(--cc-angle));
+  pointer-events: none;
+}
+
+/* One shadow from the merged folder silhouette, never one per PNG layer.
+   The cleaned assets contain material and narrow coverage edges only. */
+#capabilities .folder-body {
+  filter: drop-shadow(var(--wzz-shadow-sticker));
+}
+
+#capabilities .folder-back,
+#capabilities .folder-front {
+  position: absolute;
+  inset: 0;
+  /* Flat siblings preserve Back < Tools < Front painting order in 3D. */
+  transform-style: flat;
+}
+
+#capabilities .folder-back { z-index: 0; }
+#capabilities .folder-front {
+  z-index: 2;
+  /* Top edge of the actual front face, including the registered canvas margin. */
+  transform-origin: 50% 34.47265625%;
+}
+
+#capabilities .folder-back img,
+#capabilities .folder-front img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  user-select: none;
+}
+
+/* Shared registration: Back, Tools and Front use the same full canvas.
+   The existing tool motion is inverse-registered into this top-left origin. */
+#capabilities .folder-body > .tool-layer {
+  position: absolute;
+  inset: 0;
+  width: auto;
+  height: auto;
+  transform: none;
+}
+
+#capabilities .cc-tool {
+  position: absolute;
+  z-index: 1;
+  left: var(--cc-tool-x);
+  top: var(--cc-tool-y);
+  width: var(--cc-tool-width);
+  height: var(--cc-tool-height);
+  transform: translate(-50%, -50%);
+}
+
+#capabilities .cc-tool-group {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  z-index: 1;
+  /* Each open composition has one origin, scale and relative tool layout.
+     Coordinates follow the supplied open-state reference, including its
+     higher back row; the folder layers and closed composition stay fixed. */
+  --cc-group-scale: 1;
+  transform-origin: 0 0;
+  transform: translate(var(--cc-group-x), var(--cc-group-y)) scale(var(--cc-group-scale));
+}
+
+#capabilities .cc-tool-group--ux {
+  --cc-group-x: 17.916662cqw;
+  --cc-group-y: 15.415862cqw;
+}
+
+#capabilities .cc-tool-group--visual {
+  --cc-group-x: 81.459069cqw;
+  --cc-group-y: 16.318546cqw;
+}
+
+#capabilities .cc-tool-group--vibe {
+  --cc-group-x: 48.537372cqw;
+  --cc-group-y: 37.645143cqw;
+}
+
+#capabilities .cc-tool-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 1;
+  /* The module JS composes the shared stack offset with this approved pose. */
+  transform: rotate(var(--cc-tool-angle)) scale(1);
+}
+
+#capabilities .cc-tool-content img {
+  position: absolute;
+  display: block;
+  width: var(--cc-sprite-width, 100%);
+  height: var(--cc-sprite-height, 100%);
+  left: var(--cc-sprite-left, 0);
+  top: var(--cc-sprite-top, 0);
+  max-width: none;
+}
+
+#capabilities .cc-label {
+  transition: color var(--cc-label-out) var(--wzz-ease-standard);
+}
+
+#capabilities .cc-label::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  /* Figma's compact selected tag; paint behind the existing text box. */
+  inset: .12cqw -.5cqw;
+  border-radius: .38284839cqw;
+  background: var(--cc-active-color);
+  opacity: 0;
+  transform: translateY(2px) scale(.96);
+  transition: opacity var(--cc-label-out) var(--wzz-ease-standard),
+    transform var(--cc-label-out) var(--wzz-ease-standard);
+}
+
+/* The shared scene state controls every active layer. No independent :hover. */
+#capabilities .cc-scene[data-active-folder="uiux"] .folder-body--ux .cc-tool-content,
+#capabilities .cc-scene[data-active-folder="visual"] .folder-body--visual .cc-tool-content,
+#capabilities .cc-scene[data-active-folder="vibe"] .folder-body--vibe .cc-tool-content {
+  opacity: 1;
+  transform: translateY(0) rotate(var(--cc-tool-angle)) scale(1);
+
+}
+
+#capabilities .cc-scene[data-active-folder="uiux"] .cc-label--ux,
+#capabilities .cc-scene[data-active-folder="visual"] .cc-label--visual,
+#capabilities .cc-scene[data-active-folder="vibe"] .cc-label--vibe {
+  color: #fff;
+  transition-duration: var(--cc-label-in);
+  transition-delay: var(--cc-label-delay);
+}
+
+#capabilities .cc-scene[data-active-folder="uiux"] .cc-label--ux::before,
+#capabilities .cc-scene[data-active-folder="visual"] .cc-label--visual::before,
+#capabilities .cc-scene[data-active-folder="vibe"] .cc-label--vibe::before {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition-duration: var(--cc-label-in);
+  transition-delay: var(--cc-label-delay);
+}
+
+/* Stable hit boxes cover both closed art and emerged logos. Only the small
+   overlap corners are trimmed; opening never changes their geometry. */
+#capabilities .cc-hit-area {
+  position: absolute;
+  z-index: 3;
+}
+
+#capabilities .cc-hit-area--ux {
+  left: 0;
+  top: 0;
+  width: 35%;
+  height: 57%;
+}
+
+#capabilities .cc-hit-area--visual {
+  left: 65%;
+  top: -6%;
+  width: 35%;
+  height: 64%;
+}
+
+#capabilities .cc-hit-area--vibe {
+  left: 30%;
+  top: 40%;
+  width: 37%;
+  height: 55%;
+  clip-path: polygon(14% 0, 86% 0, 100% 30%, 100% 100%, 0 100%, 0 30%);
+}
+
+
+/* Approved tool offsets remain in scene units and are registered into the body. */
+#capabilities .cc-tool--figma {
+  --cc-tool-x: -5.233919cqw;
+  --cc-tool-y: -0.197048cqw;
+  --cc-tool-width: 13.052270cqw;
+  --cc-tool-height: 13.052270cqw;
+  --cc-tool-angle: -26.617243deg;
+
+}
+
+#capabilities .cc-tool--gemini {
+  z-index: 0;
+  --cc-tool-x: 1.815182cqw;
+  --cc-tool-y: -5.650759cqw;
+  --cc-tool-width: 10.173950cqw;
+  --cc-tool-height: 10.479168cqw;
+  --cc-tool-angle: 15.000000deg;
+  --cc-tool-delay: 30ms;
+  --cc-sprite-width: 319.89795126%;
+  --cc-sprite-height: 310.39603338%;
+  --cc-sprite-left: -9.94898218%;
+  --cc-sprite-top: -107.67327154%;
+}
+
+#capabilities .cc-tool--openai {
+  --cc-tool-x: -5.879623cqw;
+  --cc-tool-y: -0.913115cqw;
+  --cc-tool-width: 13.255698cqw;
+  --cc-tool-height: 13.520812cqw;
+  --cc-tool-angle: 13.276081deg;
+  --cc-sprite-width: 284.35373746%;
+  --cc-sprite-height: 278.66666932%;
+  --cc-sprite-left: 0.00000000%;
+  --cc-sprite-top: 0.00000000%;
+}
+
+#capabilities .cc-tool--claude {
+  --cc-tool-x: 5.879988cqw;
+  --cc-tool-y: 0.912967cqw;
+  --cc-tool-width: 9.743595cqw;
+  --cc-tool-height: 9.743595cqw;
+  --cc-tool-angle: 29.228494deg;
+  --cc-tool-delay: 30ms;
+  --cc-sprite-width: 310.39600466%;
+  --cc-sprite-height: 310.39603338%;
+  --cc-sprite-left: -103.46534722%;
+  --cc-sprite-top: -107.67327154%;
+}
+
+#capabilities .cc-tool--sketch {
+  --cc-tool-x: 5.065008cqw;
+  --cc-tool-y: 0.209533cqw;
+  --cc-tool-width: 13.667813cqw;
+  --cc-tool-height: 13.667813cqw;
+  --cc-tool-angle: 8.903025deg;
+  --cc-tool-delay: 30ms;
+}
+
+#capabilities .cc-tool--midjourney {
+  --cc-tool-x: 2.421088cqw;
+  --cc-tool-y: -7.253835cqw;
+  --cc-tool-width: 16.752661cqw;
+  --cc-tool-height: 14.867986cqw;
+  --cc-tool-angle: 10.308414deg;
+  --cc-sprite-width: 275.00003688%;
+  --cc-sprite-height: 309.62959258%;
+  --cc-sprite-left: -88.81580382%;
+  --cc-sprite-top: -202.96295298%;
+}
+
+#capabilities .cc-tool--ai {
+  --cc-tool-x: -6.613060cqw;
+  --cc-tool-y: -1.646997cqw;
+  --cc-tool-width: 11.955965cqw;
+  --cc-tool-height: 12.852662cqw;
+  --cc-tool-angle: -4.419526deg;
+  --cc-tool-delay: 30ms;
+  --cc-sprite-width: 299.99996424%;
+  --cc-sprite-height: 278.66666932%;
+  --cc-sprite-left: -100.47846133%;
+  --cc-sprite-top: 0.00000000%;
+}
+
+#capabilities .cc-tool--ps {
+  --cc-tool-x: 6.967198cqw;
+  --cc-tool-y: 1.649510cqw;
+  --cc-tool-width: 12.888134cqw;
+  --cc-tool-height: 13.306999cqw;
+  --cc-tool-angle: 36.659512deg;
+  --cc-tool-delay: 60ms;
+  --cc-sprite-width: 287.61463529%;
+  --cc-sprite-height: 278.66666932%;
+  --cc-sprite-left: -186.00916902%;
+  --cc-sprite-top: 0.00000000%;
+}
+
+
+#capabilities .cc-tool--sketch img {
+  /* Preserve the supplied pixels and white rim. Hide only the exterior
+     background with a display mask traced from the original rim. */
+  top: 50%;
+  height: auto;
+  transform: translateY(-50%);
+  mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201254%201254%22%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M627%20236%20C542%20236%20461%20246%20383%20255%20C364%20259%20349%20270%20330%20300%20L182%20491%20C169%20512%20174%20537%20183%20552%20L222%20600%20L308%20700%20L394%20800%20L483%20900%20L556%20978%20Q577%201006%20595%201015%20Q622%201023%20644%201012%20Q662%201003%20679%20980%20L762%20900%20L853%20800%20L940%20700%20L1026%20600%20L1068%20553%20C1074%20539%201076%20527%201075%20516%20C1074%20506%201070%20496%201065%20488%20L923%20296%20C903%20271%20887%20258%20869%20255%20C781%20245%20712%20236%20627%20236%20Z%22%2F%3E%3C%2Fsvg%3E");
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+}
+
+/* Individual translate composes with the untouched positioning transform.
+   These independent vertical rhythms never change X, base rotation or scale. */
+#capabilities .cc-stickers > .cc-object:not(.cc-object--full-stack) {
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-play-state: var(--cc-ambient-play-state, running);
+}
+#capabilities .cc-object--ambiguity { animation-name: cc-ambient-ambiguity; animation-duration: 4.2s; animation-delay: -1.2s; }
+#capabilities .cc-object--system { animation-name: cc-ambient-system; animation-duration: 5.1s; animation-delay: -3.4s; }
+#capabilities .cc-object--impact { animation-name: cc-ambient-impact; animation-duration: 3.9s; animation-delay: -.6s; }
+#capabilities .cc-object--detail { animation-name: cc-ambient-detail; animation-duration: 4.7s; animation-delay: -2.5s; }
+#capabilities .cc-object--exploring { animation-name: cc-ambient-exploring; animation-duration: 5.5s; animation-delay: -4.3s; }
+#capabilities .cc-object--w { animation-name: cc-ambient-w; animation-duration: 6.8s; animation-delay: -2.4s; }
+#capabilities .cc-scene[data-ambient-running="false"] { --cc-ambient-play-state: paused; }
+
+@keyframes cc-ambient-ambiguity {
+  0%, 100% { translate: 0 0; }
+  27% { translate: 0 -7px; }
+  73% { translate: 0 5px; }
+}
+@keyframes cc-ambient-system {
+  0%, 100% { translate: 0 0; }
+  31% { translate: 0 -10px; }
+  77% { translate: 0 6px; }
+}
+@keyframes cc-ambient-impact {
+  0%, 100% { translate: 0 0; }
+  24% { translate: 0 -8px; }
+  69% { translate: 0 5px; }
+}
+@keyframes cc-ambient-detail {
+  0%, 100% { translate: 0 0; }
+  30% { translate: 0 -9px; }
+  76% { translate: 0 6px; }
+}
+@keyframes cc-ambient-exploring {
+  0%, 100% { translate: 0 0; }
+  34% { translate: 0 -11px; }
+  80% { translate: 0 7px; }
+}
+@keyframes cc-ambient-w {
+  0%, 100% { translate: 0 0; }
+  29% { translate: 0 -2px; }
+  74% { translate: 0 1px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #capabilities .cc-stickers > .cc-object { animation: none; }
+  #capabilities .cc-folder > .cc-object,
+  #capabilities .folder-body,
+  #capabilities .cc-label,
+  #capabilities .cc-label::before {
+    transition-duration: 60ms;
+    transition-delay: 0s;
+  }
+}

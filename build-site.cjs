@@ -10,7 +10,7 @@ for(let i=0;i<projects.length;i++){
  fs.writeFileSync(`${p.slug}.html`,out);
 }
 // Only publish files actually used by the current website.
-const files=new Set(['index.html','juzi.html','tmall.html','aigc.html','design-tokens.css','home.css','portfolio.css','home-refresh.css','hero-intro.css','about.css','selected-works.css','section-card-system.css','experience.css','experience.js','portfolio.js','hero-intro.js','featured-projects.js','favicon.svg','assets/fonts/Inter-Variable.ttf']);
+const files=new Set(['index.html','juzi.html','tmall.html','aigc.html','design-tokens.css','home.css','portfolio.css','home-refresh.css','hero-intro.css','about.css','core-capabilities.css','selected-works.css','section-card-system.css','experience.css','experience.js','portfolio.js','core-capabilities.js','hero-intro.js','featured-projects.js','favicon.svg','assets/fonts/Inter-Variable.ttf']);
 for(const html of ['index.html','juzi.html','tmall.html','aigc.html']){
  const source=fs.readFileSync(html,'utf8');
  for(const m of source.matchAll(/(?:src|poster|data-image)="(assets\/[^"<>]+)"/g))files.add(m[1]);
