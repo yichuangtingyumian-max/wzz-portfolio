@@ -3,7 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const root = __dirname;
 const previewPort = Number(process.env.WZZ_PREVIEW_PORT || 4174);
-const types = {'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.png':'image/png','.jpeg':'image/jpeg','.jpg':'image/jpeg','.webp':'image/webp','.svg':'image/svg+xml','.ttf':'font/ttf','.mp4':'video/mp4'};
+const types = {'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.png':'image/png','.jpeg':'image/jpeg','.jpg':'image/jpeg','.webp':'image/webp','.svg':'image/svg+xml','.ttf':'font/ttf','.mp4':'video/mp4','.mp3':'audio/mpeg'};
 async function start() {
 const toolMode = process.env.NODE_ENV === 'production' ? 'off' : (process.env.WZZ_ANNOTATION_TOOL || 'official');
 const { createPreviewTools } = require('./dev/preview-tools.cjs');
@@ -13,12 +13,12 @@ http.createServer((req,res) => {
   try { name = decodeURIComponent(new URL(req.url,'http://localhost').pathname); } catch { res.writeHead(400).end(); return; }
   if(name === '/') name = '/index.html';
   if(devTools.handle(req,res,name)) return;
-  if(!(/^\/((index|juzi|tmall|aigc)\.html|(design-tokens|home|portfolio|home-refresh|hero-intro|about|core-capabilities|selected-works|section-card-system|experience)\.css|(portfolio|hero-intro|core-capabilities|featured-projects|experience)\.js|favicon\.svg|assets\/(fonts|images|videos)\/[a-zA-Z0-9_.-]+)$/.test(name))) {res.writeHead(404).end();return;}
+  if(!(/^\/((index|juzi|tmall|aigc)\.html|(design-tokens|home|portfolio|home-refresh|hero-intro|about|core-capabilities|selected-works|section-card-system|experience|beyond-design)\.css|(portfolio|hero-intro|core-capabilities|featured-projects|experience|beyond-design)\.js|favicon\.svg|assets\/(fonts|images|videos|audio)\/[a-zA-Z0-9_.-]+)$/.test(name))) {res.writeHead(404).end();return;}
   const file = path.join(root,name);
   fs.readFile(file,(err,data)=>{
     if(err){res.writeHead(404).end();return;}
-    if(path.extname(file) === '.mp4') {
-      const headers = {'Content-Type':types['.mp4'],'Accept-Ranges':'bytes','Cache-Control':'no-store'};
+    if(['.mp4', '.mp3'].includes(path.extname(file))) {
+      const headers = {'Content-Type':types[path.extname(file)],'Accept-Ranges':'bytes','Cache-Control':'no-store'};
       if(req.headers.range) {
         const range = /^bytes=(\d*)-(\d*)$/.exec(req.headers.range);
         let start = range?.[1] ? Number(range[1]) : 0;

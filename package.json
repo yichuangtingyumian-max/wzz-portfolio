@@ -5,9 +5,10 @@
   "scripts": {
     "start": "node preview.cjs",
     "build": "node build-site.cjs",
-    "check": "node --check experience.js && node --check portfolio.js && node --check hero-intro.js && node --check preview.cjs && node --check build-site.cjs && node --check release-audit.cjs && node --check dev/preview-tools.cjs && node --check dev/annotation-backup.js && node --check dev/agentation-legacy.js && node --check dev/agentation-island.mjs",
+    "check": "node --check beyond-design.js && node --check experience.js && node --check portfolio.js && node --check hero-intro.js && node --check preview.cjs && node --check build-site.cjs && node --check release-audit.cjs && node --check dev/preview-tools.cjs && node --check dev/annotation-backup.js && node --check dev/agentation-legacy.js && node --check dev/agentation-island.mjs",
     "check:release": "node release-audit.cjs",
-    "check:preview": "node dev/check-preview.cjs"
+    "check:preview": "node dev/check-preview.cjs",
+    "check:beyond": "node dev/check-beyond.cjs"
   },
   "devDependencies": {
     "agentation": "3.1.2",

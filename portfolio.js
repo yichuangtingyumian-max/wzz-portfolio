@@ -4,17 +4,6 @@
     const open=button.getAttribute('aria-expanded')!=='true';
     document.querySelectorAll('.kit-cover').forEach(other=>{const active=other===button&&open;other.setAttribute('aria-expanded',String(active));other.closest('.kit-folder').classList.toggle('is-open',active);document.getElementById(other.getAttribute('aria-controls')).hidden=!active;other.querySelector('.kit-open').textContent=active?'收起工具夹 ↙':'打开工具夹 ↗';});
   }));
-  const album=document.querySelector('.album-book');
-  if(album)album.addEventListener('click',()=>{const open=album.getAttribute('aria-expanded')!=='true';album.setAttribute('aria-expanded',String(open));document.getElementById(album.getAttribute('aria-controls')).hidden=!open;});
-  const camera=document.querySelector('.pet-camera');
-  if(camera)camera.addEventListener('click',()=>{const open=camera.getAttribute('aria-expanded')!=='true';camera.setAttribute('aria-expanded',String(open));document.getElementById(camera.getAttribute('aria-controls')).hidden=!open;});
-  document.querySelectorAll('.pet-print').forEach(print=>{
-    let startX=0,startY=0,originX=0,originY=0,moved=false;
-    print.addEventListener('pointerdown',event=>{if(event.button!==0)return;startX=event.clientX;startY=event.clientY;originX=Number(print.dataset.x)||0;originY=Number(print.dataset.y)||0;moved=false;print.setPointerCapture(event.pointerId);print.classList.add('is-dragging');});
-    print.addEventListener('pointermove',event=>{if(!print.hasPointerCapture(event.pointerId))return;const x=originX+event.clientX-startX,y=originY+event.clientY-startY;if(Math.abs(x-originX)+Math.abs(y-originY)>5)moved=true;print.style.translate=x+'px '+y+'px';print.dataset.x=String(x);print.dataset.y=String(y);});
-    print.addEventListener('pointerup',event=>{if(print.hasPointerCapture(event.pointerId))print.releasePointerCapture(event.pointerId);print.classList.remove('is-dragging');if(moved)print.addEventListener('click',e=>{e.preventDefault();e.stopImmediatePropagation();},{once:true,capture:true});});
-    print.addEventListener('pointercancel',()=>print.classList.remove('is-dragging'));
-  });
   const lifeButtons=[...document.querySelectorAll('.life-toggle')];
   lifeButtons.forEach(button=>button.addEventListener('click',()=>{const open=button.getAttribute('aria-expanded')!=='true';lifeButtons.forEach(other=>{const active=other===button&&open;other.setAttribute('aria-expanded',String(active));document.getElementById(other.getAttribute('aria-controls')).hidden=!active;});}));
   const dockLinks=[...document.querySelectorAll('.side-dock a')];
