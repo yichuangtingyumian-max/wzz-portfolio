@@ -267,13 +267,30 @@
             </span>
           </div>
         </div>
-        <div class="contact-details">
+        <div class="contact-details" aria-labelledby="contact-panel-title">
+          <header class="contact-panel-heading">
+            <h3 id="contact-panel-title">如果你对我的作品集、网站感兴趣，欢迎随时联系我。</h3>
+            <p>还没整理好的想法也没关系，我们可以从一个问题开始聊。</p>
+          </header>
           <dl class="contact-info-list">
-            <div class="contact-info-row"><dt>姓名</dt><dd class="contact-person-name">王增增 · Wang Zengzeng</dd></div>
-            <div class="contact-info-row contact-info-row--copy"><dt>EMAIL</dt><dd><a href="mailto:3367506893@qq.com">3367506893<wbr>@qq.com</a><button class="contact-copy" type="button" data-contact-copy="3367506893@qq.com" data-copy-name="邮箱" aria-label="复制邮箱"><span data-copy-label>复制</span></button></dd></div>
-            <div class="contact-info-row contact-info-row--copy"><dt>PHONE</dt><dd><a href="tel:+8613585306287">135 8530 6287</a><button class="contact-copy" type="button" data-contact-copy="13585306287" data-copy-name="电话" aria-label="复制电话号码"><span data-copy-label>复制</span></button></dd></div>
-            <div class="contact-info-row"><dt>现居地</dt><dd>江苏</dd></div>
+            <div class="contact-info-field"><dt>姓名</dt><dd><span class="contact-field-value">王增增</span></dd></div>
+            <div class="contact-info-field"><dt>现居地</dt><dd><span class="contact-field-value">江苏常州</span></dd></div>
+            <div class="contact-info-field contact-info-field--wide">
+              <dt id="contact-email-label">电子邮箱</dt>
+              <dd><button class="contact-copy-field" type="button" data-contact-copy="3367506893@qq.com" data-copy-name="邮箱" aria-labelledby="contact-email-label contact-email-value" aria-describedby="contact-copy-hint">
+                <span class="contact-field-text" id="contact-email-value" data-contact-value>3367506893<wbr>@qq.com</span>
+                <span class="contact-copy-affordance"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M15 9V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h4"/></svg><span data-copy-label>复制</span></span>
+              </button></dd>
+            </div>
+            <div class="contact-info-field contact-info-field--wide">
+              <dt id="contact-phone-label">联系电话</dt>
+              <dd><button class="contact-copy-field" type="button" data-contact-copy="13585306287" data-copy-name="电话" aria-labelledby="contact-phone-label contact-phone-value" aria-describedby="contact-copy-hint">
+                <span class="contact-field-text" id="contact-phone-value" data-contact-value>13585306287</span>
+                <span class="contact-copy-affordance"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M15 9V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h4"/></svg><span data-copy-label>复制</span></span>
+              </button></dd>
+            </div>
           </dl>
+          <p class="contact-copy-hint" id="contact-copy-hint">点击邮箱或电话，即可复制联系方式。</p>
           <p class="contact-feedback" data-contact-feedback role="status" aria-live="polite" aria-atomic="true"></p>
         </div>
       </div>
@@ -285,7 +302,7 @@
       <span class="contact-closing-seal" data-contact-seal role="img" aria-label="王增增的金属 W 蜡封徽章">
         <span class="contact-seal-hover">
           <span class="contact-seal-formation">
-            <span class="contact-seal-disc" aria-hidden="true"></span>
+            <img class="contact-seal-disc" src="assets/images/contact-seal-base.png" alt="" width="1254" height="1254" loading="lazy" decoding="async" draggable="false" aria-hidden="true">
             <img class="contact-seal-imprint" src="assets/images/hero-seal-w.png" alt="" width="1254" height="1254" loading="lazy" decoding="async" draggable="false">
             <span class="contact-seal-glint" aria-hidden="true"></span>
           </span>

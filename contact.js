@@ -3,6 +3,7 @@
   if (!section) return;
   const feedback = section.querySelector('[data-contact-feedback]');
   const timers = new WeakMap();
+  let feedbackTimer;
 
   async function copyText(value) {
     try {
@@ -41,11 +42,14 @@
       button.removeAttribute('aria-busy');
       clearTimeout(timers.get(button));
       label.textContent = copied ? '已复制' : '未复制';
-      timers.set(button, setTimeout(() => { label.textContent = idleLabel; }, 1800));
+      button.dataset.copySuccess = String(copied);
+      timers.set(button, setTimeout(() => { label.textContent = idleLabel; button.removeAttribute('data-copy-success'); }, 1800));
+      clearTimeout(feedbackTimer);
       feedback.dataset.copyFailed = String(!copied);
-      feedback.textContent = copied ? button.dataset.copyName + '已复制。' : '无法自动复制，请选中联系方式手动复制。';
+      feedback.textContent = copied ? button.dataset.copyName + '已复制。' : '自动复制失败，内容已选中，请手动复制。';
+      if (copied) feedbackTimer = setTimeout(() => { feedback.textContent = ''; }, 2600);
       if (!copied) {
-        const value = button.closest('dd').querySelector('a');
+        const value = button.querySelector('[data-contact-value]');
         const range = document.createRange();
         range.selectNodeContents(value);
         const selection = window.getSelection();
@@ -55,9 +59,33 @@
     });
   });
 
+  const qrObject = section.querySelector('.contact-qr-object');
+  const qrCard = qrObject?.querySelector('.contact-qr-card');
+  if (qrCard) {
+    let layerTimer;
+    const lowerQr = () => {
+      if (!qrObject.matches(':hover')) qrObject.classList.remove('is-contact-qr-raised');
+    };
+    qrObject.addEventListener('pointerenter', () => {
+      if (!matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+      clearTimeout(layerTimer);
+      qrObject.classList.add('is-contact-qr-raised');
+    });
+    qrObject.addEventListener('pointerleave', () => {
+      clearTimeout(layerTimer);
+      // Keep the heart and sticker behind the code throughout its smooth return.
+      const duration = parseFloat(getComputedStyle(qrCard).transitionDuration) * 1000;
+      layerTimer = setTimeout(lowerQr, duration + 50);
+    });
+    qrCard.addEventListener('transitionend', event => {
+      if (event.target === qrCard && event.propertyName === 'transform') lowerQr();
+    });
+  }
+
   const seal = document.querySelector('[data-contact-seal]');
   if (!seal) return;
   const imprint = seal.querySelector('.contact-seal-imprint');
+  const base = seal.querySelector('.contact-seal-disc');
   const formation = seal.querySelector('.contact-seal-formation');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let observer;
@@ -85,7 +113,7 @@
     formation.addEventListener('animationend', onFormationEnd);
     // A missing/cancelled animation must still leave the real badge visible.
     const duration = parseFloat(getComputedStyle(formation).animationDuration) * 1000;
-    finishTimer = setTimeout(settle, Number.isFinite(duration) ? duration + 100 : 1800);
+    finishTimer = setTimeout(settle, Number.isFinite(duration) ? duration + 100 : 2800);
   }
 
   function prepareReveal() {
@@ -100,9 +128,16 @@
   }
 
   reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) settle(); });
-  if (imprint.complete && imprint.naturalWidth) prepareReveal();
-  else {
-    imprint.addEventListener('load', prepareReveal, { once: true });
-    imprint.addEventListener('error', settle, { once: true });
+  function waitForImage(image) {
+    if (image.complete) return image.naturalWidth ? Promise.resolve() : Promise.reject(new Error('Badge image unavailable'));
+    return new Promise((resolve, reject) => {
+      const loaded = () => { image.removeEventListener('error', failed); resolve(); };
+      const failed = () => { image.removeEventListener('load', loaded); reject(new Error('Badge image unavailable')); };
+      image.addEventListener('load', loaded, { once: true });
+      image.addEventListener('error', failed, { once: true });
+    });
   }
+  if (reducedMotion.matches || !('IntersectionObserver' in window)) settle();
+  else if ([imprint, base].every(image => image.complete && image.naturalWidth)) prepareReveal();
+  else Promise.all([imprint, base].map(waitForImage)).then(prepareReveal).catch(settle);
 })();
