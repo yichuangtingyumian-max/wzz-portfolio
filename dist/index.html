@@ -250,7 +250,7 @@
       </div>
     </section>
 
-    <section class="section wrap card-system-section" id="contact" aria-labelledby="contact-title">
+    <section class="section section-inner card-system-section" id="contact" aria-labelledby="contact-title">
       <header class="card-system-header"><div class="section-heading"><h2 id="contact-title">关于我</h2></div></header>
       <div class="contact-window-bar" aria-label="contact me.fig">
         <div class="contact-window-file"><span class="contact-window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>contact me.fig</span></div>
@@ -270,34 +270,44 @@
         <div class="contact-details" aria-labelledby="contact-panel-title">
           <header class="contact-panel-heading">
             <h3 id="contact-panel-title">如果你对我的作品集、网站感兴趣，欢迎随时联系我。</h3>
-            <p>还没整理好的想法也没关系，我们可以从一个问题开始聊。</p>
           </header>
           <dl class="contact-info-list">
             <div class="contact-info-field"><dt>姓名</dt><dd><span class="contact-field-value">王增增</span></dd></div>
             <div class="contact-info-field"><dt>现居地</dt><dd><span class="contact-field-value">江苏常州</span></dd></div>
             <div class="contact-info-field contact-info-field--wide">
               <dt id="contact-email-label">电子邮箱</dt>
-              <dd><button class="contact-copy-field" type="button" data-contact-copy="3367506893@qq.com" data-copy-name="邮箱" aria-labelledby="contact-email-label contact-email-value" aria-describedby="contact-copy-hint">
+              <dd><button class="contact-copy-field" type="button" data-contact-copy="3367506893@qq.com" data-copy-name="邮箱" aria-labelledby="contact-email-label contact-email-value contact-email-copy-label">
                 <span class="contact-field-text" id="contact-email-value" data-contact-value>3367506893<wbr>@qq.com</span>
-                <span class="contact-copy-affordance"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M15 9V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h4"/></svg><span data-copy-label>复制</span></span>
+                <span class="contact-copy-affordance"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M15 9V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h4"/></svg><span id="contact-email-copy-label" data-copy-label>复制</span></span>
               </button></dd>
             </div>
             <div class="contact-info-field contact-info-field--wide">
               <dt id="contact-phone-label">联系电话</dt>
-              <dd><button class="contact-copy-field" type="button" data-contact-copy="13585306287" data-copy-name="电话" aria-labelledby="contact-phone-label contact-phone-value" aria-describedby="contact-copy-hint">
+              <dd><button class="contact-copy-field" type="button" data-contact-copy="13585306287" data-copy-name="电话" aria-labelledby="contact-phone-label contact-phone-value contact-phone-copy-label">
                 <span class="contact-field-text" id="contact-phone-value" data-contact-value>13585306287</span>
-                <span class="contact-copy-affordance"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M15 9V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h4"/></svg><span data-copy-label>复制</span></span>
+                <span class="contact-copy-affordance"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M15 9V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h4"/></svg><span id="contact-phone-copy-label" data-copy-label>复制</span></span>
               </button></dd>
             </div>
           </dl>
-          <p class="contact-copy-hint" id="contact-copy-hint">点击邮箱或电话，即可复制联系方式。</p>
+          <div class="contact-downloads" aria-label="简历与作品集文件">
+            <button class="contact-download" type="button" disabled data-contact-document="assets/documents/wang-zengzeng-resume.pdf" aria-label="下载简历，PDF 文件待补充" title="简历 PDF 待补充">
+              <svg class="contact-document-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
+              <span class="contact-download-text"><span>下载简历</span><small>PDF 待补充</small></span>
+              <svg class="contact-download-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M5 16v4h14v-4"/></svg>
+            </button>
+            <button class="contact-download" type="button" disabled data-contact-document="assets/documents/wang-zengzeng-portfolio.pdf" aria-label="下载作品集 PDF，文件待补充" title="作品集 PDF 待补充">
+              <svg class="contact-document-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
+              <span class="contact-download-text"><span>下载作品集 PDF</span><small>PDF 待补充</small></span>
+              <svg class="contact-download-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M5 16v4h14v-4"/></svg>
+            </button>
+          </div>
           <p class="contact-feedback" data-contact-feedback role="status" aria-live="polite" aria-atomic="true"></p>
         </div>
       </div>
     </section>
   </main>
   <footer class="contact-closing wrap" aria-label="页面收尾">
-    <div class="contact-closing-group">
+    <div class="contact-closing-group section-inner">
       <p class="contact-thanks">感谢您的访问</p>
       <span class="contact-closing-seal" data-contact-seal role="img" aria-label="王增增的金属 W 蜡封徽章">
         <span class="contact-seal-hover">

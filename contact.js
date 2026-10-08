@@ -47,7 +47,7 @@
       clearTimeout(feedbackTimer);
       feedback.dataset.copyFailed = String(!copied);
       feedback.textContent = copied ? button.dataset.copyName + '已复制。' : '自动复制失败，内容已选中，请手动复制。';
-      if (copied) feedbackTimer = setTimeout(() => { feedback.textContent = ''; }, 2600);
+      feedbackTimer = setTimeout(() => { feedback.textContent = ''; }, copied ? 2600 : 4500);
       if (!copied) {
         const value = button.querySelector('[data-contact-value]');
         const range = document.createRange();

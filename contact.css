@@ -47,9 +47,9 @@
   display: grid;
   grid-template-columns: minmax(0, 40fr) minmax(0, 60fr);
   align-items: center;
-  gap: var(--wzz-space-12);
+  gap: var(--wzz-space-8);
   min-height: calc(var(--wzz-space-20) * 6 + var(--wzz-space-8));
-  padding: var(--wzz-space-12);
+  padding: var(--wzz-card-padding);
   border: var(--ds-border-width) solid var(--wzz-divider-color);
   border-radius: var(--ds-panel-radius);
   background: var(--wzz-surface);
@@ -71,7 +71,6 @@
 .refreshed-home #contact .contact-details { position: relative; padding: 0; background: transparent; }
 .refreshed-home #contact .contact-panel-heading { margin-bottom: var(--wzz-space-6); }
 .refreshed-home #contact .contact-panel-heading h3 { margin: 0; font-size: var(--wzz-font-h4); font-weight: var(--wzz-weight-semibold); line-height: var(--wzz-leading-subtitle); }
-.refreshed-home #contact .contact-panel-heading p { margin: var(--wzz-space-2) 0 0; color: var(--contact-secondary); font-size: var(--wzz-font-body); line-height: var(--wzz-leading-body); }
 .refreshed-home #contact .contact-info-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--wzz-space-5); margin: 0; }
 .refreshed-home #contact .contact-info-field { min-width: 0; }
 .refreshed-home #contact .contact-info-field--wide { grid-column: 1 / -1; }
@@ -87,11 +86,18 @@
 .refreshed-home #contact .contact-copy-field:active { background: var(--wzz-surface-hover); box-shadow: inset 0 1px 2px color-mix(in srgb, var(--wzz-text-secondary) 12%, transparent); }
 .refreshed-home #contact .contact-copy-field[aria-disabled="true"] { cursor: wait; }
 .refreshed-home #contact :is(a, button):focus-visible { outline: 2px solid var(--wzz-focus-color); outline-offset: var(--wzz-space-1); }
-.refreshed-home #contact .contact-copy-hint { margin: var(--wzz-space-3) 0 0; color: var(--contact-secondary); font-size: var(--wzz-font-meta); line-height: var(--wzz-leading-meta); }
-/* Reserve the status area so both success and manual-copy guidance keep the panel steady. */
-.refreshed-home #contact .contact-feedback { min-height: var(--wzz-space-12); margin: var(--wzz-space-1) 0 0; color: var(--ds-color-accent); font-size: var(--wzz-font-meta); line-height: var(--wzz-leading-meta); }
+.refreshed-home #contact .contact-downloads { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--wzz-space-3); margin-top: var(--wzz-space-6); }
+.refreshed-home #contact .contact-download { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: var(--wzz-space-2); min-width: 0; min-height: calc(var(--wzz-space-12) + var(--wzz-space-2)); padding: var(--wzz-space-3); border: var(--ds-border-width) solid var(--wzz-divider-color); border-radius: var(--wzz-radius-sm); background: color-mix(in srgb, var(--wzz-page-bg) 65%, var(--wzz-surface)); color: var(--contact-ink); font: inherit; font-size: var(--wzz-font-meta); text-align: left; cursor: pointer; transition: background-color var(--wzz-motion-fast) var(--wzz-ease-standard), border-color var(--wzz-motion-fast) var(--wzz-ease-standard), box-shadow var(--wzz-motion-fast) var(--wzz-ease-standard); }
+.refreshed-home #contact .contact-download svg { width: var(--wzz-space-4); height: var(--wzz-space-4); fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.refreshed-home #contact .contact-download-text { display: grid; gap: var(--wzz-space-1); min-width: 0; }
+.refreshed-home #contact .contact-download-text small { color: var(--contact-secondary); font-size: var(--wzz-font-eyebrow); line-height: var(--wzz-leading-meta); }
+.refreshed-home #contact .contact-download-arrow { transition: transform var(--wzz-motion-fast) var(--wzz-ease-standard); }
+.refreshed-home #contact .contact-download:disabled { cursor: not-allowed; }
+/* Transient feedback lives outside the panel flow; no empty status row is reserved. */
+.refreshed-home #contact .contact-feedback { position: fixed; z-index: 20; inset: auto var(--wzz-space-6) var(--wzz-space-6) auto; max-width: min(var(--ds-copy-max), calc(100% - var(--wzz-space-12))); margin: 0; padding: var(--wzz-space-3) var(--wzz-space-4); border: var(--ds-border-width) solid var(--wzz-divider-color); border-radius: var(--wzz-radius-sm); background: var(--wzz-surface); box-shadow: var(--wzz-shadow-card); color: var(--contact-ink); font-size: var(--wzz-font-meta); line-height: var(--wzz-leading-meta); pointer-events: none; }
+.refreshed-home #contact .contact-feedback:empty { padding: 0; border: 0; box-shadow: none; }
 .refreshed-home .contact-closing { padding-block: 0 var(--wzz-space-12); }
-.refreshed-home .contact-closing-group { display: flex; align-items: center; justify-content: center; flex-wrap: nowrap; gap: var(--wzz-space-6); max-width: 100%; margin-inline: auto; font-size: var(--wzz-font-lead); font-weight: var(--wzz-weight-regular); line-height: var(--wzz-leading-lead); color: var(--contact-secondary); }
+.refreshed-home .contact-closing-group { display: flex; align-items: center; justify-content: center; flex-wrap: nowrap; gap: var(--wzz-space-6); margin-inline: auto; font-size: var(--wzz-font-lead); font-weight: var(--wzz-weight-regular); line-height: var(--wzz-leading-lead); color: var(--contact-secondary); }
 .refreshed-home .contact-closing-group p { margin: 0; }
 .refreshed-home .contact-thanks { flex-shrink: 0; white-space: nowrap; }
 .refreshed-home .contact-closing-seal { display: block; position: relative; flex-shrink: 0; width: calc(var(--wzz-space-20) + var(--wzz-space-12)); aspect-ratio: 1; }
@@ -117,6 +123,8 @@
 @keyframes contact-seal-sweep { 0%, 32% { transform: translateX(-55%); } 90%, 100% { transform: translateX(55%); } }
 .refreshed-home .contact-philosophy { min-width: 0; white-space: nowrap; }
 @media (hover: hover) and (pointer: fine) {
+  .refreshed-home #contact .contact-download:not(:disabled):hover { background: var(--wzz-surface); border-color: var(--wzz-text-muted); box-shadow: var(--wzz-shadow-sticker); }
+  .refreshed-home #contact .contact-download:not(:disabled):hover .contact-download-arrow { transform: translateY(2px); }
   .refreshed-home #contact .contact-profile-card:hover { border-color: color-mix(in srgb, var(--wzz-divider-color) 82%, var(--wzz-text-secondary)); box-shadow: var(--wzz-shadow-floating); }
   .refreshed-home #contact .contact-qr-object:is(:hover, .is-contact-qr-raised) { z-index: 6; }
   .refreshed-home #contact .contact-qr-object:hover .contact-qr-card { transform: translateY(calc(-1 * var(--wzz-space-2))) rotate(1.5deg) scale(1.04); box-shadow: var(--wzz-shadow-floating); }
@@ -128,12 +136,14 @@
   .refreshed-home .contact-closing-seal:is([data-seal-state="settled"], :not([data-seal-state])):hover .contact-seal-glint::after { transform: translateX(55%); }
 }
 @media (max-width: 1088px) {
-  .refreshed-home #contact .contact-profile-card { gap: var(--wzz-space-6); padding: var(--wzz-space-8); min-height: calc(var(--wzz-space-20) * 5); grid-template-columns: minmax(0, 36fr) minmax(0, 64fr); }
+  /* The shared project rail becomes one column here; keep the contact content readable. */
+  .refreshed-home #contact .contact-profile-card { gap: var(--wzz-space-6); padding: var(--wzz-card-padding); min-height: 0; grid-template-columns: minmax(0, 1fr); }
+  .refreshed-home #contact .contact-artwork { max-width: calc(var(--wzz-space-20) * 3 + var(--wzz-space-12)); }
   .refreshed-home #contact .contact-info-list { gap: var(--wzz-space-4); }
   .refreshed-home #contact .contact-copy-affordance { min-width: var(--wzz-space-12); gap: var(--wzz-space-1); }
   .refreshed-home #contact .contact-copy-field { gap: var(--wzz-space-2); }
-  .refreshed-home .contact-closing-group { gap: var(--wzz-space-4); font-size: var(--ds-size-16); }
-  .refreshed-home .contact-closing-seal { width: calc(var(--wzz-space-16) + var(--wzz-space-8)); }
+  .refreshed-home .contact-closing-group { gap: var(--wzz-space-3); font-size: var(--wzz-font-meta); }
+  .refreshed-home .contact-closing-seal { width: var(--wzz-space-16); }
 }
 @media (max-width: 767px) {
   .refreshed-home #contact .contact-window-bar { min-height: var(--wzz-space-16); padding: var(--wzz-space-3) var(--wzz-space-4); font-size: var(--wzz-font-meta); border-radius: var(--wzz-radius-card); }
@@ -145,6 +155,9 @@
   .refreshed-home #contact .contact-profile-card { grid-template-columns: minmax(0, 1fr); gap: var(--wzz-space-6); min-height: 0; padding: var(--wzz-space-6) var(--wzz-space-4); border-radius: var(--wzz-radius-lg); }
   .refreshed-home #contact .contact-artwork { max-width: calc(var(--wzz-space-20) * 3 + var(--wzz-space-8)); }
   .refreshed-home #contact .contact-qr-card { padding: var(--wzz-space-2); }
+  .refreshed-home #contact .contact-download { grid-template-columns: minmax(0, 1fr) auto; gap: var(--wzz-space-1); padding-inline: var(--wzz-space-2); font-size: var(--ds-type-caption); }
+  .refreshed-home #contact .contact-document-icon { display: none; }
+  .refreshed-home #contact .contact-download-arrow { width: var(--wzz-space-3); height: var(--wzz-space-3); }
   .refreshed-home .contact-closing-group { gap: var(--wzz-space-2); font-size: var(--ds-type-caption); line-height: var(--ds-leading-caption); }
   .refreshed-home .contact-closing-seal { width: var(--wzz-space-16); }
   .refreshed-home .contact-philosophy { white-space: normal; overflow-wrap: anywhere; }
@@ -154,13 +167,15 @@
   .refreshed-home #contact .contact-window-status > span:first-child { display: none; }
   .refreshed-home #contact .contact-profile-card { padding-inline: var(--wzz-space-3); }
   .refreshed-home #contact .contact-info-list { grid-template-columns: minmax(0, 1fr); }
+  .refreshed-home #contact .contact-downloads { grid-template-columns: minmax(0, 1fr); }
   /* Give the real QR more pixels and keep the sticker clear of its data at narrow widths. */
   .refreshed-home #contact .contact-artwork { aspect-ratio: 384 / 560; }
   .refreshed-home #contact .contact-qr-object { width: 86%; }
   .refreshed-home #contact .contact-name-sticker { top: 70%; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .refreshed-home #contact :is(.contact-copy-field, .contact-profile-card, .contact-qr-card, .contact-sticker-content), .refreshed-home .contact-seal-hover, .refreshed-home .contact-seal-imprint, .refreshed-home .contact-seal-glint::after { transition: none; }
+  .refreshed-home #contact :is(.contact-copy-field, .contact-download, .contact-download-arrow, .contact-profile-card, .contact-qr-card, .contact-sticker-content), .refreshed-home .contact-seal-hover, .refreshed-home .contact-seal-imprint, .refreshed-home .contact-seal-glint::after { transition: none; }
+  .refreshed-home #contact .contact-download:hover .contact-download-arrow { transform: none; }
   .refreshed-home #contact .contact-qr-object:hover .contact-qr-card, .refreshed-home #contact .contact-name-sticker:hover .contact-sticker-content, .refreshed-home .contact-closing-seal:hover .contact-seal-hover { transform: none; }
   .refreshed-home .contact-seal-formation, .refreshed-home .contact-seal-imprint, .refreshed-home .contact-seal-disc, .refreshed-home .contact-seal-glint, .refreshed-home .contact-seal-glint::after { animation: none !important; }
   .refreshed-home .contact-closing-seal .contact-seal-imprint { opacity: 1; clip-path: none; }
