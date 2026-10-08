@@ -40,7 +40,7 @@
       button.removeAttribute('aria-disabled');
       button.removeAttribute('aria-busy');
       clearTimeout(timers.get(button));
-      label.textContent = copied ? '已复制 ✓' : '未复制';
+      label.textContent = copied ? '已复制' : '未复制';
       timers.set(button, setTimeout(() => { label.textContent = idleLabel; }, 1800));
       feedback.dataset.copyFailed = String(!copied);
       feedback.textContent = copied ? button.dataset.copyName + '已复制。' : '无法自动复制，请选中联系方式手动复制。';
@@ -54,4 +54,55 @@
       }
     });
   });
+
+  const seal = document.querySelector('[data-contact-seal]');
+  if (!seal) return;
+  const imprint = seal.querySelector('.contact-seal-imprint');
+  const formation = seal.querySelector('.contact-seal-formation');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let observer;
+  let finishTimer;
+  let played = false;
+
+  function settle() {
+    played = true;
+    clearTimeout(finishTimer);
+    observer?.disconnect();
+    seal.dataset.sealState = 'settled';
+    formation.removeEventListener('animationend', onFormationEnd);
+  }
+
+  function onFormationEnd(event) {
+    if (event.target === formation && event.animationName === 'contact-seal-press') settle();
+  }
+
+  function reveal() {
+    if (played) return;
+    played = true;
+    observer.disconnect();
+    if (reducedMotion.matches) { settle(); return; }
+    seal.dataset.sealState = 'forming';
+    formation.addEventListener('animationend', onFormationEnd);
+    // A missing/cancelled animation must still leave the real badge visible.
+    const duration = parseFloat(getComputedStyle(formation).animationDuration) * 1000;
+    finishTimer = setTimeout(settle, Number.isFinite(duration) ? duration + 100 : 1800);
+  }
+
+  function prepareReveal() {
+    if (played) return;
+    if (reducedMotion.matches || !('IntersectionObserver' in window)) { settle(); return; }
+    observer = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) reveal();
+    }, { threshold: .25, rootMargin: '0px 0px -24px 0px' });
+    // Show a metal disc only once the final image is ready. No-JS stays a complete PNG.
+    seal.dataset.sealState = 'pending';
+    observer.observe(seal);
+  }
+
+  reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) settle(); });
+  if (imprint.complete && imprint.naturalWidth) prepareReveal();
+  else {
+    imprint.addEventListener('load', prepareReveal, { once: true });
+    imprint.addEventListener('error', settle, { once: true });
+  }
 })();

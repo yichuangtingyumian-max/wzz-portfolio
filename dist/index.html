@@ -258,18 +258,20 @@
       </div>
       <div class="contact-profile-card">
         <div class="contact-artwork" aria-label="微信二维码和 Hello 姓名贴纸">
-          <div class="contact-qr-card"><img src="assets/images/wechat.png" alt="王增增的真实微信二维码，可用微信扫码联系" width="266" height="266" loading="lazy" decoding="async"></div>
+          <div class="contact-qr-object"><div class="contact-qr-card"><img src="assets/images/wechat.png" alt="王增增的真实微信二维码，可用微信扫码联系" width="266" height="266" loading="lazy" decoding="async" draggable="false"></div></div>
           <div class="contact-heart" aria-hidden="true"><img src="assets/images/contact-heart.png" alt="" width="1080" height="1606" loading="lazy" decoding="async"></div>
           <div class="contact-name-sticker" role="img" aria-label="Hello，我是王增增 Wang Zengzeng">
-            <img class="contact-hello-paper" src="assets/images/contact-hello-sticker.png" alt="" width="1448" height="1086" loading="lazy" decoding="async">
-            <img class="contact-signature" src="assets/images/contact-signature.png" alt="" width="1448" height="1086" loading="lazy" decoding="async">
+            <span class="contact-sticker-content">
+              <img class="contact-hello-paper" src="assets/images/contact-hello-sticker.png" alt="" width="1448" height="1086" loading="lazy" decoding="async" draggable="false">
+              <img class="contact-signature" src="assets/images/contact-signature.png" alt="" width="1448" height="1086" loading="lazy" decoding="async" draggable="false">
+            </span>
           </div>
         </div>
         <div class="contact-details">
           <dl class="contact-info-list">
-            <div class="contact-info-row"><dt>姓名</dt><dd>王增增 · Wang Zengzeng</dd></div>
-            <div class="contact-info-row"><dt>EMAIL</dt><dd><a href="mailto:3367506893@qq.com">3367506893@qq.com</a><button class="contact-copy" type="button" data-contact-copy="3367506893@qq.com" data-copy-name="邮箱" aria-label="复制邮箱"><span data-copy-label>复制</span></button></dd></div>
-            <div class="contact-info-row"><dt>PHONE</dt><dd><a href="tel:+8613585306287">135 8530 6287</a><button class="contact-copy" type="button" data-contact-copy="13585306287" data-copy-name="电话" aria-label="复制电话号码"><span data-copy-label>复制</span></button></dd></div>
+            <div class="contact-info-row"><dt>姓名</dt><dd class="contact-person-name">王增增 · Wang Zengzeng</dd></div>
+            <div class="contact-info-row contact-info-row--copy"><dt>EMAIL</dt><dd><a href="mailto:3367506893@qq.com">3367506893<wbr>@qq.com</a><button class="contact-copy" type="button" data-contact-copy="3367506893@qq.com" data-copy-name="邮箱" aria-label="复制邮箱"><span data-copy-label>复制</span></button></dd></div>
+            <div class="contact-info-row contact-info-row--copy"><dt>PHONE</dt><dd><a href="tel:+8613585306287">135 8530 6287</a><button class="contact-copy" type="button" data-contact-copy="13585306287" data-copy-name="电话" aria-label="复制电话号码"><span data-copy-label>复制</span></button></dd></div>
             <div class="contact-info-row"><dt>现居地</dt><dd>江苏</dd></div>
           </dl>
           <p class="contact-feedback" data-contact-feedback role="status" aria-live="polite" aria-atomic="true"></p>
@@ -280,7 +282,15 @@
   <footer class="contact-closing wrap" aria-label="页面收尾">
     <div class="contact-closing-group">
       <p class="contact-thanks">感谢您的访问</p>
-      <img class="contact-closing-seal" src="assets/images/hero-seal-w.png" alt="王增增的金属 W 蜡封徽章" width="1254" height="1254" loading="lazy" decoding="async">
+      <span class="contact-closing-seal" data-contact-seal role="img" aria-label="王增增的金属 W 蜡封徽章">
+        <span class="contact-seal-hover">
+          <span class="contact-seal-formation">
+            <span class="contact-seal-disc" aria-hidden="true"></span>
+            <img class="contact-seal-imprint" src="assets/images/hero-seal-w.png" alt="" width="1254" height="1254" loading="lazy" decoding="async" draggable="false">
+            <span class="contact-seal-glint" aria-hidden="true"></span>
+          </span>
+        </span>
+      </span>
       <p class="contact-philosophy">从问题出发，把想法变得清晰、可用。</p>
     </div>
   </footer>

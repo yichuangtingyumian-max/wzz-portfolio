@@ -3,6 +3,8 @@
 .refreshed-home #contact, .refreshed-home .contact-closing {
   --contact-ink: #344653;
   --contact-secondary: #61737e;
+  --contact-ease-paper: cubic-bezier(.22, 1.16, .36, 1);
+  --contact-seal-duration: calc(var(--wzz-motion-base) * 4);
   color: var(--contact-ink);
   font-family: var(--wzz-font-sans);
 }
@@ -43,7 +45,7 @@
 .refreshed-home #contact .contact-collaborators i + i { margin-left: calc(-1 * var(--wzz-space-2)); background: #365dcc; }
 .refreshed-home #contact .contact-profile-card {
   display: grid;
-  grid-template-columns: minmax(0, 38fr) minmax(0, 62fr);
+  grid-template-columns: minmax(0, 40fr) minmax(0, 60fr);
   align-items: center;
   gap: var(--wzz-space-12);
   min-height: calc(var(--wzz-space-20) * 6 + var(--wzz-space-8));
@@ -52,25 +54,31 @@
   border-radius: var(--ds-panel-radius);
   background: var(--wzz-surface);
   box-shadow: var(--wzz-shadow-card);
+  transition: box-shadow var(--wzz-motion-base) var(--wzz-ease-standard), border-color var(--wzz-motion-base) var(--wzz-ease-standard);
 }
 .refreshed-home #contact :is(.contact-artwork, .contact-details) { min-width: 0; }
 /* Percentages describe only the object composition from Figma, never page positioning. */
 .refreshed-home #contact .contact-artwork { position: relative; width: 100%; max-width: calc(var(--wzz-space-20) * 4 + var(--wzz-space-16)); aspect-ratio: 384 / 408; margin-inline: auto; }
-.refreshed-home #contact .contact-qr-card { position: absolute; top: 8%; left: 8%; width: 70%; padding: var(--wzz-space-3); border-radius: var(--wzz-radius-md); background: var(--wzz-surface); box-shadow: var(--wzz-shadow-sticker-strong); transform: rotate(-14.9deg); }
+.refreshed-home #contact .contact-qr-object { position: absolute; top: 8%; left: 8%; width: 70%; transform: rotate(-14.9deg); z-index: 1; }
+.refreshed-home #contact .contact-qr-card { padding: var(--wzz-space-3); border-radius: var(--wzz-radius-md); background: var(--wzz-surface); box-shadow: var(--wzz-shadow-sticker-strong); transform: translateY(0) rotate(0deg) scale(1); transition: transform var(--wzz-motion-base) var(--contact-ease-paper), box-shadow var(--wzz-motion-base) var(--wzz-ease-standard); }
 .refreshed-home #contact .contact-qr-card img { display: block; width: 100%; height: auto; }
-.refreshed-home #contact .contact-heart { position: absolute; top: 4%; left: 0; width: 14%; aspect-ratio: 54.239 / 66.616; overflow: hidden; transform: rotate(-29.19deg); }
+.refreshed-home #contact .contact-heart { position: absolute; top: 4%; left: 0; width: 14%; aspect-ratio: 54.239 / 66.616; overflow: hidden; transform: rotate(-29.19deg); z-index: 5; pointer-events: none; }
 .refreshed-home #contact .contact-heart img { position: absolute; width: 704.85%; height: 853.41%; max-width: none; left: -298.15%; top: -619.31%; }
-.refreshed-home #contact .contact-name-sticker { position: absolute; top: 65%; left: 50%; width: 50%; aspect-ratio: 187 / 146; }
-.refreshed-home #contact .contact-hello-paper { display: block; width: 95.4%; height: auto; transform: rotate(3.84deg); filter: drop-shadow(var(--wzz-shadow-sticker-strong)); }
+.refreshed-home #contact .contact-name-sticker { position: absolute; top: 65%; left: 50%; width: 50%; aspect-ratio: 187 / 146; z-index: 2; }
+.refreshed-home #contact .contact-sticker-content { display: block; position: relative; width: 100%; height: 100%; transform: translateY(0) rotate(0deg) scale(1); filter: drop-shadow(var(--wzz-shadow-sticker-strong)); transition: transform var(--wzz-motion-base) var(--contact-ease-paper), filter var(--wzz-motion-base) var(--wzz-ease-standard); }
+.refreshed-home #contact .contact-hello-paper { display: block; width: 95.4%; height: auto; transform: rotate(3.84deg); }
 .refreshed-home #contact .contact-signature { position: absolute; top: 26.88%; left: 27.07%; width: 64.26%; height: auto; transform: rotate(20.7deg); }
-.refreshed-home #contact .contact-details { position: relative; padding: var(--wzz-space-6); background: linear-gradient(100deg, color-mix(in srgb, var(--wzz-surface-hover) 55%, var(--wzz-surface)), var(--wzz-surface)); }
+.refreshed-home #contact .contact-details { position: relative; padding: 0; background: transparent; }
 .refreshed-home #contact .contact-info-list { display: grid; grid-auto-rows: minmax(var(--wzz-space-20), 1fr); margin: 0; }
-.refreshed-home #contact .contact-info-row { display: grid; grid-template-columns: calc(var(--wzz-space-20) + var(--wzz-space-4)) minmax(0, 1fr); align-items: center; gap: var(--wzz-space-6); min-height: var(--wzz-space-20); border-top: var(--ds-border-width) solid var(--wzz-divider-color); }
-.refreshed-home #contact .contact-info-row dt { color: var(--ds-color-text-secondary); font-size: var(--wzz-font-body); font-weight: var(--wzz-weight-regular); line-height: var(--wzz-leading-body); }
-.refreshed-home #contact .contact-info-row dd { display: flex; align-items: center; flex-wrap: wrap; gap: var(--wzz-space-3); min-width: 0; margin: 0; overflow-wrap: anywhere; font-size: var(--wzz-font-h4); font-weight: var(--wzz-weight-regular); line-height: var(--wzz-leading-subtitle); }
+.refreshed-home #contact .contact-info-row { display: grid; grid-template-columns: var(--wzz-space-16) minmax(0, 1fr); align-items: center; gap: var(--wzz-column-gap); min-height: var(--wzz-space-20); padding-block: var(--wzz-space-4); }
+.refreshed-home #contact .contact-info-row + .contact-info-row { border-top: var(--ds-border-width) solid var(--wzz-divider-color); }
+.refreshed-home #contact .contact-info-row dt { color: var(--ds-color-text-secondary); font-size: var(--wzz-font-meta); font-weight: var(--wzz-weight-medium); line-height: var(--wzz-leading-meta); }
+.refreshed-home #contact .contact-info-row dd { min-width: 0; margin: 0; overflow-wrap: anywhere; font-size: var(--wzz-font-h4); font-weight: var(--wzz-weight-regular); line-height: var(--wzz-leading-subtitle); }
+.refreshed-home #contact .contact-info-row--copy dd { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--wzz-space-3); }
+.refreshed-home #contact .contact-info-row .contact-person-name { font-weight: var(--wzz-weight-medium); }
 .refreshed-home #contact .contact-info-row a { color: inherit; text-decoration: none; text-underline-offset: var(--wzz-space-1); overflow-wrap: anywhere; }
 .refreshed-home #contact .contact-info-row a:hover { text-decoration: underline; }
-.refreshed-home #contact .contact-copy { min-width: calc(var(--wzz-space-12) + var(--wzz-space-4)); min-height: var(--wzz-space-12); padding: var(--wzz-space-2); border: 0; border-radius: var(--wzz-radius-sm); background: transparent; color: var(--ds-color-text-secondary); font: inherit; font-size: var(--wzz-font-body); line-height: var(--wzz-leading-body); text-align: center; text-decoration: underline; text-underline-offset: var(--wzz-space-1); cursor: pointer; transition: color var(--wzz-motion-tiny) var(--wzz-ease-standard), background-color var(--wzz-motion-tiny) var(--wzz-ease-standard); }
+.refreshed-home #contact .contact-copy { width: var(--wzz-space-16); min-height: var(--wzz-space-12); padding: var(--wzz-space-1); border: 0; border-radius: var(--wzz-radius-sm); background: transparent; color: var(--ds-color-text-secondary); font: inherit; font-size: var(--wzz-font-meta); line-height: var(--wzz-leading-meta); text-align: center; text-decoration: underline; text-underline-offset: var(--wzz-space-1); cursor: pointer; transition: color var(--wzz-motion-tiny) var(--wzz-ease-standard), background-color var(--wzz-motion-tiny) var(--wzz-ease-standard); }
 .refreshed-home #contact .contact-copy:hover { color: var(--contact-ink); background: var(--wzz-surface-hover); }
 .refreshed-home #contact .contact-copy[aria-disabled="true"] { cursor: wait; }
 .refreshed-home #contact :is(a, button):focus-visible { outline: 2px solid var(--wzz-focus-color); outline-offset: var(--wzz-space-1); }
@@ -81,14 +89,43 @@
 .refreshed-home .contact-closing-group { display: flex; align-items: center; justify-content: center; flex-wrap: nowrap; gap: var(--wzz-space-6); max-width: 100%; margin-inline: auto; font-size: var(--wzz-font-lead); font-weight: var(--wzz-weight-regular); line-height: var(--wzz-leading-lead); color: var(--contact-secondary); }
 .refreshed-home .contact-closing-group p { margin: 0; }
 .refreshed-home .contact-thanks { flex-shrink: 0; white-space: nowrap; }
-.refreshed-home .contact-closing-seal { display: block; flex-shrink: 0; width: calc(var(--wzz-space-20) + var(--wzz-space-12)); height: auto; filter: drop-shadow(var(--wzz-shadow-metal)); }
+.refreshed-home .contact-closing-seal { display: block; position: relative; flex-shrink: 0; width: calc(var(--wzz-space-20) + var(--wzz-space-12)); aspect-ratio: 1; }
+.refreshed-home .contact-seal-hover, .refreshed-home .contact-seal-formation { display: block; position: relative; width: 100%; height: 100%; }
+.refreshed-home .contact-seal-hover { transform: scale(1) rotate(0deg); filter: drop-shadow(var(--wzz-shadow-metal)); transition: transform var(--wzz-motion-base) var(--contact-ease-paper), filter var(--wzz-motion-base) var(--wzz-ease-standard); }
+.refreshed-home .contact-seal-imprint { display: block; width: 100%; height: 100%; object-fit: contain; }
+/* The disc is temporary. The final contour, bevel and W remain the original PNG. */
+.refreshed-home .contact-seal-disc { position: absolute; inset: 13%; border-radius: 50%; opacity: 0; background: radial-gradient(ellipse at 35% 20%, #fffff5a6, transparent 56%), conic-gradient(from 25deg, #b3b0a5, #f2f0e5 16%, #b9b6ab 33%, #dfdcd1 52%, #a5a298 73%, #ece9de 90%, #b3b0a5); box-shadow: inset 0 1px 2px #ffffffc9, inset 0 -2px 3px #66635666, inset 0 0 0 3px #dbd8cd, inset 0 0 0 5px #8d8a7e66; }
+.refreshed-home .contact-seal-glint { position: absolute; inset: 0; opacity: 0; pointer-events: none; mask: url('assets/images/hero-seal-w.png') center / contain no-repeat; }
+.refreshed-home .contact-seal-glint::after { content: ''; position: absolute; inset: -20%; background: linear-gradient(115deg, transparent 30%, #ffffff70 48%, transparent 65%); transform: translateX(-55%); transition: transform var(--wzz-motion-slow) var(--wzz-ease-standard); }
+.refreshed-home [data-seal-state="pending"] .contact-seal-disc { opacity: 1; }
+.refreshed-home [data-seal-state="pending"] .contact-seal-imprint { opacity: 0; }
+.refreshed-home [data-seal-state="forming"] .contact-seal-formation { animation: contact-seal-press var(--contact-seal-duration) var(--wzz-ease-standard) both; }
+.refreshed-home [data-seal-state="forming"] .contact-seal-disc { animation: contact-seal-disc var(--contact-seal-duration) linear both; }
+.refreshed-home [data-seal-state="forming"] .contact-seal-imprint { animation: contact-seal-imprint var(--contact-seal-duration) linear both; }
+.refreshed-home [data-seal-state="forming"] .contact-seal-glint { animation: contact-seal-light var(--contact-seal-duration) linear both; }
+.refreshed-home [data-seal-state="forming"] .contact-seal-glint::after { animation: contact-seal-sweep var(--contact-seal-duration) var(--wzz-ease-standard) both; }
+@keyframes contact-seal-disc { 0%, 26% { opacity: 1; } 65% { opacity: .55; } 85%, 100% { opacity: 0; } }
+@keyframes contact-seal-imprint { 0%, 22% { opacity: 0; clip-path: circle(0% at 50% 50%); } 38% { opacity: .65; clip-path: circle(18% at 50% 50%); } 58% { opacity: 1; clip-path: circle(33% at 50% 50%); } 84%, 100% { opacity: 1; clip-path: circle(72% at 50% 50%); } }
+@keyframes contact-seal-press { 0%, 24% { transform: scale(.98); } 48% { transform: scale(.96); } 79% { transform: scale(1.025); } 100% { transform: scale(1); } }
+@keyframes contact-seal-light { 0%, 25% { opacity: 0; } 48% { opacity: .5; } 76%, 100% { opacity: 0; } }
+@keyframes contact-seal-sweep { 0%, 25% { transform: translateX(-55%); } 85%, 100% { transform: translateX(55%); } }
 .refreshed-home .contact-philosophy { min-width: 0; white-space: nowrap; }
+@media (hover: hover) and (pointer: fine) {
+  .refreshed-home #contact .contact-profile-card:hover { border-color: color-mix(in srgb, var(--wzz-divider-color) 82%, var(--wzz-text-secondary)); box-shadow: var(--wzz-shadow-floating); }
+  .refreshed-home #contact .contact-qr-object:hover { z-index: 6; }
+  .refreshed-home #contact .contact-qr-object:hover .contact-qr-card { transform: translateY(calc(-1 * var(--wzz-space-2))) rotate(1.5deg) scale(1.04); box-shadow: var(--wzz-shadow-floating); }
+  .refreshed-home #contact .contact-name-sticker:hover { z-index: 7; }
+  .refreshed-home #contact .contact-name-sticker:hover .contact-sticker-content { transform: translateY(-6px) rotate(-2deg) scale(1.04); filter: drop-shadow(var(--wzz-shadow-floating)); }
+  .refreshed-home .contact-closing-seal:is([data-seal-state="settled"], :not([data-seal-state])):hover .contact-seal-hover { transform: scale(1.03) rotate(3deg); filter: drop-shadow(var(--wzz-shadow-sticker-strong)); }
+  .refreshed-home .contact-closing-seal:is([data-seal-state="settled"], :not([data-seal-state])):hover .contact-seal-glint { opacity: .22; }
+  .refreshed-home .contact-closing-seal:is([data-seal-state="settled"], :not([data-seal-state])):hover .contact-seal-glint::after { transform: translateX(55%); }
+}
 @media (max-width: 1088px) {
   .refreshed-home #contact .contact-profile-card { gap: var(--wzz-space-6); padding: var(--wzz-space-8); min-height: calc(var(--wzz-space-20) * 5); grid-template-columns: minmax(0, 36fr) minmax(0, 64fr); }
-  .refreshed-home #contact .contact-details { padding: var(--wzz-space-4); }
-  .refreshed-home #contact .contact-info-row { grid-template-columns: var(--wzz-space-16) minmax(0, 1fr); gap: var(--wzz-space-3); }
-  .refreshed-home #contact .contact-info-row dd { font-size: var(--wzz-font-body); column-gap: var(--wzz-space-1); }
-  .refreshed-home #contact .contact-copy { min-width: var(--wzz-space-12); font-size: var(--wzz-font-meta); }
+  .refreshed-home #contact .contact-info-row { grid-template-columns: var(--wzz-space-12) minmax(0, 1fr); gap: var(--wzz-space-4); }
+  .refreshed-home #contact .contact-info-row dd { font-size: var(--wzz-font-body); }
+  .refreshed-home #contact .contact-info-row--copy dd { gap: var(--wzz-space-2); }
+  .refreshed-home #contact .contact-copy { width: var(--wzz-space-12); }
   .refreshed-home .contact-closing-group { gap: var(--wzz-space-4); font-size: var(--ds-size-16); }
   .refreshed-home .contact-closing-seal { width: calc(var(--wzz-space-16) + var(--wzz-space-8)); }
 }
@@ -102,7 +139,6 @@
   .refreshed-home #contact .contact-profile-card { grid-template-columns: minmax(0, 1fr); gap: var(--wzz-space-6); min-height: 0; padding: var(--wzz-space-6) var(--wzz-space-4); border-radius: var(--wzz-radius-lg); }
   .refreshed-home #contact .contact-artwork { max-width: calc(var(--wzz-space-20) * 3 + var(--wzz-space-8)); }
   .refreshed-home #contact .contact-qr-card { padding: var(--wzz-space-2); }
-  .refreshed-home #contact .contact-details { padding: var(--wzz-space-3); }
   .refreshed-home #contact .contact-info-row { grid-template-columns: var(--wzz-space-12) minmax(0, 1fr); gap: var(--wzz-space-3); }
   .refreshed-home #contact .contact-info-row dd { font-size: var(--wzz-font-body); }
   .refreshed-home .contact-closing-group { gap: var(--wzz-space-2); font-size: var(--ds-type-caption); line-height: var(--ds-leading-caption); }
@@ -113,10 +149,15 @@
   .refreshed-home #contact .contact-window-bar { padding-inline: var(--wzz-space-3); }
   .refreshed-home #contact .contact-window-status > span:first-child { display: none; }
   .refreshed-home #contact .contact-profile-card { padding-inline: var(--wzz-space-3); }
-  .refreshed-home #contact .contact-details { padding-inline: var(--wzz-space-2); }
   /* Give the real QR more pixels and keep the sticker clear of its data at narrow widths. */
   .refreshed-home #contact .contact-artwork { aspect-ratio: 384 / 560; }
-  .refreshed-home #contact .contact-qr-card { width: 86%; }
+  .refreshed-home #contact .contact-qr-object { width: 86%; }
   .refreshed-home #contact .contact-name-sticker { top: 70%; }
 }
-@media (prefers-reduced-motion: reduce) { .refreshed-home #contact .contact-copy { transition: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .refreshed-home #contact :is(.contact-copy, .contact-profile-card, .contact-qr-card, .contact-sticker-content), .refreshed-home .contact-seal-hover, .refreshed-home .contact-seal-glint::after { transition: none; }
+  .refreshed-home #contact .contact-qr-object:hover .contact-qr-card, .refreshed-home #contact .contact-name-sticker:hover .contact-sticker-content, .refreshed-home .contact-closing-seal:hover .contact-seal-hover { transform: none; }
+  .refreshed-home .contact-seal-formation, .refreshed-home .contact-seal-imprint, .refreshed-home .contact-seal-disc, .refreshed-home .contact-seal-glint, .refreshed-home .contact-seal-glint::after { animation: none !important; }
+  .refreshed-home .contact-closing-seal .contact-seal-imprint { opacity: 1; clip-path: none; }
+  .refreshed-home .contact-closing-seal .contact-seal-disc, .refreshed-home .contact-closing-seal .contact-seal-glint { opacity: 0; }
+}
