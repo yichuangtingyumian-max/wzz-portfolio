@@ -10,13 +10,15 @@ for(let i=0;i<projects.length;i++){
  fs.writeFileSync(`${p.slug}.html`,out);
 }
 // Only publish files actually used by the current website.
-const files=new Set(['index.html','juzi.html','tmall.html','aigc.html','design-tokens.css','home.css','portfolio.css','home-refresh.css','hero-intro.css','about.css','core-capabilities.css','selected-works.css','section-card-system.css','experience.css','experience.js','portfolio.js','core-capabilities.js','hero-intro.js','featured-projects.js','favicon.svg','assets/fonts/Inter-Variable.ttf']);
+const files=new Set(['index.html','juzi.html','tmall.html','aigc.html','design-tokens.css','home.css','portfolio.css','home-refresh.css','hero-intro.css','about.css','core-capabilities.css','selected-works.css','section-card-system.css','experience.css','beyond-design.css','beyond-design.js','experience.js','portfolio.js','core-capabilities.js','hero-intro.js','featured-projects.js','favicon.svg','assets/fonts/Inter-Variable.ttf']);
 files.add('contact.css');
 files.add('contact.js');
 for(const html of ['index.html','juzi.html','tmall.html','aigc.html']){
  const source=fs.readFileSync(html,'utf8');
  for(const m of source.matchAll(/(?:src|poster|data-image)="(assets\/[^"<>]+)"/g))files.add(m[1]);
 }
+// The playback icon is selected dynamically after a successful audio play.
+files.add('assets/images/beyond-pause.png');
 // ExperienceCard's exported SVG/PNG assets are declared in its module data.
 for(const m of fs.readFileSync('experience.js','utf8').matchAll(/['"](assets\/images\/experience-[a-z0-9-]+\.(?:svg|png))['"]/g))files.add(m[1]);
 for(const file of files){if(!fs.existsSync(file))throw new Error('Missing asset: '+file);const target=path.join('dist',file);fs.mkdirSync(path.dirname(target),{recursive:true});fs.copyFileSync(file,target);}
