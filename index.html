@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="section-card-system.css">
   <link rel="stylesheet" href="experience.css">
   <link rel="stylesheet" href="core-capabilities.css">
+  <link rel="stylesheet" href="contact.css">
   <link rel="stylesheet" href="beyond-design.css">
   <script src="beyond-design.js" defer></script>
   <script src="core-capabilities.js" defer></script>
@@ -23,6 +24,7 @@
   <script src="hero-intro.js" defer></script>
   <script src="featured-projects.js" defer></script>
   <script src="experience.js" defer></script>
+  <script src="contact.js" defer></script>
 </head>
 <body class="home-page refreshed-home">
   <a class="skip" href="#main">跳到主要内容</a>
@@ -291,10 +293,77 @@
       </div>
     </section>
 
-    <section class="section wrap contact-section" id="contact" aria-labelledby="contact-title"><div class="section-heading"><p class="eyebrow">06 / CONTACT</p><h2 id="contact-title">联系我</h2><span class="part">LET'S TALK</span></div><div class="contact-panel"><div class="contact-info"><p class="eyebrow">HELLO AGAIN</p><h3>聊聊设计，<br>也聊聊新的机会。</h3><p>如果你对我的项目或合作感兴趣，欢迎发来消息。</p><dl><div><dt>姓名</dt><dd>王增增 · Wang Zengzeng</dd></div><div><dt>Email</dt><dd><a href="mailto:3367506893@qq.com">3367506893@qq.com</a><button type="button" data-copy="3367506893@qq.com" aria-label="复制邮箱">复制</button></dd></div><div><dt>Phone</dt><dd><a href="tel:+8613585306287">135 8530 6287</a><button type="button" data-copy="13585306287" aria-label="复制电话号码">复制</button></dd></div><div><dt>WeChat</dt><dd><button type="button" data-image="assets/images/wechat.png" data-caption="微信二维码" aria-label="查看微信二维码">查看二维码 ↗</button></dd></div></dl></div><form class="contact-form" action="mailto:3367506893@qq.com" method="post" enctype="text/plain"><p class="eyebrow">MESSAGE / 留言</p><label for="contact-name">你的名字 / YOUR NAME</label><input id="contact-name" name="name" autocomplete="name" placeholder="怎么称呼你？" required><label for="contact-email">电子邮箱 / YOUR EMAIL</label><input id="contact-email" name="email" type="email" autocomplete="email" placeholder="e.g. alice@design.com" required><label for="contact-message">你想说的话 / MESSAGE</label><textarea id="contact-message" name="message" rows="5" placeholder="在这里写下你的想法或问题……" required></textarea><button type="submit">发送邮件 ↗</button><small>点击后会打开你的邮件应用，内容由你确认后发送。</small></form></div></section>
-    <section class="closing wrap" aria-label="结束语"><span class="closing-spark" aria-hidden="true">✳</span><p>从问题出发，把想法变成清晰、可用、也值得回看的体验。</p><p>我会继续探索设计与技术相遇的更多可能。</p><a href="#top">回到首页 ↑</a></section>
+    <section class="section section-inner card-system-section" id="contact" aria-labelledby="contact-title">
+      <header class="card-system-header"><div class="section-heading"><h2 id="contact-title">关于我</h2></div></header>
+      <div class="contact-window-bar" aria-label="contact me.fig">
+        <div class="contact-window-file"><span class="contact-window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>contact me.fig</span></div>
+        <div class="contact-window-status" aria-hidden="true"><span>100%</span><span class="contact-collaborators"><i></i><i></i></span></div>
+      </div>
+      <div class="contact-profile-card">
+        <div class="contact-artwork" aria-label="微信二维码和 Hello 姓名贴纸">
+          <div class="contact-qr-object"><div class="contact-qr-card"><img src="assets/images/wechat.png" alt="王增增的真实微信二维码，可用微信扫码联系" width="266" height="266" loading="lazy" decoding="async" draggable="false"></div></div>
+          <div class="contact-heart" aria-hidden="true"><img src="assets/images/contact-heart.png" alt="" width="1080" height="1606" loading="lazy" decoding="async"></div>
+          <div class="contact-name-sticker" role="img" aria-label="Hello，我是王增增 Wang Zengzeng">
+            <span class="contact-sticker-content">
+              <img class="contact-hello-paper" src="assets/images/contact-hello-sticker.png" alt="" width="1448" height="1086" loading="lazy" decoding="async" draggable="false">
+              <img class="contact-signature" src="assets/images/contact-signature.png" alt="" width="1448" height="1086" loading="lazy" decoding="async" draggable="false">
+            </span>
+          </div>
+        </div>
+        <div class="contact-details" aria-labelledby="contact-panel-title">
+          <header class="contact-panel-heading">
+            <h3 id="contact-panel-title">如果你对我的作品集、网站感兴趣，欢迎随时联系我。</h3>
+          </header>
+          <dl class="contact-info-list">
+            <div class="contact-info-field"><dt>姓名</dt><dd><span class="contact-field-value">王增增</span></dd></div>
+            <div class="contact-info-field"><dt>现居地</dt><dd><span class="contact-field-value">江苏常州</span></dd></div>
+            <div class="contact-info-field contact-info-field--wide">
+              <dt id="contact-email-label">电子邮箱</dt>
+              <dd><button class="contact-copy-field" type="button" data-contact-copy="3367506893@qq.com" data-copy-name="邮箱" aria-labelledby="contact-email-label contact-email-value contact-email-copy-label">
+                <span class="contact-field-text" id="contact-email-value" data-contact-value>3367506893<wbr>@qq.com</span>
+                <span class="contact-copy-affordance"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M15 9V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h4"/></svg><span id="contact-email-copy-label" data-copy-label>复制</span></span>
+              </button></dd>
+            </div>
+            <div class="contact-info-field contact-info-field--wide">
+              <dt id="contact-phone-label">联系电话</dt>
+              <dd><button class="contact-copy-field" type="button" data-contact-copy="13585306287" data-copy-name="电话" aria-labelledby="contact-phone-label contact-phone-value contact-phone-copy-label">
+                <span class="contact-field-text" id="contact-phone-value" data-contact-value>13585306287</span>
+                <span class="contact-copy-affordance"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M15 9V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h4"/></svg><span id="contact-phone-copy-label" data-copy-label>复制</span></span>
+              </button></dd>
+            </div>
+          </dl>
+          <div class="contact-downloads" aria-label="简历与作品集文件">
+            <button class="contact-download" type="button" disabled data-contact-document="assets/documents/wang-zengzeng-resume.pdf" aria-label="下载简历，PDF 文件待补充" title="简历 PDF 待补充">
+              <svg class="contact-document-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
+              <span class="contact-download-text"><span>下载简历</span><small>PDF 待补充</small></span>
+              <svg class="contact-download-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M5 16v4h14v-4"/></svg>
+            </button>
+            <button class="contact-download" type="button" disabled data-contact-document="assets/documents/wang-zengzeng-portfolio.pdf" aria-label="下载作品集 PDF，文件待补充" title="作品集 PDF 待补充">
+              <svg class="contact-document-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
+              <span class="contact-download-text"><span>下载作品集 PDF</span><small>PDF 待补充</small></span>
+              <svg class="contact-download-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M5 16v4h14v-4"/></svg>
+            </button>
+          </div>
+          <p class="contact-feedback" data-contact-feedback role="status" aria-live="polite" aria-atomic="true"></p>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer class="simple-footer wrap"><span>© 2026 王增增 · WZZ</span><span>Designed & built with care.</span></footer>
+  <footer class="contact-closing wrap" aria-label="页面收尾">
+    <div class="contact-closing-group section-inner">
+      <p class="contact-thanks">感谢您的访问</p>
+      <span class="contact-closing-seal" data-contact-seal role="img" aria-label="王增增的金属 W 蜡封徽章">
+        <span class="contact-seal-hover">
+          <span class="contact-seal-formation">
+            <img class="contact-seal-disc" src="assets/images/contact-seal-base.png" alt="" width="1254" height="1254" loading="lazy" decoding="async" draggable="false" aria-hidden="true">
+            <img class="contact-seal-imprint" src="assets/images/hero-seal-w.png" alt="" width="1254" height="1254" loading="lazy" decoding="async" draggable="false">
+            <span class="contact-seal-glint" aria-hidden="true"></span>
+          </span>
+        </span>
+      </span>
+      <p class="contact-philosophy">从问题出发，把想法变得清晰、可用。</p>
+    </div>
+  </footer>
   <p class="toast" role="status" aria-live="polite" hidden></p>
   <dialog class="lightbox" aria-label="图片查看器"><div class="lightbox-toolbar"><p class="lightbox-caption"></p><div><button type="button" data-zoom aria-pressed="false">查看原尺寸</button><form method="dialog"><button type="submit" data-close aria-label="关闭图片查看器">关闭 ×</button></form></div></div><div class="lightbox-scroll"><img alt=""></div><p class="lightbox-hint">点击图片切换缩放 · 按 Esc 关闭</p></dialog>
 </body>

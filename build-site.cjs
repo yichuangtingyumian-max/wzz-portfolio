@@ -11,6 +11,8 @@ for(let i=0;i<projects.length;i++){
 }
 // Only publish files actually used by the current website.
 const files=new Set(['index.html','juzi.html','tmall.html','aigc.html','design-tokens.css','home.css','portfolio.css','home-refresh.css','hero-intro.css','about.css','core-capabilities.css','selected-works.css','section-card-system.css','experience.css','beyond-design.css','beyond-design.js','experience.js','portfolio.js','core-capabilities.js','hero-intro.js','featured-projects.js','favicon.svg','assets/fonts/Inter-Variable.ttf']);
+files.add('contact.css');
+files.add('contact.js');
 for(const html of ['index.html','juzi.html','tmall.html','aigc.html']){
  const source=fs.readFileSync(html,'utf8');
  for(const m of source.matchAll(/(?:src|poster|data-image)="(assets\/[^"<>]+)"/g))files.add(m[1]);
