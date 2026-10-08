@@ -54,7 +54,14 @@ async function checkMode(mode, production = false) {
     assert.equal(video.status, 206);
     assert.equal((await video.arrayBuffer()).byteLength, 64);
     assert.match(video.headers.get('content-range'), /^bytes 0-63\//);
-    console.log(`Passed: ${production ? 'production override' : mode} — four unchanged pages, tool isolation, backup access and video ranges.`);
+    for (const audio of ['beyond-thank-you', 'beyond-shutter']) {
+      const response = await fetch(`${origin}/assets/audio/${audio}.mp3`, { headers: { Range: 'bytes=0-63' } });
+      assert.equal(response.status, 206);
+      assert.equal(response.headers.get('content-type'), 'audio/mpeg');
+      assert.equal((await response.arrayBuffer()).byteLength, 64);
+      assert.match(response.headers.get('content-range'), /^bytes 0-63\//);
+    }
+    console.log(`Passed: ${production ? 'production override' : mode} — four unchanged pages, tool isolation, backup access and video/audio ranges.`);
   } finally {
     child.kill();
     await new Promise(resolve => { if (child.exitCode !== null) resolve(); else child.once('exit', resolve); });
