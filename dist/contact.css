@@ -1,0 +1,266 @@
+/* Contact consumes the established WZZ roles; every rule stays in this module. */
+.refreshed-home #contact {
+  padding-block: var(--wzz-section-space) var(--wzz-space-12);
+  color: var(--wzz-text-primary);
+  font-family: var(--wzz-font-sans);
+}
+.refreshed-home #contact .section-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: var(--wzz-space-2) var(--wzz-grid-gap);
+  margin: 0;
+}
+.refreshed-home #contact .section-heading .eyebrow {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--wzz-text-secondary);
+  font-size: var(--wzz-font-eyebrow);
+  font-weight: var(--wzz-weight-medium);
+  line-height: var(--wzz-leading-eyebrow);
+  letter-spacing: var(--wzz-tracking-eyebrow);
+}
+.refreshed-home #contact .section-heading h2 {
+  grid-column: 1;
+  margin: 0;
+  font-size: var(--wzz-font-h2);
+  font-weight: var(--wzz-weight-semibold);
+  line-height: var(--wzz-leading-section);
+  letter-spacing: var(--wzz-tracking-heading);
+}
+.refreshed-home #contact .section-heading .part {
+  position: static;
+  grid-column: 2;
+  grid-row: 2;
+  margin: 0;
+  color: var(--wzz-text-secondary);
+  font-size: var(--wzz-font-eyebrow);
+  line-height: var(--wzz-leading-eyebrow);
+  letter-spacing: var(--wzz-tracking-eyebrow);
+}
+.refreshed-home #contact .contact-invite-card {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: var(--wzz-space-16);
+  padding: var(--wzz-space-12);
+  border: var(--ds-border-width) solid var(--wzz-divider-color);
+  border-radius: var(--wzz-radius-lg);
+  background: var(--wzz-surface);
+  box-shadow: var(--ds-shadow-surface);
+}
+.refreshed-home #contact :is(.contact-invitation, .contact-message-form, .contact-field) { min-width: 0; }
+.refreshed-home #contact .contact-kicker {
+  margin: 0 0 var(--wzz-space-6);
+  color: var(--wzz-text-secondary);
+  font-size: var(--wzz-font-eyebrow);
+  font-weight: var(--wzz-weight-medium);
+  line-height: var(--wzz-leading-eyebrow);
+  letter-spacing: var(--wzz-tracking-eyebrow);
+}
+.refreshed-home #contact .contact-invitation h3 {
+  margin: 0 0 var(--wzz-space-4);
+  font-size: var(--wzz-font-h3);
+  font-weight: var(--wzz-weight-semibold);
+  line-height: var(--wzz-leading-title);
+  letter-spacing: var(--wzz-tracking-heading);
+}
+.refreshed-home #contact .contact-intro {
+  max-width: var(--ds-copy-max);
+  margin: 0;
+  color: var(--wzz-text-secondary);
+  font-size: var(--wzz-font-body);
+  line-height: var(--wzz-leading-body);
+}
+.refreshed-home #contact .contact-links { margin: var(--wzz-space-12) 0 0; }
+.refreshed-home #contact .contact-link-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  gap: var(--wzz-space-3);
+  padding-block: var(--wzz-space-4);
+  border-top: var(--ds-border-width) solid var(--wzz-divider-color);
+}
+.refreshed-home #contact svg {
+  display: block;
+  width: var(--wzz-space-5);
+  height: var(--wzz-space-5);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.refreshed-home #contact .contact-link-row svg { color: var(--wzz-text-secondary); }
+.refreshed-home #contact .contact-link-row dt {
+  display: flex;
+  align-items: center;
+  gap: var(--wzz-space-4);
+  color: var(--wzz-text-secondary);
+  font-size: var(--wzz-font-eyebrow);
+  line-height: var(--wzz-leading-eyebrow);
+  letter-spacing: var(--wzz-tracking-eyebrow);
+}
+.refreshed-home #contact .contact-link-row dd {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--wzz-space-2);
+  min-width: 0;
+  margin: calc(-1 * var(--wzz-space-2)) 0 0;
+  padding-left: calc(var(--wzz-space-5) + var(--wzz-space-4));
+  font-size: var(--wzz-font-body);
+  line-height: var(--wzz-leading-body);
+}
+.refreshed-home #contact :is(.contact-link-row a, .contact-qr-link) {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: var(--wzz-text-primary);
+  text-decoration: none;
+  text-underline-offset: var(--wzz-space-1);
+  transition: color var(--wzz-motion-tiny) var(--wzz-ease-standard);
+}
+.refreshed-home #contact :is(.contact-link-row a, .contact-qr-link):hover {
+  color: var(--ds-color-accent);
+  text-decoration: underline;
+}
+.refreshed-home #contact :is(.contact-copy, .contact-qr-link, .contact-draft-copy) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--wzz-space-2);
+  min-height: var(--wzz-space-12);
+  padding: var(--wzz-space-2);
+  border: 0;
+  border-radius: var(--wzz-radius-sm);
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.refreshed-home #contact :is(.contact-copy, .contact-draft-copy) {
+  flex-shrink: 0;
+  color: var(--wzz-text-secondary);
+  font-size: var(--wzz-font-meta);
+  line-height: var(--wzz-leading-meta);
+  transition: background-color var(--wzz-motion-tiny) var(--wzz-ease-standard), color var(--wzz-motion-tiny) var(--wzz-ease-standard);
+}
+.refreshed-home #contact :is(.contact-copy, .contact-draft-copy):hover { background: var(--wzz-surface-hover); color: var(--wzz-text-primary); }
+.refreshed-home #contact .contact-copy { min-width: calc(var(--wzz-space-12) + var(--wzz-space-4)); }
+.refreshed-home #contact .contact-qr-link { justify-content: flex-start; padding-inline: 0; }
+.refreshed-home #contact .contact-message-form { display: grid; align-content: start; gap: var(--wzz-space-6); margin: 0; }
+.refreshed-home #contact .contact-message-form .contact-kicker { margin: 0; }
+.refreshed-home #contact .contact-field { display: grid; gap: var(--wzz-space-2); }
+.refreshed-home #contact .contact-field label {
+  display: flex;
+  align-items: baseline;
+  gap: var(--wzz-space-3);
+  color: var(--wzz-text-primary);
+  font-size: var(--wzz-font-body);
+  font-weight: var(--wzz-weight-medium);
+  line-height: var(--wzz-leading-body);
+}
+.refreshed-home #contact .contact-field label span {
+  color: var(--wzz-text-secondary);
+  font-size: var(--wzz-font-eyebrow);
+  font-weight: var(--wzz-weight-regular);
+  letter-spacing: var(--wzz-tracking-eyebrow);
+}
+.refreshed-home #contact :is(input, textarea) {
+  width: 100%;
+  min-width: 0;
+  min-height: var(--wzz-space-12);
+  padding: var(--wzz-space-3) var(--wzz-space-4);
+  border: var(--ds-border-width) solid var(--wzz-divider-color);
+  border-radius: var(--wzz-radius-sm);
+  background: var(--wzz-page-bg);
+  color: var(--wzz-text-primary);
+  font-family: inherit;
+  font-size: var(--ds-size-16);
+  font-weight: var(--wzz-weight-regular);
+  line-height: var(--wzz-leading-body);
+  transition: border-color var(--wzz-motion-tiny) var(--wzz-ease-standard), background-color var(--wzz-motion-tiny) var(--wzz-ease-standard);
+}
+.refreshed-home #contact textarea { min-height: calc(var(--wzz-space-20) * 2); resize: vertical; }
+.refreshed-home #contact :is(input, textarea)::placeholder { color: var(--wzz-text-secondary); opacity: 1; }
+.refreshed-home #contact :is(input, textarea):focus { border-color: var(--wzz-focus-color); background: var(--wzz-surface); outline: 2px solid var(--wzz-focus-color); outline-offset: var(--wzz-space-1); }
+.refreshed-home #contact [aria-invalid="true"] { border-color: var(--wzz-text-secondary); border-style: dashed; }
+.refreshed-home #contact :is(.contact-field-error, .contact-feedback, .contact-form-note, .contact-form-status) {
+  margin: 0;
+  color: var(--wzz-text-secondary);
+  font-size: var(--wzz-font-meta);
+  line-height: var(--wzz-leading-meta);
+  overflow-wrap: anywhere;
+}
+.refreshed-home #contact .contact-field-error { color: var(--wzz-text-primary); }
+.refreshed-home #contact .contact-feedback { margin-top: var(--wzz-space-3); }
+.refreshed-home #contact :is(.contact-feedback, .contact-form-status):empty { display: none; }
+.refreshed-home #contact .contact-form-actions { display: flex; align-items: center; flex-wrap: wrap; gap: var(--wzz-space-3); }
+.refreshed-home #contact .contact-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--wzz-space-3);
+  min-height: var(--wzz-space-12);
+  padding: var(--wzz-space-3) var(--wzz-space-6);
+  border: var(--ds-border-width) solid var(--wzz-text-primary);
+  border-radius: var(--wzz-radius-sm);
+  background: var(--wzz-text-primary);
+  color: var(--wzz-surface);
+  font-family: inherit;
+  font-size: var(--wzz-font-body);
+  font-weight: var(--wzz-weight-medium);
+  line-height: var(--wzz-leading-meta);
+  cursor: pointer;
+  transition: background-color var(--wzz-motion-tiny) var(--wzz-ease-standard), border-color var(--wzz-motion-tiny) var(--wzz-ease-standard);
+}
+.refreshed-home #contact .contact-submit:hover { border-color: var(--ds-color-accent); background: var(--ds-color-accent); }
+.refreshed-home #contact button:is(:disabled, [aria-disabled="true"]) { cursor: wait; opacity: .65; }
+.refreshed-home #contact .contact-form-ending { display: grid; gap: var(--wzz-space-3); }
+.refreshed-home #contact .contact-draft-link { color: var(--wzz-text-primary); text-underline-offset: var(--wzz-space-1); }
+.refreshed-home #contact :is(a, button):focus-visible,
+.refreshed-home .contact-closing a:focus-visible { outline: 2px solid var(--wzz-focus-color); outline-offset: var(--wzz-space-1); }
+.refreshed-home .contact-closing {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--wzz-space-6);
+  padding-block: var(--wzz-space-8) var(--wzz-space-12);
+  border-top: var(--ds-border-width) solid var(--wzz-divider-color);
+  color: var(--wzz-text-secondary);
+  font-family: var(--wzz-font-sans);
+  font-size: var(--wzz-font-meta);
+  line-height: var(--wzz-leading-meta);
+}
+.refreshed-home .contact-closing p { margin: 0; }
+.refreshed-home .contact-closing p + p { margin-top: var(--wzz-space-2); }
+.refreshed-home .contact-closing-name { color: var(--wzz-text-primary); }
+.refreshed-home .contact-closing a {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: var(--wzz-space-2);
+  min-height: var(--wzz-space-12);
+  margin-top: calc(-1 * var(--wzz-space-3));
+  border-radius: var(--wzz-radius-sm);
+  color: inherit;
+  text-decoration: none;
+  text-underline-offset: var(--wzz-space-1);
+}
+.refreshed-home .contact-closing a:hover { color: var(--wzz-text-primary); text-decoration: underline; }
+@media (max-width: 1088px) {
+  .refreshed-home #contact .contact-invite-card { grid-template-columns: minmax(0, 1fr); gap: var(--wzz-space-12); padding: var(--wzz-space-8); }
+  .refreshed-home #contact .contact-message-form { padding-top: var(--wzz-space-12); border-top: var(--ds-border-width) solid var(--wzz-divider-color); }
+  .refreshed-home #contact .contact-links { margin-top: var(--wzz-space-8); }
+}
+@media (max-width: 767px) {
+  .refreshed-home #contact .contact-invite-card { padding: var(--wzz-card-padding); gap: var(--wzz-space-8); }
+  .refreshed-home #contact .contact-message-form { padding-top: var(--wzz-space-8); }
+  .refreshed-home #contact .contact-link-row { column-gap: var(--wzz-space-2); }
+  .refreshed-home #contact .contact-link-row dd { flex-wrap: wrap; }
+  .refreshed-home #contact .contact-copy { min-width: var(--wzz-space-12); padding-inline: var(--wzz-space-1); }
+  .refreshed-home .contact-closing { flex-wrap: wrap; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .refreshed-home #contact *, .refreshed-home .contact-closing * { transition: none; }
+}
