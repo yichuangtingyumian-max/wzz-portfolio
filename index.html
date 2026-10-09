@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="experience.css">
   <link rel="stylesheet" href="core-capabilities.css">
   <link rel="stylesheet" href="contact.css">
+  <link rel="stylesheet" href="contact-cursor.css">
   <link rel="stylesheet" href="beyond-design.css">
   <script src="beyond-design.js" defer></script>
   <script src="core-capabilities.js" defer></script>
@@ -25,6 +26,7 @@
   <script src="featured-projects.js" defer></script>
   <script src="experience.js" defer></script>
   <script src="contact.js" defer></script>
+  <script src="contact-cursor.js" defer></script>
 </head>
 <body class="home-page refreshed-home">
   <a class="skip" href="#main">跳到主要内容</a>
@@ -71,7 +73,7 @@
           <span>about me.fig</span>
         </div>
         <div class="about-window-status">
-          <span class="about-window-zoom">100%</span>
+          <span class="about-window-zoom">20%</span>
           <span class="about-collaborators"><i></i><i></i></span>
         </div>
       </div>
@@ -338,11 +340,11 @@
               <span class="contact-download-text"><span>下载简历</span><small>PDF 待补充</small></span>
               <svg class="contact-download-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M5 16v4h14v-4"/></svg>
             </button>
-            <button class="contact-download" type="button" disabled data-contact-document="assets/documents/wang-zengzeng-portfolio.pdf" aria-label="下载作品集 PDF，文件待补充" title="作品集 PDF 待补充">
+            <a class="contact-download contact-download--view" href="portfolio.html" aria-label="查看王增增的完整作品集" title="在网站内查看完整作品集">
               <svg class="contact-document-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
-              <span class="contact-download-text"><span>下载作品集 PDF</span><small>PDF 待补充</small></span>
-              <svg class="contact-download-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M5 16v4h14v-4"/></svg>
-            </button>
+              <span class="contact-download-text"><span>查看作品集</span><small>在线阅读 · 35 页</small></span>
+              <svg class="contact-download-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+            </a>
           </div>
           <p class="contact-feedback" data-contact-feedback role="status" aria-live="polite" aria-atomic="true"></p>
         </div>

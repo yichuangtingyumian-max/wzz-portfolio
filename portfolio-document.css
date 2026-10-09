@@ -1,0 +1,18 @@
+/* The global scroll padding already clears the sticky reader header.
+   Add only the mobile page-number bar, keeping nav and current page in sync. */
+.portfolio-document .art-sheet,
+.portfolio-document #artwork { scroll-margin-top: 0; }
+
+@media (max-width: 600px) {
+  .portfolio-document .art-sheet,
+  .portfolio-document #artwork { scroll-margin-top: var(--wzz-space-6); }
+}
+
+/* Keep all reader actions available when the PDF link is added on narrow phones. */
+@media (max-width: 360px) {
+  .portfolio-document .reader-header {
+    gap: var(--wzz-space-2);
+    padding-inline: var(--wzz-space-2);
+  }
+  .portfolio-document .portfolio-home-label { display: none; }
+}

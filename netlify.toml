@@ -1,0 +1,15 @@
+[build]
+  command = "node build-site.cjs"
+  publish = ".cache/netlify-publish"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Preserve the explicit /portfolio entry and existing .html project links.
+[build.processing.html]
+  pretty_urls = false
+
+[[headers]]
+  for = "/assets/documents/wang-zengzeng-portfolio.pdf"
+  [headers.values]
+    Content-Disposition = 'attachment; filename="wang-zengzeng-portfolio.pdf"'

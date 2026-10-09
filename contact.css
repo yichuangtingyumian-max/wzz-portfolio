@@ -4,7 +4,7 @@
   --contact-ink: #344653;
   --contact-secondary: #61737e;
   --contact-ease-paper: cubic-bezier(.22, 1.16, .36, 1);
-  --contact-seal-duration: calc(var(--wzz-motion-base) * 7);
+  --contact-seal-duration: calc(var(--wzz-motion-base) * 9);
   color: var(--contact-ink);
   font-family: var(--wzz-font-sans);
 }
@@ -102,11 +102,11 @@
 .refreshed-home .contact-thanks { flex-shrink: 0; white-space: nowrap; }
 .refreshed-home .contact-closing-seal { display: block; position: relative; flex-shrink: 0; width: calc(var(--wzz-space-20) + var(--wzz-space-12)); aspect-ratio: 1; }
 .refreshed-home .contact-seal-hover, .refreshed-home .contact-seal-formation { display: block; position: relative; width: 100%; height: 100%; }
-.refreshed-home .contact-seal-hover { transform: scale(1) rotate(0deg); transition: transform var(--wzz-motion-base) var(--contact-ease-paper); }
+.refreshed-home .contact-seal-hover { transform: scale(1) rotate(0deg); transition: transform var(--wzz-motion-slow) var(--contact-ease-paper); }
 .refreshed-home .contact-seal-formation { background: var(--wzz-page-bg); }
 .refreshed-home .contact-seal-imprint { display: block; width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(var(--wzz-shadow-metal)); transition: filter var(--wzz-motion-base) var(--wzz-ease-standard); }
-/* Reuse the supplied metal base intact; white blends into the canvas, including its soft shadow. */
-.refreshed-home .contact-seal-disc { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; mix-blend-mode: multiply; mask-image: radial-gradient(circle at 50% 50%, #000 52%, transparent 66%); }
+/* Match the warm champagne metal of the final W throughout the reveal. */
+.refreshed-home .contact-seal-disc { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; filter: sepia(.35) saturate(.65) brightness(1.12); mix-blend-mode: multiply; mask-image: radial-gradient(circle at 50% 50%, #000 52%, transparent 66%); }
 .refreshed-home .contact-seal-glint { position: absolute; inset: 0; opacity: 0; pointer-events: none; mask: url('assets/images/hero-seal-w.png') center / contain no-repeat; }
 .refreshed-home .contact-seal-glint::after { content: ''; position: absolute; inset: -20%; background: linear-gradient(115deg, transparent 30%, #ffffff70 48%, transparent 65%); transform: translateX(-55%); transition: transform var(--wzz-motion-slow) var(--wzz-ease-standard); }
 .refreshed-home [data-seal-state="pending"] .contact-seal-disc { opacity: 1; }
@@ -125,6 +125,7 @@
 @media (hover: hover) and (pointer: fine) {
   .refreshed-home #contact .contact-download:not(:disabled):hover { background: var(--wzz-surface); border-color: var(--wzz-text-muted); box-shadow: var(--wzz-shadow-sticker); }
   .refreshed-home #contact .contact-download:not(:disabled):hover .contact-download-arrow { transform: translateY(2px); }
+  .refreshed-home #contact .contact-download--view:hover .contact-download-arrow { transform: translate(calc(var(--wzz-space-1) / 2), calc(var(--wzz-space-1) / -2)); }
   .refreshed-home #contact .contact-profile-card:hover { border-color: color-mix(in srgb, var(--wzz-divider-color) 82%, var(--wzz-text-secondary)); box-shadow: var(--wzz-shadow-floating); }
   .refreshed-home #contact .contact-qr-object:is(:hover, .is-contact-qr-raised) { z-index: 6; }
   .refreshed-home #contact .contact-qr-object:hover .contact-qr-card { transform: translateY(calc(-1 * var(--wzz-space-2))) rotate(1.5deg) scale(1.04); box-shadow: var(--wzz-shadow-floating); }

@@ -16,9 +16,15 @@
 
 ## 构建
 
-运行 `node build-site.cjs`，交付文件位于 `dist/`。GitHub Pages 从此目录发布。原稿和生活照片均存放在仓库，不依赖 Figma 在线访问。
+运行 `node build-site.cjs`，交付文件位于 `.cache/netlify-publish/`，Netlify 和 GitHub Pages 构建均从此目录发布。构建在临时目录生成完整网站，验证后再替换发布目录，前次产物保留在 `.cache/release-backup-*`。现有源码页面和旧 `dist/` 不会被构建覆盖。原稿和生活照片均存放在仓库，不依赖 Figma 在线访问。
 
-构建完成后会检查发布目录，若包含标注工具、React 或开发文件则构建失败。也可运行 `pnpm check:release` 单独复核。正式构建无需安装开发依赖。
+构建完成后会检查发布目录，若包含标注工具、React、开发文件、缺失文件或额外旧文件则构建失败。文件清单位于发布目录外的 `.cache/netlify-publish.files.json`，可运行 `pnpm check:release` 单独复核。正式构建无需安装开发依赖。
+
+Netlify 使用根目录 `netlify.toml`，`_redirects` 会进入发布目录：`/portfolio` 原址展示 `portfolio.html`，关闭 Pretty URLs 自动改址。Netlify 的尾斜线规则会归一化匹配，因此不添加去尾斜线的 301；阅读页使用稳定的绝对资源路径，`/portfolio/` 也能正常加载。PDF 下载入口直接指向 `assets/documents/wang-zengzeng-portfolio.pdf`。该 PDF 与阅读清单引用的全部原图、分片均由构建复制，不依赖旧 `dist/`。
+
+PDF 阅读页资源默认从站点根目录加载。现有 GitHub Pages workflow 设置 `WZZ_PUBLIC_BASE=/wzz-portfolio/`，保留子目录部署兼容性；此设置不改变 Netlify 默认构建或页面视觉。
+
+验证发布产物时，将 `WZZ_PREVIEW_ROOT` 设为 `.cache/netlify-publish` 后启动现有预览服务器；此模式自动关闭标注工具。
 
 ## 内容维护
 
@@ -26,7 +32,7 @@
 - 首页样式继续在 `home-refresh.css` 和 `hero-intro.css` 中维护，优先引用语义 Tokens；专项物件构图与项目原稿保留。
 
 - 首页：`index.html`；共用基础样式：`home.css`、`portfolio.css`；首页模块样式：`home-refresh.css`、`hero-intro.css`；交互：`portfolio.js`、`hero-intro.js`。
-- 项目顺序、章节名和图片：`project-content.json`。修改后运行构建命令重新生成三个项目页。
+- 项目顺序、章节名和图片：`project-content.json`。修改后运行构建命令，在独立发布目录重新生成三个项目页。
 - 长图使用无损 WebP 分片连续展示，原 PNG 用于放大查看。
 - 微信目前使用 Figma 中的真实二维码；未将电话擅自当作微信号。
 - 项目正文保持原设计，网站未添加原稿之外的效果数据或项目成果。

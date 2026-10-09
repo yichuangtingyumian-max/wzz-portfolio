@@ -1,0 +1,38 @@
+/* Shared invitation for About and Contact; it never occupies layout space. */
+.refreshed-home .contact-hover-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--wzz-space-2);
+  position: fixed;
+  inset: 0 auto auto 0;
+  padding: var(--wzz-space-2) var(--wzz-space-4);
+  background: var(--wzz-text-primary);
+  color: var(--wzz-surface);
+  border-radius: var(--wzz-radius-pill);
+  box-shadow: var(--wzz-shadow-sticker-strong);
+  font-size: var(--wzz-font-meta);
+  font-weight: var(--wzz-weight-medium);
+  line-height: var(--wzz-leading-meta);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate3d(var(--contact-cursor-x, 0px), var(--contact-cursor-y, 0px), 0);
+  transition: opacity var(--wzz-motion-tiny) var(--wzz-ease-standard), visibility var(--wzz-motion-tiny);
+  z-index: 20;
+}
+
+@media (min-width: 768px) and (hover: hover) and (pointer: fine) {
+  .refreshed-home .contact-hover-hint.is-visible { opacity: 1; visibility: visible; }
+  .refreshed-home :is(#about .about-cards, #contact .contact-profile-card).is-contact-cursor-visible,
+  .refreshed-home :is(#about .about-cards, #contact .contact-profile-card).is-contact-cursor-visible * { cursor: none; }
+}
+
+@media (max-width: 767px), (hover: none), (pointer: coarse) {
+  .refreshed-home .contact-hover-hint { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .refreshed-home .contact-hover-hint { transition: none; }
+}

@@ -124,6 +124,39 @@
   border-radius: var(--wzz-radius-md);
 }
 
+/* A single small response per pointer entry; the figure keeps a stable hover area. */
+@media (hover: hover) and (pointer: fine) {
+  .refreshed-home #about .about-portrait:hover img {
+    animation: about-portrait-sway var(--wzz-motion-slow) var(--wzz-ease-standard) 1;
+  }
+}
+
+@keyframes about-portrait-sway {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-1deg);
+  }
+
+  60% {
+    transform: rotate(.7deg);
+  }
+
+  82% {
+    transform: rotate(-.25deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .refreshed-home #about .about-portrait:hover img {
+    animation: none;
+    transform: none;
+  }
+}
+
 .refreshed-home #about .about-label {
   margin: 0 0 var(--wzz-space-6);
   color: var(--wzz-text-secondary);

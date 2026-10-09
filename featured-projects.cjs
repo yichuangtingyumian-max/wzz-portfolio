@@ -25,12 +25,12 @@ function FeaturedProjectCard(project) {
 }
 
 function renderFeaturedProjects() { return projects.map(FeaturedProjectCard).join('\n'); }
-function writeFeaturedProjects() {
+function writeFeaturedProjects(outputFile = path.join(__dirname, 'index.html')) {
   const file = path.join(__dirname, 'index.html');
   const source = fs.readFileSync(file, 'utf8');
   const marker = /(<!-- featured-projects:start -->)[\s\S]*?(<!-- featured-projects:end -->)/;
   if (!marker.test(source)) throw new Error('Featured Projects build markers missing');
   const result = source.replace(marker, (_, start, end) => `${start}\n${renderFeaturedProjects()}\n        ${end}`);
-  if (result !== source) fs.writeFileSync(file, result);
+  if (outputFile !== file || result !== source) fs.writeFileSync(outputFile, result);
 }
 module.exports = { FeaturedProjectCard, renderFeaturedProjects, writeFeaturedProjects };

@@ -26,6 +26,8 @@ jobs:
         with:
           node-version: '22'
       - name: Validate and build
+        env:
+          WZZ_PUBLIC_BASE: /wzz-portfolio/
         run: |
           node --check portfolio.js
           node --check preview.cjs
@@ -34,6 +36,6 @@ jobs:
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
-          path: dist
+          path: .cache/netlify-publish
       - id: deployment
         uses: actions/deploy-pages@v4

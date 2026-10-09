@@ -1,0 +1,83 @@
+/* Reader-only controls reuse the portfolio's existing visual tokens. */
+.reader-page .reader-header h1 {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+}
+
+.reader-page .reader-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--wzz-space-3);
+  flex-shrink: 0;
+}
+
+.reader-page .reader-directory-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--wzz-space-2);
+  padding: var(--wzz-space-2) var(--wzz-space-3);
+  border: 1px solid var(--wzz-divider-color);
+  border-radius: var(--wzz-radius-sm);
+  background: var(--wzz-surface);
+  color: var(--wzz-text-secondary);
+  font-size: var(--wzz-font-meta);
+  line-height: var(--wzz-leading-meta);
+  font-weight: var(--wzz-weight-medium);
+  white-space: nowrap;
+  transition: color var(--wzz-motion-tiny) var(--wzz-ease-standard),
+    background-color var(--wzz-motion-tiny) var(--wzz-ease-standard),
+    border-color var(--wzz-motion-tiny) var(--wzz-ease-standard);
+}
+
+.reader-page .reader-directory-toggle svg {
+  width: var(--wzz-space-4);
+  height: var(--wzz-space-4);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.reader-page .reader-directory-toggle:focus-visible {
+  outline: 2px solid var(--wzz-focus-color);
+  outline-offset: var(--wzz-space-1);
+}
+
+.reader-page.reader-directory-hidden .reader-layout {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+/* Width changes are immediate so the reader can preserve the same content point. */
+.reader-page.reader-navigation-adjusting { overflow-anchor: none; }
+
+/* Global scroll padding already clears the sticky header. */
+.reader-page .art-sheet,
+.reader-page #artwork { scroll-margin-top: 0; }
+
+@media (hover: hover) {
+  .reader-page .reader-directory-toggle:hover {
+    background: var(--wzz-surface-hover);
+    color: var(--wzz-text-primary);
+    border-color: var(--wzz-text-subtle);
+  }
+}
+
+@media (max-width: 600px) {
+  .reader-page .reader-header-actions { gap: var(--wzz-space-2); }
+  .reader-page .reader-directory-toggle {
+    padding: var(--wzz-space-2);
+    font-size: var(--ds-size-12);
+  }
+  .reader-page .reader-directory-toggle svg { display: none; }
+  .reader-page .art-sheet,
+  .reader-page #artwork { scroll-margin-top: var(--wzz-space-6); }
+  .reader-page.reader-directory-hidden .art-sheet,
+  .reader-page.reader-directory-hidden #artwork { scroll-margin-top: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reader-page .reader-directory-toggle { transition: none; }
+}

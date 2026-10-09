@@ -1,0 +1,707 @@
+[
+  {
+    "title": "第01页",
+    "original": "assets/images/portfolio-pdf-01.jpg",
+    "width": 1920,
+    "height": 3548,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-01-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-01-02.webp",
+        "width": 1920,
+        "height": 1148
+      }
+    ]
+  },
+  {
+    "title": "第02页",
+    "original": "assets/images/portfolio-pdf-02.jpg",
+    "width": 1920,
+    "height": 6446,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-02-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-02-02.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-02-03.webp",
+        "width": 1920,
+        "height": 1646
+      }
+    ]
+  },
+  {
+    "title": "第03页",
+    "original": "assets/images/portfolio-pdf-03.jpg",
+    "width": 1920,
+    "height": 2859,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-03-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-03-02.webp",
+        "width": 1920,
+        "height": 459
+      }
+    ]
+  },
+  {
+    "title": "第04页",
+    "original": "assets/images/portfolio-pdf-04.jpg",
+    "width": 1920,
+    "height": 5948,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-04-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-04-02.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-04-03.webp",
+        "width": 1920,
+        "height": 1148
+      }
+    ]
+  },
+  {
+    "title": "第05页",
+    "original": "assets/images/portfolio-pdf-05.jpg",
+    "width": 1920,
+    "height": 1536,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-05-01.webp",
+        "width": 1920,
+        "height": 1536
+      }
+    ]
+  },
+  {
+    "title": "第06页",
+    "original": "assets/images/portfolio-pdf-06.jpg",
+    "width": 1920,
+    "height": 4376,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-06-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-06-02.webp",
+        "width": 1920,
+        "height": 1976
+      }
+    ]
+  },
+  {
+    "title": "第07页",
+    "original": "assets/images/portfolio-pdf-07.jpg",
+    "width": 1920,
+    "height": 4789,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-07-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-07-02.webp",
+        "width": 1920,
+        "height": 2389
+      }
+    ]
+  },
+  {
+    "title": "第08页",
+    "original": "assets/images/portfolio-pdf-08.jpg",
+    "width": 1920,
+    "height": 4505,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-08-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-08-02.webp",
+        "width": 1920,
+        "height": 2105
+      }
+    ]
+  },
+  {
+    "title": "第09页",
+    "original": "assets/images/portfolio-pdf-09.jpg",
+    "width": 1920,
+    "height": 5208,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-09-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-09-02.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-09-03.webp",
+        "width": 1920,
+        "height": 408
+      }
+    ]
+  },
+  {
+    "title": "第10页",
+    "original": "assets/images/portfolio-pdf-10.jpg",
+    "width": 1920,
+    "height": 3285,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-10-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-10-02.webp",
+        "width": 1920,
+        "height": 885
+      }
+    ]
+  },
+  {
+    "title": "第11页",
+    "original": "assets/images/portfolio-pdf-11.jpg",
+    "width": 1920,
+    "height": 1766,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-11-01.webp",
+        "width": 1920,
+        "height": 1766
+      }
+    ]
+  },
+  {
+    "title": "第12页",
+    "original": "assets/images/portfolio-pdf-12.jpg",
+    "width": 1920,
+    "height": 5652,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-12-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-12-02.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-12-03.webp",
+        "width": 1920,
+        "height": 852
+      }
+    ]
+  },
+  {
+    "title": "第13页",
+    "original": "assets/images/portfolio-pdf-13.jpg",
+    "width": 1920,
+    "height": 2349,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-13-01.webp",
+        "width": 1920,
+        "height": 2349
+      }
+    ]
+  },
+  {
+    "title": "第14页",
+    "original": "assets/images/portfolio-pdf-14.jpg",
+    "width": 1920,
+    "height": 3070,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-14-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-14-02.webp",
+        "width": 1920,
+        "height": 670
+      }
+    ]
+  },
+  {
+    "title": "第15页",
+    "original": "assets/images/portfolio-pdf-15.jpg",
+    "width": 1920,
+    "height": 7714,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-15-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-15-02.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-15-03.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-15-04.webp",
+        "width": 1920,
+        "height": 514
+      }
+    ]
+  },
+  {
+    "title": "第16页",
+    "original": "assets/images/portfolio-pdf-16.jpg",
+    "width": 1920,
+    "height": 6638,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-16-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-16-02.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-16-03.webp",
+        "width": 1920,
+        "height": 1838
+      }
+    ]
+  },
+  {
+    "title": "第17页",
+    "original": "assets/images/portfolio-pdf-17.jpg",
+    "width": 1920,
+    "height": 4922,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-17-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-17-02.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-17-03.webp",
+        "width": 1920,
+        "height": 122
+      }
+    ]
+  },
+  {
+    "title": "第18页",
+    "original": "assets/images/portfolio-pdf-18.jpg",
+    "width": 1920,
+    "height": 5561,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-18-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-18-02.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-18-03.webp",
+        "width": 1920,
+        "height": 761
+      }
+    ]
+  },
+  {
+    "title": "第19页",
+    "original": "assets/images/portfolio-pdf-19.jpg",
+    "width": 1920,
+    "height": 3446,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-19-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-19-02.webp",
+        "width": 1920,
+        "height": 1046
+      }
+    ]
+  },
+  {
+    "title": "第20页",
+    "original": "assets/images/portfolio-pdf-20.jpg",
+    "width": 1920,
+    "height": 7162,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-20-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-20-02.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-20-03.webp",
+        "width": 1920,
+        "height": 2362
+      }
+    ]
+  },
+  {
+    "title": "第21页",
+    "original": "assets/images/portfolio-pdf-21.jpg",
+    "width": 1920,
+    "height": 7863,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-21-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-21-02.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-21-03.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-21-04.webp",
+        "width": 1920,
+        "height": 663
+      }
+    ]
+  },
+  {
+    "title": "第22页",
+    "original": "assets/images/portfolio-pdf-22.jpg",
+    "width": 1920,
+    "height": 3813,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-22-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-22-02.webp",
+        "width": 1920,
+        "height": 1413
+      }
+    ]
+  },
+  {
+    "title": "第23页",
+    "original": "assets/images/portfolio-pdf-23.jpg",
+    "width": 1920,
+    "height": 5575,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-23-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-23-02.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-23-03.webp",
+        "width": 1920,
+        "height": 775
+      }
+    ]
+  },
+  {
+    "title": "第24页",
+    "original": "assets/images/portfolio-pdf-24.jpg",
+    "width": 1920,
+    "height": 4141,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-24-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-24-02.webp",
+        "width": 1920,
+        "height": 1741
+      }
+    ]
+  },
+  {
+    "title": "第25页",
+    "original": "assets/images/portfolio-pdf-25.jpg",
+    "width": 1920,
+    "height": 6528,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-25-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-25-02.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-25-03.webp",
+        "width": 1920,
+        "height": 1728
+      }
+    ]
+  },
+  {
+    "title": "第26页",
+    "original": "assets/images/portfolio-pdf-26.jpg",
+    "width": 1920,
+    "height": 2998,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-26-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-26-02.webp",
+        "width": 1920,
+        "height": 598
+      }
+    ]
+  },
+  {
+    "title": "第27页",
+    "original": "assets/images/portfolio-pdf-27.jpg",
+    "width": 1920,
+    "height": 3462,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-27-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-27-02.webp",
+        "width": 1920,
+        "height": 1062
+      }
+    ]
+  },
+  {
+    "title": "第28页",
+    "original": "assets/images/portfolio-pdf-28.jpg",
+    "width": 1920,
+    "height": 2116,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-28-01.webp",
+        "width": 1920,
+        "height": 2116
+      }
+    ]
+  },
+  {
+    "title": "第29页",
+    "original": "assets/images/portfolio-pdf-29.jpg",
+    "width": 1920,
+    "height": 5413,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-29-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-29-02.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-29-03.webp",
+        "width": 1920,
+        "height": 613
+      }
+    ]
+  },
+  {
+    "title": "第30页",
+    "original": "assets/images/portfolio-pdf-30.jpg",
+    "width": 1920,
+    "height": 5242,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-30-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-30-02.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-30-03.webp",
+        "width": 1920,
+        "height": 442
+      }
+    ]
+  },
+  {
+    "title": "第31页",
+    "original": "assets/images/portfolio-pdf-31.jpg",
+    "width": 1920,
+    "height": 2683,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-31-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-31-02.webp",
+        "width": 1920,
+        "height": 283
+      }
+    ]
+  },
+  {
+    "title": "第32页",
+    "original": "assets/images/portfolio-pdf-32.jpg",
+    "width": 1920,
+    "height": 3555,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-32-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-32-02.webp",
+        "width": 1920,
+        "height": 1155
+      }
+    ]
+  },
+  {
+    "title": "第33页",
+    "original": "assets/images/portfolio-pdf-33.jpg",
+    "width": 1920,
+    "height": 6341,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-33-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-33-02.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-33-03.webp",
+        "width": 1920,
+        "height": 1541
+      }
+    ]
+  },
+  {
+    "title": "第34页",
+    "original": "assets/images/portfolio-pdf-34.jpg",
+    "width": 1920,
+    "height": 6424,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-34-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-34-02.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-34-03.webp",
+        "width": 1920,
+        "height": 1624
+      }
+    ]
+  },
+  {
+    "title": "第35页",
+    "original": "assets/images/portfolio-pdf-35.jpg",
+    "width": 1920,
+    "height": 6392,
+    "strips": [
+      {
+        "src": "assets/images/portfolio-pdf-35-01.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-35-02.webp",
+        "width": 1920,
+        "height": 2400
+      },
+      {
+        "src": "assets/images/portfolio-pdf-35-03.webp",
+        "width": 1920,
+        "height": 1592
+      }
+    ]
+  }
+]

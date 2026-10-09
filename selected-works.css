@@ -175,6 +175,8 @@
   .refreshed-home #work .featured-project:hover .featured-project-hero { transform: translate3d(-50%, var(--featured-hero-anchor-y), 0) translate3d(0, -4px, 0) scale(1.035); }
   .refreshed-home #work .featured-project:hover .featured-project-sticker { opacity: 1; filter: blur(0px); transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
   .refreshed-home #work .featured-project.is-pointer-inside .featured-project-cursor { opacity: 1; visibility: visible; }
+  .refreshed-home #work .featured-project.is-pointer-inside,
+  .refreshed-home #work .featured-project.is-pointer-inside * { cursor: none; }
 }
 @media (min-width: 1089px) {
   /* The compact desktop cards can be shorter than the artwork. Keep oversized

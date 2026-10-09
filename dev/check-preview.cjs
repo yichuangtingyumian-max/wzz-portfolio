@@ -31,7 +31,7 @@ async function checkMode(mode, production = false) {
     });
     const origin = `http://127.0.0.1:${port}`;
     const disabled = production || mode === 'off';
-    for (const page of ['index', 'juzi', 'tmall', 'aigc']) {
+    for (const page of ['index', 'juzi', 'tmall', 'aigc', 'portfolio']) {
       const response = await fetch(`${origin}/${page}.html`);
       assert.equal(response.status, 200);
       const html = await response.text();
@@ -61,7 +61,7 @@ async function checkMode(mode, production = false) {
       assert.equal((await response.arrayBuffer()).byteLength, 64);
       assert.match(response.headers.get('content-range'), /^bytes 0-63\//);
     }
-    console.log(`Passed: ${production ? 'production override' : mode} — four unchanged pages, tool isolation, backup access and video/audio ranges.`);
+    console.log(`Passed: ${production ? 'production override' : mode} — five unchanged pages, tool isolation, backup access and video/audio ranges.`);
   } finally {
     child.kill();
     await new Promise(resolve => { if (child.exitCode !== null) resolve(); else child.once('exit', resolve); });
