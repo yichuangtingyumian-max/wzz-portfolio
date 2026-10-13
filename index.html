@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="hero-intro.css">
   <link rel="stylesheet" href="about.css">
   <link rel="stylesheet" href="selected-works.css">
+  <link rel="stylesheet" href="booking-card.css">
   <link rel="stylesheet" href="section-card-system.css">
   <link rel="stylesheet" href="experience.css">
   <link rel="stylesheet" href="core-capabilities.css">
@@ -193,7 +194,7 @@
     </section>
 
     <section class="works-band section card-system-section section-inner" id="work" aria-labelledby="work-title">
-        <header class="card-system-header"><div class="section-heading"><p class="eyebrow">04 / SELECTED WORKS</p><h2 id="work-title">重点项目</h2><span class="part">THREE PROJECTS</span></div></header>
+        <header class="card-system-header"><div class="section-heading"><h2 id="work-title">重点项目</h2></div></header>
         <div class="featured-project-list card-system-content">
         <!-- featured-projects:start -->
           <a class="featured-project featured-tmall" id="work-tmall" href="tmall.html" aria-labelledby="featured-tmall-title" aria-describedby="featured-tmall-description">
@@ -241,12 +242,27 @@
             </div>
             <span class="featured-project-cursor" aria-hidden="true">查看项目 <span>↗</span></span>
           </a>
+          <a class="featured-project featured-vibe-coding" id="work-vibe-coding" href="vibe-coding.html" aria-labelledby="featured-vibe-coding-title" aria-describedby="featured-vibe-coding-description">
+            <div class="featured-project-copy">
+              <h3 id="featured-vibe-coding-title">缤客住宿 · Vibe Coding 协同设计</h3>
+              <p class="featured-project-description" id="featured-vibe-coding-description">住宿预订体验改版，探索 AI 辅助设计与前端 Demo 构建的协同工作流。</p>
+              <ul class="featured-project-tags" aria-label="项目类型"><li>AI Coding</li><li>产品体验</li><li>Web Demo</li></ul>
+            </div>
+            <div class="featured-project-media">
+              <img class="featured-project-hero" src="assets/images/featured-booking-hero.png" alt="Booking 住宿预订手机界面与 AI 辅助前端 Demo 协同画面" width="629" height="336" loading="lazy" decoding="async">
+            </div>
+            <img class="featured-project-sticker" data-slot="top-left" src="assets/images/featured-booking-hand.png" alt="" aria-hidden="true" width="234" height="234" loading="lazy" decoding="async">
+              <img class="featured-project-sticker" data-slot="top-right" src="assets/images/featured-booking-calendar.png" alt="" aria-hidden="true" width="135" height="139" loading="lazy" decoding="async">
+              <span class="featured-project-sticker featured-project-sticker-crop" data-slot="bottom-left" aria-hidden="true"><img src="assets/images/featured-booking-green-group.png" alt="" aria-hidden="true" width="986" height="212" loading="lazy" decoding="async"></span>
+              <img class="featured-project-sticker" data-slot="bottom-right" src="assets/images/featured-booking-airplane.png" alt="" aria-hidden="true" width="171" height="171" loading="lazy" decoding="async">
+            <span class="featured-project-cursor" aria-hidden="true">查看项目 <span>↗</span></span>
+          </a>
         <!-- featured-projects:end -->
         </div>
     </section>
 
     <section class="section section-inner beyond" id="beyond" aria-labelledby="beyond-title" data-audio-state="paused" data-camera-clicks="0" data-revealed-photos="0">
-      <div class="section-heading"><p class="eyebrow">05 / BEYOND DESIGN</p><h2 id="beyond-title">设计之外</h2><span class="part">SCROLL TO EXPLORE</span></div>
+      <div class="section-heading"><h2 id="beyond-title">设计之外</h2></div>
       <div class="bd-stack">
         <article class="bd-card bd-card-1" style="--bd-index:0" aria-labelledby="bd-life-title">
           <img class="bd-background" src="assets/images/beyond-bg-1.png" width="1296" height="595" alt="" loading="lazy">
@@ -335,14 +351,14 @@
             </div>
           </dl>
           <div class="contact-downloads" aria-label="简历与作品集文件">
-            <button class="contact-download" type="button" disabled data-contact-document="assets/documents/wang-zengzeng-resume.pdf" aria-label="下载简历，PDF 文件待补充" title="简历 PDF 待补充">
+            <a class="contact-download" href="/assets/documents/wang-zengzeng-resume.pdf" download="wang-zengzeng-resume.pdf" aria-label="下载王增增的 PDF 简历" title="下载 PDF 简历">
               <svg class="contact-document-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
-              <span class="contact-download-text"><span>下载简历</span><small>PDF 待补充</small></span>
+              <span class="contact-download-text"><span>下载简历</span><small>PDF 简历下载</small></span>
               <svg class="contact-download-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M5 16v4h14v-4"/></svg>
-            </button>
-            <a class="contact-download contact-download--view" href="portfolio.html" aria-label="查看王增增的完整作品集" title="在网站内查看完整作品集">
+            </a>
+            <a class="contact-download contact-download--view" href="/portfolio" aria-label="查看王增增的完整作品集" title="在网站内查看完整作品集">
               <svg class="contact-document-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
-              <span class="contact-download-text"><span>查看作品集</span><small>在线阅读 · 35 页</small></span>
+              <span class="contact-download-text"><span>查看作品集</span><small>在线阅读 · 38 页</small></span>
               <svg class="contact-download-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
             </a>
           </div>

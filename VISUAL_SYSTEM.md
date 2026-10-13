@@ -280,3 +280,10 @@ About、Core Capabilities、Work Experience、Selected Works 共用 `section-car
 About 不再继承 `.section-inner` 的 Hero 紧凑宽度；Hero 的内部两列和响应式维持第 12 节。窗口工具条使用紧凑表面变体；能力文件夹、经历品牌色和项目 Hover 主题仍可在统一主卡表面内保留各自材质。Selected Works 只统一文字横向安全内边距与主卡表面，已确认的纵向构图、同图 Hover、Sticker 落点和 Motion 保持原样。
 
 经历翻面卡的正反两面共同撑高同一个 Grid 轨道，避免统一内边距后窄屏文字逃出固定高度。此轮不改变交互脚本、正式基础 Tokens、任何图片或项目数据。
+
+
+## 首页统一章节节奏（最新规范）
+
+首页 `#main` 的六个内容章节统一使用 `--wzz-section-gap` 表示两节之间的总留白：桌面及平板 96px，≤767px 手机 64px。相邻 Section 各承担一半 padding，不再叠加各模块原来的 48–80px 上下内距。Hero 保留现有顶部留白和内部构图，About 顶部补足同一总间距。以上规则由 `section-card-system.css` 集中控制，取代前文首页 Section 上下内距的旧应用方式；卡片内部尺寸、间距和材质不变。
+
+标题到内容统一引用 `--wzz-heading-gap`：桌面 32px、手机 24px；有 header 包装时仅由 header 提供一次间距。重点项目、设计之外的章节标题只保留中文，取消顶部英文编号和右侧英文辅助说明。页面宽度、横向基准、Design Tokens 中其他角色及详情页不变。

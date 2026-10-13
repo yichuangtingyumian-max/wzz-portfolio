@@ -28,6 +28,20 @@ PDF 阅读页资源默认从站点根目录加载。现有 GitHub Pages workflow
 
 ## 内容维护
 
+### 更新 PDF 在线作品集
+
+本地安装 Python 的 `pypdf`、`Pillow`，并确保 `pdftoppm`（Poppler）和 Node.js 可用后，运行：
+
+```powershell
+python scripts/update-portfolio-pdf.py "新版 PDF 的本地完整路径.pdf" --expected-pages 38
+node build-site.cjs --out-dir .cache/pdf-check
+node release-audit.cjs .cache/pdf-check
+```
+
+以后更新时，将 `--expected-pages` 改为新 PDF 的实际页数。脚本先核对页数并完整生成 1920px 宽原图与 2400px 高的阅读分片，再同步 PDF、阅读清单、阅读页和首页按钮页数。PDF 文件按字节复制，内容和元数据不作修改；固定入口仍为 `/portfolio`，下载地址仍为 `/assets/documents/wang-zengzeng-portfolio.pdf`。
+
+替换前会将相关旧文件备份到仓库外的系统临时目录，并将不再使用的旧分片移到该备份旁，实际路径会在输出中显示。脚本不会改动 `dist` 或其他项目素材。`portfolio-pdf-source.json` 保存 PDF、清单和图片的 SHA256，构建时校验它们是否一致；无需在 Netlify 上安装 Python 或重新渲染，只需保存生成的正式资源和清单。运行后仍需检查预览，再由用户决定提交和发布。
+
 - 视觉规范：`VISUAL_SYSTEM.md`；字体、颜色、间距、圆角和阴影统一在 `design-tokens.css` 管理。
 - 首页样式继续在 `home-refresh.css` 和 `hero-intro.css` 中维护，优先引用语义 Tokens；专项物件构图与项目原稿保留。
 

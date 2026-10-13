@@ -40,5 +40,20 @@
       {"src": "assets/images/featured-juzi-sticker-3.png", "width": 135, "height": 134, "slot": "bottom-left", "name": "房子图标"},
       {"src": "assets/images/featured-juzi-sticker-4.png", "width": 241, "height": 232, "slot": "bottom-right", "name": "桔子 IP"}
     ]
+  },
+  {
+    "slug": "vibe-coding",
+    "title": "缤客住宿 · Vibe Coding 协同设计",
+    "description": "住宿预订体验改版，探索 AI 辅助设计与前端 Demo 构建的协同工作流。",
+    "tags": ["AI Coding", "产品体验", "Web Demo"],
+    "href": "vibe-coding.html",
+    "stickerLayer": "card",
+    "hero": {"src": "assets/images/featured-booking-hero.png", "width": 629, "height": 336, "alt": "Booking 住宿预订手机界面与 AI 辅助前端 Demo 协同画面"},
+    "stickers": [
+      {"src": "assets/images/featured-booking-hand.png", "width": 234, "height": 234, "slot": "top-left", "name": "黄色手势"},
+      {"src": "assets/images/featured-booking-calendar.png", "width": 135, "height": 139, "slot": "top-right", "name": "蓝色日历"},
+      {"src": "assets/images/featured-booking-green-group.png", "width": 986, "height": 212, "slot": "bottom-left", "name": "绿色立体图标", "clip": {"width": 211.308, "height": 212}},
+      {"src": "assets/images/featured-booking-airplane.png", "width": 171, "height": 171, "slot": "bottom-right", "name": "蓝色飞机"}
+    ]
   }
 ]

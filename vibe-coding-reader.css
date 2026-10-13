@@ -1,0 +1,13 @@
+/* Keep this project's longer title within the shared sticky reader header. */
+.vibe-coding-reader .reader-header h1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .vibe-coding-reader .reader-header {
+    gap: var(--wzz-space-2);
+    padding-inline: var(--wzz-space-2);
+  }
+}

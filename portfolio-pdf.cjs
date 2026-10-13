@@ -1,5 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
+const crypto = require('node:crypto');
 const { readerHeaderActions } = require('./reader-navigation.cjs');
 
 const escape = value => String(value).replace(/[&<>"']/g, character => ({
@@ -10,6 +11,28 @@ const escape = value => String(value).replace(/[&<>"']/g, character => ({
 function writePortfolioDocument(lightbox, outputFile = path.join(__dirname, 'portfolio.html')) {
   const pages = JSON.parse(fs.readFileSync(path.join(__dirname, 'portfolio-pdf-content.json'), 'utf8'));
   if (!pages.length) throw new Error('The portfolio reader needs at least one page.');
+  // Refuse a release containing a newer PDF with stale reader images or metadata.
+  const source = JSON.parse(fs.readFileSync(path.join(__dirname, 'portfolio-pdf-source.json'), 'utf8'));
+  const hash = file => crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname, file))).digest('hex');
+  if (source.pdf !== 'assets/documents/wang-zengzeng-portfolio.pdf' ||
+      source.pageCount !== pages.length || hash(source.pdf) !== source.sha256 ||
+      hash('portfolio-pdf-content.json') !== source.contentSha256) {
+    throw new Error('Portfolio PDF and reader metadata differ. Run scripts/update-portfolio-pdf.py.');
+  }
+  const assets = pages.flatMap(page => [page.original, ...page.strips.map(strip => strip.src)]);
+  if (new Set(assets).size !== assets.length || assets.length !== Object.keys(source.assets).length) {
+    throw new Error('Portfolio reader assets are duplicated or incomplete.');
+  }
+  for (const asset of assets) {
+    if (!/^assets\/images\/portfolio-pdf-\d{2}(?:-\d{2})?\.(?:jpg|webp)$/.test(asset) ||
+        hash(asset) !== source.assets[asset]) throw new Error('Invalid or stale portfolio image: ' + asset);
+  }
+  for (const page of pages) {
+    if (!page.strips.length || page.strips.some(strip => strip.width !== page.width || strip.height <= 0) ||
+        page.strips.reduce((height, strip) => height + strip.height, 0) !== page.height) {
+      throw new Error('Incomplete portfolio page: ' + page.title);
+    }
+  }
   const publicBase = process.env.WZZ_PUBLIC_BASE || '/';
   if (!/^\/(?:[a-zA-Z0-9_-]+\/)*$/.test(publicBase)) throw new Error('WZZ_PUBLIC_BASE must be an absolute directory path with a trailing slash.');
   let html = `<!doctype html>

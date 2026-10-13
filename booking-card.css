@@ -1,0 +1,77 @@
+/* Booking artwork coordinates come from Figma 2691:195 (1305 x 599).
+   The shared card/copy layout and every other project remain unchanged.
+   Exports include their final object angles, white edges and shadows. */
+.refreshed-home #work .featured-vibe-coding {
+  --featured-gradient: linear-gradient(180deg, #fff 36.219%, #fff7bc 60.486%, #fff088 84.405%, #ffe868 100%);
+  --featured-hero-rest-y: 0px;
+  --featured-hero-rest-scale: 1;
+  --featured-hero-size-factor: 1;
+  --featured-hero-bottom-shift: 0px;
+  --featured-hero-anchor-y: 0%;
+  --featured-hero-origin: center top;
+  container-type: inline-size;
+}
+.refreshed-home #work .featured-vibe-coding .featured-project-hero {
+  --hero-width: 48.1992%;
+  --hero-bottom: 0%;
+}
+/* The original desktop stage clips upward motion for older projects. Booking's
+   Figma-sized zoom already clears its tags, so retain the rounded phone tops. */
+.refreshed-home #work .featured-vibe-coding .featured-project-media { clip-path: none; }
+/* Root-level stickers retain Figma positions instead of stretching with the
+   information block. They never receive pointer input. */
+.refreshed-home #work .featured-vibe-coding .featured-project-sticker[data-slot="top-left"] {
+  left: 5.2107%; top: 12.03065cqw; width: 17.8564%;
+}
+.refreshed-home #work .featured-vibe-coding .featured-project-sticker[data-slot="top-right"] {
+  left: 79.0038%; right: auto; top: 14.636cqw; width: 10.3448%;
+}
+.refreshed-home #work .featured-vibe-coding .featured-project-sticker[data-slot="bottom-left"] {
+  left: 11.0345%; top: 29.1188cqw; width: 16.1922%;
+}
+.refreshed-home #work .featured-vibe-coding .featured-project-sticker[data-slot="bottom-right"] {
+  left: 73.4866%; right: auto; top: 31.0345cqw; width: 13.1034%;
+}
+/* The official green export groups two objects. Clip its original left slot;
+   use the separate official airplane export for the right slot. No asset edits. */
+.refreshed-home #work .featured-vibe-coding .featured-project-sticker-crop {
+  aspect-ratio: 211.308 / 212;
+  overflow: hidden;
+}
+.refreshed-home #work .featured-vibe-coding .featured-project-sticker-crop img {
+  display: block;
+  position: absolute;
+  top: 0; left: 0;
+  width: 466.6173%;
+  max-width: none;
+  height: auto;
+}
+.refreshed-home #work .featured-vibe-coding:focus-visible .featured-project-hero {
+  transform: translate3d(-50%, -2.5326cqw, 0) scale(1.1939587);
+}
+@media (min-width: 768px) and (hover: hover) and (pointer: fine) {
+  .refreshed-home #work .featured-vibe-coding:hover .featured-project-hero {
+    transform: translate3d(-50%, -2.5326cqw, 0) scale(1.1939587);
+  }
+}
+@media (min-width: 768px) and (max-width: 1050px) {
+  .refreshed-home #work .featured-vibe-coding .featured-project-hero { --hero-width: 58%; }
+  .refreshed-home #work .featured-vibe-coding .featured-project-sticker { display: block; }
+  .refreshed-home #work .featured-vibe-coding .featured-project-sticker[data-slot="top-left"],
+  .refreshed-home #work .featured-vibe-coding .featured-project-sticker[data-slot="top-right"] {
+    top: max(14.636cqw, calc(100% - var(--wzz-space-20) * 3));
+  }
+  .refreshed-home #work .featured-vibe-coding .featured-project-sticker[data-slot="bottom-left"],
+  .refreshed-home #work .featured-vibe-coding .featured-project-sticker[data-slot="bottom-right"] {
+    top: max(31.0345cqw, calc(100% - var(--wzz-space-20) * 1.5));
+  }
+}
+@media (max-width: 767px) {
+  .refreshed-home #work .featured-vibe-coding .featured-project-media { aspect-ratio: 629 / 336; }
+  .refreshed-home #work .featured-vibe-coding .featured-project-hero { --hero-width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .refreshed-home #work .featured-vibe-coding:is(:hover, :focus-visible) .featured-project-hero {
+    transform: translateX(-50%);
+  }
+}

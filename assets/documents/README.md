@@ -1,10 +1,10 @@
 # Contact 下载文件
 
-当前没有收到真实 PDF，因此首页两个下载按钮保持禁用，并显示「PDF 待补充」。
+正式简历与作品集是两个不同文件，按原始字节保存，不转换格式或修改内容。
 
-请把两个不同的最终文件放在这个目录，文件名分别为：
+固定发布文件名：
 
-- `wang-zengzeng-resume.pdf`：简历。
-- `wang-zengzeng-portfolio.pdf`：作品集。
+- `wang-zengzeng-resume.pdf`：1 页 PDF 简历，首页「下载简历」直接下载。
+- `wang-zengzeng-portfolio.pdf`：38 页作品集，首页「查看作品集」进入 `/portfolio`，阅读页提供 PDF 下载。
 
-收到文件后，将首页对应的 `data-contact-document` 路径接入下载链接，同时移除禁用状态及「PDF 待补充」。发布构建和预览服务也需要包含这两条 documents/PDF 路径。当前没有虚构文件或有效下载链接。
+两个文件均在构建发布清单中，下载链接使用 HTML download 属性，Netlify 和本地预览提供 attachment 下载响应头。更新简历时直接替换同名 PDF；更新作品集时按根目录 README 中的 PDF 更新流程同步阅读素材。

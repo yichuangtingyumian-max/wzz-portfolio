@@ -20,13 +20,13 @@ http.createServer((req,res) => {
   if (route) name = route[1];
   if(name === '/') name = '/index.html';
   if(devTools.handle(req,res,name)) return;
-  if(!(/^\/((index|juzi|tmall|aigc|portfolio)\.html|(design-tokens|home|portfolio|portfolio-document|reader-navigation|home-refresh|hero-intro|about|core-capabilities|selected-works|section-card-system|experience|beyond-design|contact|contact-cursor)\.css|(portfolio|reader-navigation|hero-intro|core-capabilities|featured-projects|experience|beyond-design|contact|contact-cursor)\.js|favicon\.svg|assets\/(fonts|images|videos|audio|documents)\/[a-zA-Z0-9_.-]+)$/.test(name))) {res.writeHead(404).end();return;}
+  if(!(/^\/((index|juzi|tmall|aigc|portfolio|vibe-coding)\.html|(design-tokens|home|portfolio|portfolio-document|reader-navigation|home-refresh|hero-intro|about|core-capabilities|selected-works|booking-card|vibe-coding-reader|section-card-system|experience|beyond-design|contact|contact-cursor)\.css|(portfolio|reader-navigation|hero-intro|core-capabilities|featured-projects|experience|beyond-design|contact|contact-cursor)\.js|favicon\.svg|assets\/(fonts|images|videos|audio|documents)\/[a-zA-Z0-9_.-]+)$/.test(name))) {res.writeHead(404).end();return;}
   const file = path.join(root,name);
   fs.readFile(file,(err,data)=>{
     if(err){res.writeHead(404).end();return;}
     if(['.mp4', '.mp3', '.pdf'].includes(path.extname(file))) {
       const headers = {'Content-Type':types[path.extname(file)],'Accept-Ranges':'bytes','Cache-Control':'no-store'};
-      if (name === '/assets/documents/wang-zengzeng-portfolio.pdf') headers['Content-Disposition'] = 'attachment; filename="wang-zengzeng-portfolio.pdf"';
+      if (['/assets/documents/wang-zengzeng-portfolio.pdf', '/assets/documents/wang-zengzeng-resume.pdf'].includes(name)) headers['Content-Disposition'] = `attachment; filename="${path.basename(name)}"`;
       if(req.headers.range) {
         const range = /^bytes=(\d*)-(\d*)$/.exec(req.headers.range);
         let start = range?.[1] ? Number(range[1]) : 0;

@@ -13,3 +13,8 @@
   for = "/assets/documents/wang-zengzeng-portfolio.pdf"
   [headers.values]
     Content-Disposition = 'attachment; filename="wang-zengzeng-portfolio.pdf"'
+
+[[headers]]
+  for = "/assets/documents/wang-zengzeng-resume.pdf"
+  [headers.values]
+    Content-Disposition = 'attachment; filename="wang-zengzeng-resume.pdf"'

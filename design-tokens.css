@@ -199,6 +199,8 @@
   --wzz-card-padding: var(--wzz-space-8);
   --wzz-card-gap: var(--wzz-space-6);
   --wzz-section-space: var(--wzz-space-20);
+  /* Total space between homepage sections, not per-side padding. */
+  --wzz-section-gap: calc(var(--wzz-space-12) * 2);
   --wzz-heading-gap: var(--wzz-space-8);
 
   --wzz-text-primary: #242827;
@@ -244,6 +246,7 @@
     --wzz-font-meta: .8125rem;
     --wzz-card-padding: var(--wzz-space-6);
     --wzz-section-space: var(--wzz-space-16);
+    --wzz-section-gap: var(--wzz-space-16);
     --wzz-heading-gap: var(--wzz-space-6);
     --wzz-radius-lg: var(--wzz-radius-card);
   }

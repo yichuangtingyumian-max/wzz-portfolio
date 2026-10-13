@@ -1,5 +1,4 @@
-/* Shared middle-page layout roles. Values reuse the formal WZZ tokens;
-   only the four explicit card-system sections consume these aliases. */
+/* Shared homepage rhythm; card-surface roles stay scoped to their components. */
 /* #main reuses the existing .wrap once. Existing section wrappers fill that
    page container without applying the responsive gutters a second time. */
 .refreshed-home #main > .wrap {
@@ -113,4 +112,23 @@
 .refreshed-home #work .featured-project-copy { padding-inline: var(--wzz-layout-card-padding); }
 @media (min-width: 768px) and (max-width: 1088px) {
   .refreshed-home .card-system-section { --wzz-layout-card-padding: var(--wzz-space-6); }
+}
+
+/* Adjacent half-gaps create one consistent section gap instead of stacking
+   unrelated component padding. Higher specificity keeps local scene CSS intact. */
+.refreshed-home #main > .section {
+  --wzz-layout-section-space: calc(var(--wzz-section-gap) / 2);
+  margin-block: 0;
+  padding-block: var(--wzz-layout-section-space);
+}
+.refreshed-home #main > .hero-intro + .section {
+  /* Hero retains its approved 24px bottom inset and its own top breathing room. */
+  padding-block-start: calc(var(--wzz-section-gap) - var(--wzz-space-6));
+}
+.refreshed-home #main > .section .section-heading {
+  margin-block: 0 var(--wzz-heading-gap);
+}
+.refreshed-home #main > .section .card-system-header .section-heading {
+  /* The wrapping header already owns the heading-to-content gap. */
+  margin-block: 0;
 }

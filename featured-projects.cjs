@@ -10,6 +10,10 @@ function FeaturedProjectCard(project) {
   for (const asset of [hero, ...stickers]) {
     if (!/^assets\/images\/featured-[a-z0-9-]+\.(svg|png)$/.test(asset.src) || !fs.existsSync(path.join(__dirname, asset.src))) throw new Error('Missing featured asset: ' + asset.src);
   }
+  const stickerMarkup = stickers.map(sticker => {
+    const image = `<img ${sticker.clip ? '' : 'class="featured-project-sticker" data-slot="' + escapeHtml(sticker.slot) + '" '}src="${escapeHtml(sticker.src)}" alt="" aria-hidden="true" width="${sticker.width}" height="${sticker.height}" loading="lazy" decoding="async">`;
+    return sticker.clip ? `<span class="featured-project-sticker featured-project-sticker-crop" data-slot="${escapeHtml(sticker.slot)}" aria-hidden="true">${image}</span>` : image;
+  }).join('\n              ');
   return `          <a class="featured-project featured-${slug}" id="work-${slug}" href="${escapeHtml(href)}" aria-labelledby="featured-${slug}-title" aria-describedby="featured-${slug}-description">
             <div class="featured-project-copy">
               <h3 id="featured-${slug}-title">${escapeHtml(title)}</h3>
@@ -17,9 +21,8 @@ function FeaturedProjectCard(project) {
               <ul class="featured-project-tags" aria-label="项目类型">${tags.map(tag => `<li>${escapeHtml(tag)}</li>`).join('')}</ul>
             </div>
             <div class="featured-project-media">
-              <img class="featured-project-hero" src="${escapeHtml(hero.src)}" alt="${escapeHtml(hero.alt)}" width="${hero.width}" height="${hero.height}" loading="lazy" decoding="async">
-              ${stickers.map(sticker => `<img class="featured-project-sticker" data-slot="${escapeHtml(sticker.slot)}" src="${escapeHtml(sticker.src)}" alt="" aria-hidden="true" width="${sticker.width}" height="${sticker.height}" loading="lazy" decoding="async">`).join('\n              ')}
-            </div>
+              <img class="featured-project-hero" src="${escapeHtml(hero.src)}" alt="${escapeHtml(hero.alt)}" width="${hero.width}" height="${hero.height}" loading="lazy" decoding="async">${project.stickerLayer === 'card' ? '' : '\n              ' + stickerMarkup}
+            </div>${project.stickerLayer === 'card' ? '\n            ' + stickerMarkup : ''}
             <span class="featured-project-cursor" aria-hidden="true">查看项目 <span>↗</span></span>
           </a>`;
 }
