@@ -88,7 +88,7 @@ def main():
     write_json(staged / MANIFEST, {
         "pdf": PDF, "sha256": source_hash, "pageCount": len(pages),
         "renderWidth": 1920, "stripHeight": 2400,
-        "contentSha256": sha(staged / CONTENT),
+        "contentSha256": hashlib.sha256((staged / CONTENT).read_bytes().replace(b"\r\n", b"\n")).hexdigest(),
         "assets": {asset: sha(staged / asset) for asset in assets}
     })
     (staged / "index.html").write_bytes(index.encode("utf-8"))

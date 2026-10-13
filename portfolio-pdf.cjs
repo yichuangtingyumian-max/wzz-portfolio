@@ -16,7 +16,7 @@ function writePortfolioDocument(lightbox, outputFile = path.join(__dirname, 'por
   const hash = file => crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname, file))).digest('hex');
   if (source.pdf !== 'assets/documents/wang-zengzeng-portfolio.pdf' ||
       source.pageCount !== pages.length || hash(source.pdf) !== source.sha256 ||
-      hash('portfolio-pdf-content.json') !== source.contentSha256) {
+      crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname, 'portfolio-pdf-content.json'), 'utf8').replace(/\r\n/g, '\n')).digest('hex') !== source.contentSha256) {
     throw new Error('Portfolio PDF and reader metadata differ. Run scripts/update-portfolio-pdf.py.');
   }
   const assets = pages.flatMap(page => [page.original, ...page.strips.map(strip => strip.src)]);
